@@ -1,0 +1,35 @@
+---
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import type { Faq } from '../data/faq';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  type?: 'WebPage' | 'ProfilePage' | 'ContactPage';
+  faq?: Faq[];
+  noindex?: boolean;
+}
+const props = Astro.props;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#284050" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script src="/reveal.js" is:inline></script>
+    <Seo {...props} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:bg-navy focus:text-paper focus:px-4 focus:py-2">Skip to content</a>
+    <Header />
+    <main id="main" class="flex-1"><slot /></main>
+    <Footer />
+    <script src="/menu.js" defer></script>
+  </body>
+</html>

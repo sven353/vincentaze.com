@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalShell from '../components/LegalShell.astro';
+import { legal } from '../data/legal';
+---
+<Layout path="/legal" title="Legal notice" description="Legal notice for vincentaze.com." noindex>
+  <LegalShell title="Legal notice" updated={legal.updated}>
+    <h2>Site owner</h2>
+    <p>This website, vincentaze.com, is operated by {legal.owner}.</p>
+    <ul>
+      <li>Tax identification: {legal.taxId}</li>
+      <li>Postal address: {legal.address}</li>
+      <li>Email: <a href={`mailto:${legal.email}`}>{legal.email}</a></li>
+    </ul>
+    <h2>Hosting</h2>
+    <p>The site is hosted by {legal.hosting}.</p>
+    <h2>Intellectual property</h2>
+    <p>The texts, photographs and design of this site belong to {legal.owner} or are used with permission. They may not be reproduced without written consent. Kuma Partners, The Round and the related marks belong to their respective owners.</p>
+    <h2>Content</h2>
+    <p>The information on this site is general in nature and does not constitute legal, financial or investment advice. Links to third-party sites are provided for convenience, and {legal.owner} is not responsible for their content.</p>
+  </LegalShell>
+</Layout>

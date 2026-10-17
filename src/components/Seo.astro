@@ -1,0 +1,169 @@
+---
+import { site } from '../data/site';
+import type { Faq } from '../data/faq';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  type?: 'WebPage' | 'ProfilePage' | 'ContactPage';
+  faq?: Faq[];
+  noindex?: boolean;
+}
+const { title, description, path, type = 'WebPage', faq, noindex = false } = Astro.props;
+
+const base = site.url;
+const url = base + (path === '/' ? '' : path);
+const ogImage = `${base}/og.png`;
+const strip = (md: string) => md.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
+const ids = {
+  vincent: `${base}/#vincent-aze`,
+  kuma: 'https://kuma.partners/#organization',
+  sven: 'https://mulfinger.com/#sven-mulfinger',
+  site: `${base}/#website`,
+};
+
+const vincent = {
+  '@type': 'Person',
+  '@id': ids.vincent,
+  name: site.name,
+  givenName: 'Vincent',
+  familyName: 'Azé',
+  jobTitle: site.title,
+  description: site.description,
+  url: base,
+  image: `${base}/vincent-aze.jpg`,
+  worksFor: { '@id': ids.kuma },
+  colleague: { '@id': ids.sven },
+  sameAs: [site.linkedin, site.links.kuma],
+  knowsAbout: [
+    'Executive friction',
+    'Decision latency',
+    'Leadership team alignment',
+    'Co-founder alignment',
+    'Scale-up leadership',
+    'Executive advisory',
+    'Leadership offsites',
+    'Revenue leadership',
+  ],
+};
+
+const kuma = {
+  '@type': ['Organization', 'ProfessionalService'],
+  '@id': ids.kuma,
+  name: site.org,
+  url: site.links.kuma,
+  description:
+    'Kuma Partners is a professional services firm supporting executives through high-stakes inflection points, with a focus on executive friction and decision latency in scale-ups.',
+  founder: [{ '@id': ids.vincent }, { '@id': ids.sven }],
+  areaServed: ['Europe', 'Worldwide'],
+  knowsAbout: ['Executive friction', 'Decision latency', 'Leadership offsites', 'Executive peer advisory'],
+  sameAs: [site.links.offsite, site.links.round],
+};
+
+const sven = {
+  '@type': 'Person',
+  '@id': ids.sven,
+  name: 'Dr. Sven Mulfinger',
+  url: site.links.sven,
+  sameAs: [site.links.svenLinkedin],
+  worksFor: { '@id': ids.kuma },
+};
+
+const services = [
+  {
+    '@type': 'Service',
+    '@id': `${base}/work#diagnostic`,
+    name: '14-Day Leadership Friction Diagnostic',
+    serviceType: 'Executive leadership diagnostic',
+    description:
+      'Eight to ten confidential one-to-one interviews, an asynchronous pulse check and a two-hour C-suite alignment debrief to locate where a leadership team loses time and trust.',
+    provider: { '@id': ids.kuma },
+    url: site.links.kuma,
+    audience: { '@type': 'Audience', audienceType: 'Founders and CEOs of Series A to C+ scale-ups' },
+  },
+  {
+    '@type': 'Service',
+    '@id': `${base}/work#offsites`,
+    name: 'Leadership team offsites',
+    serviceType: 'Executive offsite design and facilitation',
+    provider: { '@id': ids.kuma },
+    url: site.links.offsite,
+  },
+  {
+    '@type': 'Service',
+    '@id': `${base}/work#the-round`,
+    name: 'The Round by Kuma Partners',
+    serviceType: 'Executive peer advisory',
+    description: 'A confidential, year-round peer advisory for founders and CEOs.',
+    provider: { '@id': ids.kuma },
+    url: site.links.round,
+  },
+];
+
+const webSite = { '@type': 'WebSite', '@id': ids.site, url: base, name: site.name, inLanguage: 'en', publisher: { '@id': ids.vincent } };
+const webPage: Record<string, unknown> = {
+  '@type': type,
+  '@id': `${url}#webpage`,
+  url,
+  name: title,
+  description,
+  inLanguage: 'en',
+  isPartOf: { '@id': ids.site },
+  about: { '@id': ids.vincent },
+  primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
+};
+if (type === 'ProfilePage') webPage.mainEntity = { '@id': ids.vincent };
+
+const graph: unknown[] = [vincent, kuma, sven, ...services, webSite, webPage];
+// Dated event, home page only. Remove or update after the event has taken place.
+if (path === '/') {
+  graph.push({
+    '@type': 'Event',
+    '@id': `${base}/#ptw-lisbon-masterclass`,
+    name: 'When rapid scale stalls: Solving executive friction and decision latency in co-founder and leadership teams',
+    description: 'A one-hour masterclass and discussion on executive friction and decision latency, led by Vincent Azé and Dr. Sven Mulfinger of Kuma Partners.',
+    startDate: '2026-11-11',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    eventStatus: 'https://schema.org/EventScheduled',
+    location: { '@type': 'Place', name: 'PTW Palace, Portugal Tech Week', address: { '@type': 'PostalAddress', addressLocality: 'Lisbon', addressCountry: 'PT' } },
+    organizer: { '@id': ids.kuma },
+    performer: [{ '@id': ids.vincent }, { '@id': ids.sven }],
+    image: ogImage,
+  });
+}
+if (faq?.length) {
+  graph.push({
+    '@type': 'FAQPage',
+    '@id': `${url}#faq`,
+    mainEntity: faq.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: `${f.verdict} ${strip(f.body)}` },
+    })),
+  });
+}
+const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+const fullTitle = path === '/' ? title : `${title} | ${site.name}`;
+---
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={url} />
+{noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
+<meta property="og:type" content={type === 'ProfilePage' ? 'profile' : 'website'} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Vincent Azé, Managing Partner at Kuma Partners" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<link rel="alternate" type="text/plain" href="/llms.txt" title="LLM summary" />
+<link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM full profile" />
+<script type="application/ld+json" set:html={jsonld} />

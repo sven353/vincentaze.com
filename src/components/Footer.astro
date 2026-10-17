@@ -1,0 +1,42 @@
+---
+import { site } from '../data/site';
+const year = new Date().getFullYear();
+const ext = 'target="_blank" rel="noopener noreferrer"';
+---
+<section class="bg-cream border-t border-line" aria-label="Credentials">
+  <div class="container-x py-6 grid gap-4 sm:grid-cols-3">
+    {site.proof.map((p) => (
+      <p class="text-sm text-steel"><span class="block font-serif text-lg text-ink">{p.k}</span>{p.v}</p>
+    ))}
+  </div>
+</section>
+<footer class="bg-navy text-paper">
+  <div class="container-x py-12 lg:py-16 grid gap-10 lg:grid-cols-12">
+    <div class="lg:col-span-5">
+      <p class="font-serif text-2xl">Vincent Azé</p>
+      <p class="mt-3 max-w-sm text-sm leading-relaxed text-fog">Managing Partner at Kuma Partners. Resolving executive friction and decision latency in scale-ups.</p>
+      <p class="mt-4 text-xs tracking-wide text-fog">{site.presence}</p>
+    </div>
+    <nav aria-label="Site" class="lg:col-span-3">
+      <p class="label text-fog">Site</p>
+      <ul class="mt-4 space-y-2 text-sm">
+        {site.nav.map((n) => <li><a class="hover:underline" href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <nav aria-label="Kuma Partners and elsewhere" class="lg:col-span-4">
+      <p class="label text-fog">Kuma Partners</p>
+      <ul class="mt-4 space-y-2 text-sm">
+        <li><a class="hover:underline" href={site.links.kuma} target="_blank" rel="noopener noreferrer">kuma.partners<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="hover:underline" href={site.links.offsite} target="_blank" rel="noopener noreferrer">Leadership offsites<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="hover:underline" href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="hover:underline" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="border-t border-navy-line">
+    <div class="container-x py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-fog">
+      <p>© {year} Vincent Azé. All rights reserved.</p>
+      <p class="flex gap-5"><a class="hover:underline" href="/legal">Legal notice</a><a class="hover:underline" href="/privacy">Privacy policy</a></p>
+    </div>
+  </div>
+</footer>

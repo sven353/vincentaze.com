@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Fonts are self-hosted (Fontsource): no calls to Google, which keeps GDPR and the CSP simple.
+   Newsreader (editorial serif) for headings, Inter for body and navigation. */
+@import "@fontsource-variable/inter/index.css";
+@import "@fontsource-variable/newsreader/opsz.css";
+@import "@fontsource-variable/newsreader/opsz-italic.css";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Newsreader Variable", ui-serif, Georgia, "Times New Roman", serif;
+
+  /* Kuma Partners palette, used in an editorial way */
+  --color-paper: #faf8f4;       /* page background, lighter than Kuma cream */
+  --color-cream: #f4f1eb;       /* Kuma cream, alternate section surface */
+  --color-white: #ffffff;
+  --color-ink: #1a1a1a;         /* Kuma ink, primary text */
+  --color-navy: #284050;        /* Kuma deep navy, dark surfaces and primary buttons */
+  --color-navy-hover: #35505f;
+  --color-navy-line: #3a5566;   /* hairlines on navy */
+  --color-teal: #588088;        /* Kuma teal, decorative accents only */
+  --color-teal-deep: #3f6169;   /* teal for text on light surfaces (AA contrast) */
+  --color-steel: #34444f;       /* secondary text on light */
+  --color-fog: #b7c4cb;         /* secondary text on navy */
+  --color-line: #e3dfd6;        /* hairlines on light */
+  --color-line-strong: #cfc9bc;
+}
+
+html { scroll-behavior: smooth; }
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, h2, h3 { font-family: var(--font-serif); font-optical-sizing: auto; }
+
+::selection { background: var(--color-navy); color: var(--color-paper); }
+:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+@utility container-x {
+  width: 100%;
+  max-width: 78rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 48rem) { padding-inline: 2.5rem; }
+}
+
+@utility label {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+@utility display {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.015em;
+  line-height: 1.06;
+}
+
+/* Scroll reveal. The hidden state applies only when reveal.js has set .js on <html>
+   and the visitor has not asked for reduced motion. */
+@media (prefers-reduced-motion: no-preference) {
+  .js .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .js .reveal.is-visible { opacity: 1; transform: none; }
+  .js .reveal.delay-100 { transition-delay: 100ms; }
+  .js .reveal.delay-200 { transition-delay: 200ms; }
+  .js .reveal.delay-300 { transition-delay: 300ms; }
+}
+
+@media (max-width: 1023.98px) {
+  h1, h2, h3 { text-wrap: balance; }
+  html, body { overflow-x: clip; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; animation: none !important; }
+}

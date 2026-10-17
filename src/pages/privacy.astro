@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LegalShell from '../components/LegalShell.astro';
+import { legal } from '../data/legal';
+---
+<Layout path="/privacy" title="Privacy policy" description="Privacy policy for vincentaze.com." noindex>
+  <LegalShell title="Privacy policy" updated={legal.updated}>
+    <h2>Controller</h2>
+    <p>{legal.owner} is the controller of personal data processed through this site. Contact: <a href={`mailto:${legal.email}`}>{legal.email}</a>. Postal address: {legal.address}.</p>
+    <h2>What this site collects</h2>
+    <p>The site uses no analytics, advertising trackers or cookies. Fonts are served from this domain, so no request is sent to third-party font providers.</p>
+    <p>If you submit the contact form, we process your name, email address, role and company, the message you write and a record of your consent. Netlify, the hosting provider, stores the submission on our behalf and acts as processor. Technical logs such as IP addresses are kept by the hosting provider for security and operation.</p>
+    <h2>Purpose and legal basis</h2>
+    <p>We use your details only to reply to your enquiry, on the basis of your consent (GDPR Article 6(1)(a)) and, where you ask about our services, to take steps before entering a contract (Article 6(1)(b)).</p>
+    <h2>Retention</h2>
+    <p>Submissions are deleted when no engagement follows. If an engagement starts, the data moves to our client records under the applicable contract and retention rules.</p>
+    <h2>Your rights</h2>
+    <p>You can ask for access, correction, deletion, restriction or portability of your data, and you can withdraw consent at any time, by writing to <a href={`mailto:${legal.email}`}>{legal.email}</a>. We reply within one month. You also have the right to complain to your national data protection authority.</p>
+    <h2>International transfers</h2>
+    <p>Netlify is based in the United States. Transfers rely on the safeguards Netlify provides under its data processing terms.</p>
+  </LegalShell>
+</Layout>

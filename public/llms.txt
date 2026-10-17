@@ -1,0 +1,29 @@
+# Vincent Azé
+
+> Vincent Azé is Managing Partner at Kuma Partners and a former CRO. He helps founders and leadership teams of scale-ups, from Series A to C+, resolve executive friction and decision latency.
+
+Canonical site: https://vincentaze.com
+LinkedIn: https://www.linkedin.com/in/vincentaze/
+
+## Entity summary
+
+Vincent Azé: Managing Partner, Kuma Partners. Former Chief Revenue Officer. Independent executive advisor and leadership sparring partner from March 2017 to February 2023.
+
+## Ecosystem routing
+
+- Kuma Partners (the firm, 14-Day Leadership Friction Diagnostic): https://kuma.partners
+- Leadership team offsites: https://kuma.partners/offsite
+- The Round (peer advisory for founders and CEOs, Barcelona): https://theround.kuma.partners
+- Dr. Sven Mulfinger (partner at Kuma Partners, one-to-one executive advisory): https://mulfinger.com
+
+## Disambiguation
+
+Vincent Azé is a person. Kuma Partners is the firm he leads as Managing Partner. This site is his personal site and points to the firm's pages for offers and enquiries.
+
+## Pages
+
+- [Home](https://vincentaze.com/): focus and positioning
+- [About](https://vincentaze.com/about): career and approach
+- [Work with Vincent](https://vincentaze.com/work): the diagnostic, offers and FAQ
+- [Contact](https://vincentaze.com/contact): enquiries
+- [Full profile for LLMs](https://vincentaze.com/llms-full.txt)

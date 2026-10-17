@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Faq from '../components/Faq.astro';
+import { faqs } from '../data/faq';
+import { site } from '../data/site';
+
+const triggers = [
+  'Co-founders who no longer resolve disagreements between themselves',
+  'A CEO who has become the bottleneck for decisions the team should own',
+  'A new executive who is not landing with the existing team',
+  'Growth from Series A towards C+ that has outpaced how the leadership team decides',
+];
+const diagnostic = [
+  { t: 'Eight to ten confidential interviews', b: 'Confidential one-to-one conversations that let each person describe the friction in their own words.' },
+  { t: 'An asynchronous pulse check', b: 'A short questionnaire that shows where decisions slow down and how long they take to turn into action.' },
+  { t: 'A two-hour C-suite debrief', b: 'The findings are presented to the leadership team together, with a clear view of what to change first.' },
+];
+---
+<Layout
+  path="/work"
+  title="Work with Vincent Azé"
+  description="How Vincent Azé works with founders and leadership teams of scale-ups: the 14-Day Leadership Friction Diagnostic, leadership offsites and The Round, all through Kuma Partners."
+  faq={faqs}
+>
+  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
+    <div class="container-x py-12 lg:py-24">
+      <p class="label text-teal-deep">Work with Vincent</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[20ch] text-balance">Start with a diagnosis of where the team loses time.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Most engagements begin with the 14-Day Leadership Friction Diagnostic from Kuma Partners. It gives a leadership team a shared, confidential picture of its friction before anyone decides what to fix.</p>
+    </div>
+  </section>
+
+  <section class="border-t border-line" aria-labelledby="who-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="label text-steel">Who it is for</p>
+        <h2 id="who-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Founders and CEOs of scale-ups.</h2>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:col-span-8">
+        <p class="max-w-2xl leading-[1.7] text-steel">I work with leadership teams of scale-ups, typically from Series A to C+, when something like this is happening:</p>
+        <ul class="mt-6 divide-y divide-line-strong/70 border-y border-line-strong/70 max-w-2xl">
+          {triggers.map((t) => <li class="py-4 leading-[1.6] text-ink">{t}</li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="diagnostic-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">The entry offer</p>
+      <h2 id="diagnostic-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink max-w-2xl text-balance">The 14-Day Leadership Friction Diagnostic.</h2>
+      <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
+        {diagnostic.map((d, i) => (
+          <div class="border-t border-line-strong pt-5">
+            <span class="block text-xs text-teal-deep tabular-nums">0{i + 1}</span>
+            <h3 class="mt-3 font-serif text-xl md:text-2xl text-ink leading-snug">{d.t}</h3>
+            <p class="mt-3 max-w-[40ch] leading-[1.7] text-steel">{d.b}</p>
+          </div>
+        ))}
+      </div>
+      <p class="mt-10 max-w-2xl leading-[1.7] text-steel">The diagnostic is delivered by Vincent Azé, Dr. Sven Mulfinger and the Kuma partner team. It can lead into a 60 to 90 day Executive Alignment Sprint that redesigns how the team decides. Progress is tracked against one measure: Executive Decision Latency, the days between a decision being needed and action starting.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="more-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Also through Kuma Partners</p>
+      <h2 id="more-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Offsites and peer advisory.</h2>
+      <div class="grid gap-4 lg:grid-cols-2">
+        <article class="rounded-2xl border border-line bg-white p-6 lg:p-8">
+          <h3 class="font-serif text-2xl text-ink">Leadership team offsites</h3>
+          <p class="mt-3 leading-[1.7] text-steel">Offsites for C-suite and leadership teams, prepared around the decisions the team has been unable to make together.</p>
+          <a href={site.links.offsite} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-1 text-sm hover:text-teal-deep hover:border-teal-deep">kuma.partners/offsite <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+        </article>
+        <article class="rounded-2xl border border-line bg-white p-6 lg:p-8">
+          <h3 class="font-serif text-2xl text-ink">The Round</h3>
+          <p class="mt-3 leading-[1.7] text-steel">A confidential, year-round peer advisory for founders and CEOs, led by Dr. Sven Mulfinger in Barcelona. Participation is by application or nomination.</p>
+          <a href={site.links.round} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-1.5 border-b border-ink pb-1 text-sm hover:text-teal-deep hover:border-teal-deep">theround.kuma.partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="faq-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="label text-steel">Questions</p>
+        <h2 id="faq-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">What people ask before they get in touch.</h2>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:col-span-8"><Faq items={faqs} /></div>
+    </div>
+  </section>
+
+  <section class="bg-navy text-paper">
+    <div class="container-x py-14 lg:py-20 text-center">
+      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Describe what is happening in your leadership team.</h2>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-paper text-navy px-8 py-4 text-sm hover:bg-cream transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</Layout>
