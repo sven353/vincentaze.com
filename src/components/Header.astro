@@ -1,14 +1,16 @@
 ---
 import { site } from '../data/site';
-const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
+const active = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
 ---
 <header class="sticky top-0 z-40 border-b border-line/70 bg-paper/85 backdrop-blur">
   <div class="container-x flex h-16 items-center justify-between">
     <a href="/" class="font-serif text-xl text-ink tracking-tight">Vincent Azé</a>
-    <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm">
+    <nav aria-label="Primary" class="hidden md:flex items-center gap-7 text-sm">
       {site.nav.filter((n) => n.href !== '/').map((n) => (
-        <a href={n.href} aria-current={path === n.href ? 'page' : undefined} class:list={['border-b pb-0.5 transition-colors', path === n.href ? 'border-navy text-ink' : 'border-transparent text-steel hover:text-ink']}>{n.label}</a>
+        <a href={n.href} aria-current={active(n.href) ? 'page' : undefined} class:list={['border-b pb-0.5 transition-colors', active(n.href) ? 'border-navy text-ink' : 'border-transparent text-steel hover:text-ink']}>{n.label}</a>
       ))}
+      <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="text-steel hover:text-ink transition-colors">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
       <a href="/contact" class="rounded-sm bg-navy px-4 py-2 text-paper hover:bg-navy-hover transition-colors">Discuss a challenge</a>
     </nav>
     <button id="menu-open" type="button" class="md:hidden -mr-2 p-2" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
@@ -24,9 +26,10 @@ const path = Astro.url.pathname.replace(/\/$/, '') || '/';
       <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l14 14M18 4L4 18" /></svg>
     </button>
   </div>
-  <nav aria-label="Mobile" class="container-x mt-8 flex flex-col">
+  <nav aria-label="Mobile" class="container-x mt-6 flex flex-col">
     {site.nav.map((n) => (
-      <a href={n.href} class="border-b border-line py-5 font-serif text-3xl text-ink">{n.label}</a>
+      <a href={n.href} class="border-b border-line py-4 font-serif text-3xl text-ink">{n.label}</a>
     ))}
+    <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="border-b border-line py-4 font-serif text-3xl text-ink">Kuma Partners ↗<span class="sr-only"> (opens in a new tab)</span></a>
   </nav>
 </div>

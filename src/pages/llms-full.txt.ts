@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import { faqs } from '../data/faq';
+import { articles } from '../data/articles';
 import { site } from '../data/site';
 
 const strip = (md: string) => md.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1 ($2)');
@@ -10,33 +11,42 @@ export const GET: APIRoute = () => {
 > ${site.description}
 
 Canonical site: ${site.url}
-Role: ${site.title}, ${site.org}
+Role: ${site.profession}; ${site.title}, ${site.org}
+Based in: ${site.place}, working internationally
+Languages: English and French (principal working languages)
 LinkedIn: ${site.linkedin}
 Contact: ${site.email}
 
 ## Identity and disambiguation
 
-Vincent Azé is Managing Partner at Kuma Partners (${site.links.kuma}). He is a former Chief Revenue Officer. From March 2017 to February 2023 he worked worldwide as an independent executive advisor and leadership sparring partner. He works alongside Dr. Sven Mulfinger (${site.links.sven}), who also advises founders and CEOs one to one. Kuma Partners is the firm, vincentaze.com is Vincent's personal site.
+Vincent Azé is an executive coach and strategic advisor and a founding partner of Kuma Partners (${site.links.kuma}), based in Lisbon. He built his early career in international financial technology and commercial leadership, including years in London and Hong Kong, and has worked as an executive coach and adviser for around ten years. He works alongside Dr. Sven Mulfinger (${site.links.sven}), who also advises founders and CEOs one to one. Kuma Partners is the firm, vincentaze.com is Vincent's personal site.
 
 ## Focus
 
-Resolving executive friction and decision latency in scale-ups, typically from Series A to C+. Executive friction is the drag created when capable leaders cannot agree, align or commit as a team. Decision latency is the number of days between a decision being needed and action starting. Kuma Partners tracks it as Executive Decision Latency.
+Executive coaching and leadership advisory for founders, CEOs and senior leaders. Core themes: leadership friction, founder and co-founder alignment, difficult conversations, emotional intelligence, AI adoption and the future of work. Whole-team work is delivered through Kuma Partners.
 
-## Offers through Kuma Partners
+## Offers
 
-- 14-Day Leadership Friction Diagnostic: eight to ten confidential one-to-one interviews, an asynchronous pulse check and a two-hour C-suite alignment debrief. Can lead into a 60 to 90 day Executive Alignment Sprint. ${site.links.kuma}
-- Leadership team offsites: ${site.links.offsite}
-- The Round: a confidential, year-round peer advisory for founders and CEOs, led by Dr. Sven Mulfinger in Barcelona, by application or nomination. ${site.links.round}
+- 1:1 executive coaching and advisory: ${site.url}/advisory
+- 14-Day Leadership Friction Scan, leadership alignment and diagnostics (Kuma Partners): ${site.links.scan}
+- Leadership team offsites (Kuma Partners): ${site.links.offsite}
+- The Round, a peer advisory for founders and CEOs led by Dr. Sven Mulfinger (Kuma Partners): ${site.links.round}
+- Speaking and workshops on the future of work: ${site.url}/ideas
 
-## Event
+## Upcoming event
 
-11 November 2026, PTW Palace, Lisbon (Portugal Tech Week): masterclass "When rapid scale stalls: Solving executive friction and decision latency in co-founder and leadership teams", co-led by Vincent Azé and Dr. Sven Mulfinger.
+11 November 2026, Portugal Tech Week: "The Human Side of AI: Emotional Intelligence and the Future of Work", a talk by Vincent Azé.
+
+## Articles
+
+${articles.map((a) => `- ${a.title} (${a.datePublished}): ${site.url}/ideas/${a.slug}\n  ${a.description}`).join('\n')}
 
 ## Pages
 
 - ${site.url}/ : home
-- ${site.url}/about : career and approach
-- ${site.url}/work : how to work with Vincent, the diagnostic and FAQ
+- ${site.url}/about : story, experience and point of view
+- ${site.url}/advisory : executive coaching, scope and FAQ
+- ${site.url}/ideas : future of work, talks and articles
 - ${site.url}/contact : enquiries
 
 ## Frequently asked questions

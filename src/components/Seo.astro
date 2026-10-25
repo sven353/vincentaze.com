@@ -2,15 +2,17 @@
 import { site } from '../data/site';
 import type { Faq } from '../data/faq';
 
+interface ArticleMeta { headline: string; datePublished: string; dateModified: string }
 interface Props {
   title: string;
   description: string;
   path: string;
-  type?: 'WebPage' | 'ProfilePage' | 'ContactPage';
+  type?: 'WebPage' | 'ProfilePage' | 'ContactPage' | 'CollectionPage';
   faq?: Faq[];
+  article?: ArticleMeta;
   noindex?: boolean;
 }
-const { title, description, path, type = 'WebPage', faq, noindex = false } = Astro.props;
+const { title, description, path, type = 'WebPage', faq, article, noindex = false } = Astro.props;
 
 const base = site.url;
 const url = base + (path === '/' ? '' : path);
@@ -19,7 +21,7 @@ const strip = (md: string) => md.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 
 const ids = {
   vincent: `${base}/#vincent-aze`,
-  kuma: 'https://kuma.partners/#organization',
+  kuma: 'https://www.kuma.partners/#organization',
   sven: 'https://mulfinger.com/#sven-mulfinger',
   site: `${base}/#website`,
 };
@@ -30,22 +32,25 @@ const vincent = {
   name: site.name,
   givenName: 'Vincent',
   familyName: 'Azé',
-  jobTitle: site.title,
-  description: site.description,
+  alternateName: 'Vincent Aze',
+  jobTitle: site.profession,
+  description:
+    'Executive coach and founding partner of Kuma Partners, focused on leadership friction, founder alignment and the human side of AI.',
   url: base,
   image: `${base}/vincent-aze.jpg`,
+  homeLocation: { '@type': 'Place', name: site.place },
+  knowsLanguage: ['en', 'fr'],
   worksFor: { '@id': ids.kuma },
   colleague: { '@id': ids.sven },
-  sameAs: [site.linkedin, site.links.kuma],
+  sameAs: [site.linkedin],
   knowsAbout: [
-    'Executive friction',
-    'Decision latency',
+    'Executive coaching',
+    'Leadership friction',
+    'Founder and co-founder alignment',
+    'Emotional intelligence',
+    'The future of work',
+    'AI and leadership',
     'Leadership team alignment',
-    'Co-founder alignment',
-    'Scale-up leadership',
-    'Executive advisory',
-    'Leadership offsites',
-    'Revenue leadership',
   ],
 };
 
@@ -55,10 +60,9 @@ const kuma = {
   name: site.org,
   url: site.links.kuma,
   description:
-    'Kuma Partners is a professional services firm supporting executives through high-stakes inflection points, with a focus on executive friction and decision latency in scale-ups.',
+    'Kuma Partners is a leadership advisory firm working with founders and executive teams through strategic inflection points.',
   founder: [{ '@id': ids.vincent }, { '@id': ids.sven }],
-  areaServed: ['Europe', 'Worldwide'],
-  knowsAbout: ['Executive friction', 'Decision latency', 'Leadership offsites', 'Executive peer advisory'],
+  knowsAbout: ['Leadership friction', 'Leadership team alignment', 'Strategic offsites', 'Executive peer advisory'],
   sameAs: [site.links.offsite, site.links.round],
 };
 
@@ -74,31 +78,30 @@ const sven = {
 const services = [
   {
     '@type': 'Service',
-    '@id': `${base}/work#diagnostic`,
-    name: '14-Day Leadership Friction Diagnostic',
-    serviceType: 'Executive leadership diagnostic',
+    '@id': `${base}/advisory#coaching`,
+    name: '1:1 Executive Coaching and Advisory',
+    serviceType: 'Executive coaching',
     description:
-      'Eight to ten confidential one-to-one interviews, an asynchronous pulse check and a two-hour C-suite alignment debrief to locate where a leadership team loses time and trust.',
-    provider: { '@id': ids.kuma },
-    url: site.links.kuma,
-    audience: { '@type': 'Audience', audienceType: 'Founders and CEOs of Series A to C+ scale-ups' },
+      'Confidential conversations for founders and senior executives navigating growth, change, conflict or important decisions.',
+    provider: { '@id': ids.vincent },
+    url: `${base}/advisory`,
   },
   {
     '@type': 'Service',
-    '@id': `${base}/work#offsites`,
+    '@id': `${base}/advisory#scan`,
+    name: '14-Day Leadership Friction Scan',
+    serviceType: 'Leadership team diagnostic',
+    description: 'The entry offer from Kuma Partners for leadership teams whose friction is systemic rather than individual.',
+    provider: { '@id': ids.kuma },
+    url: site.links.scan,
+  },
+  {
+    '@type': 'Service',
+    '@id': `${base}/advisory#offsites`,
     name: 'Leadership team offsites',
     serviceType: 'Executive offsite design and facilitation',
     provider: { '@id': ids.kuma },
     url: site.links.offsite,
-  },
-  {
-    '@type': 'Service',
-    '@id': `${base}/work#the-round`,
-    name: 'The Round by Kuma Partners',
-    serviceType: 'Executive peer advisory',
-    description: 'A confidential, year-round peer advisory for founders and CEOs.',
-    provider: { '@id': ids.kuma },
-    url: site.links.round,
   },
 ];
 
@@ -117,22 +120,40 @@ const webPage: Record<string, unknown> = {
 if (type === 'ProfilePage') webPage.mainEntity = { '@id': ids.vincent };
 
 const graph: unknown[] = [vincent, kuma, sven, ...services, webSite, webPage];
-// Dated event, home page only. Remove or update after the event has taken place.
+
+// Dated event on the home page. Remove or update after the event has taken place.
 if (path === '/') {
   graph.push({
     '@type': 'Event',
-    '@id': `${base}/#ptw-lisbon-masterclass`,
-    name: 'When rapid scale stalls: Solving executive friction and decision latency in co-founder and leadership teams',
-    description: 'A one-hour masterclass and discussion on executive friction and decision latency, led by Vincent Azé and Dr. Sven Mulfinger of Kuma Partners.',
+    '@id': `${base}/#portugal-tech-week-talk`,
+    name: 'The Human Side of AI: Emotional Intelligence and the Future of Work',
+    description: 'A talk by Vincent Azé at Portugal Tech Week on emotional intelligence, human judgement and the future of work.',
     startDate: '2026-11-11',
     eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     eventStatus: 'https://schema.org/EventScheduled',
-    location: { '@type': 'Place', name: 'PTW Palace, Portugal Tech Week', address: { '@type': 'PostalAddress', addressLocality: 'Lisbon', addressCountry: 'PT' } },
-    organizer: { '@id': ids.kuma },
-    performer: [{ '@id': ids.vincent }, { '@id': ids.sven }],
+    location: { '@type': 'Place', name: 'Portugal Tech Week', address: { '@type': 'PostalAddress', addressLocality: 'Lisbon', addressCountry: 'PT' } },
+    performer: { '@id': ids.vincent },
     image: ogImage,
   });
 }
+
+if (article) {
+  graph.push({
+    '@type': 'Article',
+    '@id': `${url}#article`,
+    headline: article.headline,
+    description,
+    datePublished: article.datePublished,
+    dateModified: article.dateModified,
+    inLanguage: 'en',
+    author: { '@id': ids.vincent },
+    publisher: { '@id': ids.vincent },
+    mainEntityOfPage: { '@id': `${url}#webpage` },
+    image: ogImage,
+    isPartOf: { '@id': ids.site },
+  });
+}
+
 if (faq?.length) {
   graph.push({
     '@type': 'FAQPage',
@@ -145,23 +166,25 @@ if (faq?.length) {
   });
 }
 const jsonld = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
-const fullTitle = path === '/' ? title : `${title} | ${site.name}`;
 ---
-<title>{fullTitle}</title>
+<title>{title}</title>
 <meta name="description" content={description} />
 <link rel="canonical" href={url} />
 {noindex ? <meta name="robots" content="noindex, follow" /> : <meta name="robots" content="index, follow, max-image-preview:large" />}
-<meta property="og:type" content={type === 'ProfilePage' ? 'profile' : 'website'} />
+<meta property="og:type" content={article ? 'article' : type === 'ProfilePage' ? 'profile' : 'website'} />
 <meta property="og:site_name" content={site.name} />
-<meta property="og:title" content={fullTitle} />
+<meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={url} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Vincent Azé, Managing Partner at Kuma Partners" />
+<meta property="og:image:alt" content="Vincent Azé, executive coach and founding partner of Kuma Partners" />
+{article && <meta property="article:published_time" content={article.datePublished} />}
+{article && <meta property="article:modified_time" content={article.dateModified} />}
+{article && <meta property="article:author" content={site.name} />}
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM summary" />

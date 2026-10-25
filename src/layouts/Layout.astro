@@ -9,7 +9,8 @@ interface Props {
   title: string;
   description: string;
   path: string;
-  type?: 'WebPage' | 'ProfilePage' | 'ContactPage';
+  type?: 'WebPage' | 'ProfilePage' | 'ContactPage' | 'CollectionPage';
+  article?: { headline: string; datePublished: string; dateModified: string };
   faq?: Faq[];
   noindex?: boolean;
 }

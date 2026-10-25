@@ -1,6 +1,6 @@
 # vincentaze.com
 
-Personal site of Vincent Azé, Managing Partner at Kuma Partners. Static Astro site styled with Tailwind CSS v4, deployed from GitHub to Netlify. Built on the same architecture as mulfinger.com, in the Kuma Partners palette.
+Personal site of Vincent Azé, Founding Partner at Kuma Partners. Static Astro site styled with Tailwind CSS v4, deployed from GitHub to Netlify. Built on the same architecture as mulfinger.com, in the Kuma Partners palette.
 
 Purpose: strengthen the generative engine optimisation (GEO) credibility of kuma.partners, kuma.partners/offsite and theround.kuma.partners by giving AI search engines a second, consistent, machine-readable source for who Vincent is and how he relates to the firm and its offers.
 
@@ -20,10 +20,11 @@ src/
   data/
     site.ts        names, links, nav, proof bar. Edit public claims here.
     legal.ts       owner, tax ID, address, hosting: feeds both legal pages and the form notice
-    faq.ts         6 questions. Feed Faq.astro on /work, the FAQPage schema and /llms-full.txt
+    faq.ts         14 questions. Feed Faq.astro on /advisory, the FAQPage schema and /llms-full.txt
+    articles.ts    the two Ideas articles (text, dates, related links). Feeds /ideas, /ideas/[slug] and the Article schema
   layouts/Layout.astro
   components/      Seo (JSON-LD graph), Header, Footer, Faq, ContactForm, LegalShell
-  pages/           index, about, work, contact, legal, privacy, thanks, 404, llms-full.txt.ts
+  pages/           index, about, advisory, ideas, ideas/[slug], contact, legal, privacy, thanks, 404, llms-full.txt.ts
   styles/global.css  design tokens
 public/            llms.txt, robots.txt, favicon.svg, og.png, vincent-aze.jpg, menu.js, form.js, reveal.js
 scripts/verify.mjs post-build checks
@@ -43,28 +44,33 @@ npm run check     # build + verify
 
 ## GEO layer
 
-Entity graph in `src/components/Seo.astro`, on every page: Person `https://vincentaze.com/#vincent-aze` (worksFor Kuma, colleague Sven, sameAs LinkedIn and kuma.partners), Organization and ProfessionalService `https://kuma.partners/#organization` (founders Vincent and Sven, sameAs offsite and The Round), a stub Person for Sven at `https://mulfinger.com/#sven-mulfinger` (same id as on mulfinger.com), three Service nodes (14-Day Diagnostic, offsites, The Round), WebSite, WebPage (ProfilePage on /about, ContactPage on /contact), FAQPage on /work, and an Event node for the Lisbon masterclass on the home page. No alumniOf.
+Entity graph in `src/components/Seo.astro`, on every page: Person `https://vincentaze.com/#vincent-aze` (executive coach and strategic advisor, homeLocation Lisbon, knowsLanguage en and fr, worksFor Kuma, colleague Sven, sameAs LinkedIn), Organization and ProfessionalService `https://www.kuma.partners/#organization` (founders Vincent and Sven, sameAs offsite and The Round), a stub Person for Sven at `https://mulfinger.com/#sven-mulfinger` (same id as on mulfinger.com), three Service nodes (1:1 coaching, 14-Day Leadership Friction Scan, offsites), WebSite and WebPage (ProfilePage on /about, CollectionPage on /ideas, ContactPage on /contact). Extra nodes: FAQPage with 14 questions on /advisory, Article with Vincent as author on each article, Event for the Portugal Tech Week talk on the home page. No alumniOf.
 
-The Kuma organisation id is the same on every site in the ecosystem. Use it on kuma.partners too, see `KUMA-SITES-SNIPPET.md`.
+Kuma URL decision: kuma.partners declares `https://www.kuma.partners/` as its canonical, so every link and schema id here uses the www form. Make sure the apex redirects to www (301) and use the same form on the Kuma sites, see `KUMA-SITES-SNIPPET.md`. The Round stays on `https://theround.kuma.partners`.
 
-`llms.txt` and `llms-full.txt` follow llmstxt.org and carry an entity summary, ecosystem routing and a disambiguation note. `robots.txt` allows the main AI crawlers.
+`llms.txt` and `llms-full.txt` follow llmstxt.org and carry an entity summary, ecosystem routing, a disambiguation note and the article list. `robots.txt` allows the main AI crawlers.
 
 ## Claims policy
 
-Only claims confirmed by Vincent or Sven appear on the site. Sources so far: Vincent's LinkedIn profile (17 Oct 2026), the Kuma Partners positioning notes and Sven's confirmation of the Lisbon masterclass.
+Vincent's own briefing (`Vincent_Aze_Website_Content_SEO_GEO.docx`, 24 October 2026) is the source of truth, confirmed by Sven on 25 October 2026. Decisions taken: title Founding Partner, offer name 14-Day Leadership Friction Scan, contact vincent@kuma.partners, base Lisbon, principal languages English and French.
 
-Not stated anywhere, on purpose: Vincent's base city, employers behind "former CRO", education, languages, client names, testimonials, fees.
+The briefing avoids dates, degrees and job titles it cannot confirm, and so does the site. The employers GL Trade, SunGard, FIS and Glownet appear only as "work associated with". The former CRO role from his LinkedIn headline is deliberately not claimed, because the briefing treats it as unconfirmed.
+
+Not stated anywhere, on purpose: client names, testimonials, fees, degrees, the international Round pilot.
 
 ## Content to complete before launch
 
-- `src/data/legal.ts`: tax ID and full postal address. Both legal pages show TODO until then. `npm run verify` prints a warning.
-- Confirm the official title: LinkedIn says Managing Partner, Sven's notes say Founding Partner. Change `title` in `src/data/site.ts`.
-- Confirm the contact email: currently contact@kuma.partners, and the "reply within 24 to 48 hours" promise on the form.
-- Add employers, years, education and languages to `src/pages/about.astro` and the schema once Vincent supplies them.
-- Process wording on home and /work paraphrases the Kuma diagnostic description. Vincent should approve it.
-- The paragraph "From Vincent's writing" paraphrases his LinkedIn post about two product managers. Confirm he is happy for it to appear.
-- Remove the Event node in `Seo.astro`, the event band on home and the line on /about after 11 November 2026.
-- Review both legal pages with a lawyer or gestor.
+- `src/data/legal.ts`: tax ID and full postal address. Both legal pages show TODO until then, and `npm run verify` prints a warning. Both pages need a lawyer or gestor review and a retention period set by the controller.
+- Booking link: the briefing leaves it open. Add it to /contact when Vincent has one.
+- Align LinkedIn with the site: headline, title (Founding Partner), base (Lisbon) and the CRO line. Search engines compare them.
+- Confirm the Portugal Tech Week listing (date, title, venue). Remove the Event node in `Seo.astro`, the event band on home and the box on /ideas after 11 November 2026.
+- Confirm the publication date of the two articles (`articles.ts`, currently 25 October 2026).
+- Search Console and Bing Webmaster Tools: verify the domain, submit `sitemap-index.xml`.
+- Add a speaking photograph and an event photograph when rights are secured. The site carries one portrait.
+
+## Possible next steps from the briefing
+
+Six more articles are proposed in section 10 of the briefing. Write them only from lived experience or attributed research. Create a separate /speaking page only once there is an archive of talks.
 
 ## Deployment
 
@@ -76,7 +82,7 @@ Point the apex `A` record to `75.2.60.5` and `CNAME www` to `<project-name>.netl
 
 ## Forms
 
-Netlify Form `executive-diagnostic`, with honeypot and required privacy consent. After the first deploy add an email notification in Netlify (Forms, Form notifications) to the address that should receive enquiries.
+Netlify Form `executive-diagnostic` (name kept from the first deploy), with honeypot, optional enquiry type and required privacy consent. After the first deploy add an email notification in Netlify (Forms, Form notifications) to the address that should receive enquiries.
 
 ## Writing rules
 
@@ -84,4 +90,5 @@ UK spelling, no serial comma, no em dashes, no bold labels, short paragraphs. `n
 
 ## Changelog
 
+- 2026-10-25 (v2): Rebuilt on Vincent's briefing. Five pages (Home, About, Advisory, Ideas, Contact), 14-question FAQ, two Ideas articles with Article schema, enquiry-type field, Founding Partner and Lisbon throughout, www.kuma.partners as the Kuma URL, 14-Day Leadership Friction Scan, vincent@kuma.partners. /work removed.
 - 2026-10-17 (v1): Initial build.

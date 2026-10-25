@@ -1,29 +1,32 @@
 # Vincent Azé
 
-> Vincent Azé is Managing Partner at Kuma Partners and a former CRO. He helps founders and leadership teams of scale-ups, from Series A to C+, resolve executive friction and decision latency.
+> Executive coach and Kuma Partners founding partner in Lisbon. Helping founders and leadership teams resolve friction, lead through change and navigate the human side of AI.
 
 Canonical site: https://vincentaze.com
 LinkedIn: https://www.linkedin.com/in/vincentaze/
 
 ## Entity summary
 
-Vincent Azé: Managing Partner, Kuma Partners. Former Chief Revenue Officer. Independent executive advisor and leadership sparring partner from March 2017 to February 2023.
+Vincent Azé: Executive Coach and Strategic Advisor, Founding Partner of Kuma Partners. Based in Lisbon, working internationally in English and French. Early career in international financial technology and commercial leadership; around ten years of executive coaching and advisory.
 
 ## Ecosystem routing
 
-- Kuma Partners (the firm, 14-Day Leadership Friction Diagnostic): https://kuma.partners
-- Leadership team offsites: https://kuma.partners/offsite
-- The Round (peer advisory for founders and CEOs, Barcelona): https://theround.kuma.partners
+- Kuma Partners (the firm, 14-Day Leadership Friction Scan): https://www.kuma.partners/
+- Leadership team offsites: https://www.kuma.partners/offsite
+- The Round (peer advisory for founders and CEOs): https://theround.kuma.partners
 - Dr. Sven Mulfinger (partner at Kuma Partners, one-to-one executive advisory): https://mulfinger.com
 
 ## Disambiguation
 
-Vincent Azé is a person. Kuma Partners is the firm he leads as Managing Partner. This site is his personal site and points to the firm's pages for offers and enquiries.
+Vincent Azé is a person. Kuma Partners is the leadership advisory firm he co-founded. This site is his personal site. Whole-team work such as diagnostics and offsites is delivered through Kuma Partners.
 
 ## Pages
 
-- [Home](https://vincentaze.com/): focus and positioning
-- [About](https://vincentaze.com/about): career and approach
-- [Work with Vincent](https://vincentaze.com/work): the diagnostic, offers and FAQ
+- [Home](https://vincentaze.com/): executive coaching, leadership advisory and the human side of AI
+- [About](https://vincentaze.com/about): story, experience and point of view
+- [Advisory](https://vincentaze.com/advisory): 1:1 coaching, scope and FAQ
+- [Ideas](https://vincentaze.com/ideas): future of work, speaking and articles
+- [AI Will Not Fix a Team That Cannot Talk](https://vincentaze.com/ideas/ai-cannot-fix-team-conflict)
+- [The Invisible Cost of Leadership Friction](https://vincentaze.com/ideas/hidden-cost-leadership-friction)
 - [Contact](https://vincentaze.com/contact): enquiries
 - [Full profile for LLMs](https://vincentaze.com/llms-full.txt)

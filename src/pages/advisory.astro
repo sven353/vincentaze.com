@@ -1,0 +1,146 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Faq from '../components/Faq.astro';
+import { faqs } from '../data/faq';
+import { site } from '../data/site';
+
+const fit = [
+  'A founder whose role has to evolve as the company grows.',
+  'A CEO or executive carrying a difficult people decision, team conflict or high-stakes transition.',
+  'A senior leader who has achieved a great deal but sees recurring patterns in how they lead.',
+  'A leadership team member confronting ambiguity, resistance or AI-related change.',
+  'An executive who wants a direct, thoughtful partner rather than reassurance or generic advice.',
+];
+const inScope = [
+  'Founder and co-founder alignment; executive conflict',
+  'Decision-making under uncertainty; personal responsibility',
+  'Leadership transitions; delegation and trust',
+  'Communication, emotional intelligence and difficult conversations',
+  'Leading people through restructuring, growth and AI adoption',
+  'Personal effectiveness when your usual way of working stops delivering',
+];
+const outScope = [
+  'Psychotherapy or clinical mental health treatment',
+  'A promise to solve an issue without the leader\'s involvement',
+  'Generic career counselling or mass-market coaching',
+  'Technical AI system integration or software implementation',
+  'Whole-team interventions where a multi-partner Kuma engagement is the better fit',
+];
+const steps = [
+  { t: 'First conversation', b: 'You describe the situation; we consider whether we are a fit and what would be useful.' },
+  { t: 'Define the work', b: 'We clarify the real challenge, intended outcomes and practical working agreement.' },
+  { t: 'Working sessions', b: 'We explore live issues, test interpretations and decide on actions and conversations to undertake.' },
+  { t: 'Review and adjust', b: 'We assess what has changed and whether the engagement should continue, evolve or finish.' },
+];
+const expect = [
+  { t: 'Clear thinking over convenient answers', b: 'I will ask questions that challenge the obvious explanation. Sometimes I will offer a perspective drawn from business or other leadership situations. I will not pretend to know your business better than you do.' },
+  { t: 'A safe enough space for the difficult truth', b: 'You should be able to acknowledge uncertainty, fear or frustration without performing confidence. Our conversations are governed by an agreed professional confidentiality arrangement.' },
+  { t: 'Concrete movement', b: 'The goal is to see something more clearly, have the conversation you are avoiding or take the next responsible step.' },
+];
+---
+<Layout
+  path="/advisory"
+  title="Executive Coaching & Leadership Advisory | Vincent Azé"
+  description="Confidential executive coaching and strategic thought partnership for founders, CEOs and senior leaders. Based in Lisbon, working internationally."
+  faq={faqs}
+>
+  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
+    <div class="container-x py-12 lg:py-24">
+      <p class="label text-teal-deep">Advisory</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">A confidential space to think clearly, speak honestly and act decisively.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, challenge your assumptions and develop your own judgement.</p>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-steel">This is executive coaching with business context. We can work on the person, the relationship and the organisation without confusing them.</p>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Explore a first conversation <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="border-t border-line" aria-labelledby="fit-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Fit</p>
+      <h2 id="fit-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Who this is for, and where I draw the line.</h2>
+      <div class="grid gap-10 lg:grid-cols-3 lg:gap-12">
+        <div>
+          <h3 class="font-serif text-xl text-ink">A good fit often looks like</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{fit.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl text-ink">Topics in scope</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{inScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl text-ink">Deliberately outside the scope</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{outScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="engage-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Engagement</p>
+      <h2 id="engage-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink">How an engagement works.</h2>
+      <p class="mt-4 max-w-2xl leading-[1.7] text-steel">We agree the format to suit the context. Some leaders need support around a defined decision; others benefit from a series of conversations over several months. Sessions may take place online or in person when practical. Scope, cadence, fees and confidentiality are agreed before we start.</p>
+      <ol class="mt-10 grid gap-8 lg:grid-cols-4 lg:gap-8">
+        {steps.map((s, i) => (
+          <li class="border-t border-line-strong pt-5">
+            <span class="block text-xs text-teal-deep tabular-nums">0{i + 1}</span>
+            <h3 class="mt-3 font-serif text-xl text-ink">{s.t}</h3>
+            <p class="mt-2 max-w-[34ch] leading-[1.7] text-steel">{s.b}</p>
+          </li>
+        ))}
+      </ol>
+      <h3 class="mt-14 mb-6 font-serif text-2xl text-ink">What to expect</h3>
+      <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
+        {expect.map((e) => (
+          <div class="border-t border-line-strong pt-5">
+            <h4 class="font-serif text-xl text-ink leading-snug">{e.t}</h4>
+            <p class="mt-3 leading-[1.7] text-steel">{e.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="question-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+      <div class="lg:col-span-4">
+        <p class="label text-steel">Example</p>
+        <h2 id="question-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">A question I often find myself asking.</h2>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:col-span-8 max-w-2xl">
+        <blockquote class="border-l-2 border-teal pl-6 font-serif text-2xl md:text-3xl leading-snug text-ink">What conversation are you hoping will become unnecessary if you wait long enough?</blockquote>
+        <p class="mt-6 leading-[1.7] text-steel">When an issue returns again and again, the cause may be an unresolved commitment, a relationship under strain or a decision someone does not want to own rather than a lack of information. We can examine the practical facts and the human cost of postponement at the same time.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-navy text-paper" aria-labelledby="paths-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+      <div class="lg:col-span-5">
+        <p class="label text-fog">Other paths</p>
+        <h2 id="paths-heading" class="mt-2 font-serif text-3xl md:text-4xl text-balance">When the challenge belongs to the whole team.</h2>
+      </div>
+      <div class="mt-6 lg:mt-0 lg:col-span-7 max-w-2xl">
+        <p class="leading-[1.7] text-paper/90">Sometimes individual coaching reveals a broader pattern involving decision rights, incentives, communication or relationships across an executive team. That is where Kuma Partners can design a more systemic response, including a 14-Day Leadership Friction Scan, an alignment sprint or a strategic offsite.</p>
+        <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm border-b border-paper pb-1 hover:text-fog hover:border-fog">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="faq-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="label text-steel">Questions</p>
+        <h2 id="faq-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Answers for prospective clients.</h2>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:col-span-8"><Faq items={faqs} /></div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-t border-line">
+    <div class="container-x py-14 lg:py-20 text-center">
+      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Start with the real question.</h2>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-navy text-paper px-8 py-4 text-sm hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</Layout>

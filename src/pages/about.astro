@@ -2,94 +2,141 @@
 import Layout from '../layouts/Layout.astro';
 import { site } from '../data/site';
 
-// Career facts below come from Vincent's LinkedIn profile (17 Oct 2026).
-// To complete before launch: employers and years behind "former CRO", education, languages, base city.
-const principles = [
-  { t: 'Operational mediation', b: 'When two leaders are stuck, the work is to mediate inside the real operating context, with the real trade-offs on the table.' },
-  { t: 'Decision governance', b: 'Who decides what, by when and with which input. Clear answers shorten decision latency more than any amount of goodwill.' },
-  { t: 'Board-ready agreements', b: 'Findings turn into written compacts between leaders that a board can read, track and hold the team to.' },
+// Content from Vincent's briefing. The timeline deliberately avoids dates, qualifications and job titles that are not confirmed.
+const experience = [
+  { n: '01', t: 'International commercial and operating experience', b: 'My earlier work in fintech and international business taught me the realities of commercial execution: serving demanding clients, working across borders, coordinating teams and delivering when stakes are high. I bring that commercial lens into coaching without turning every human problem into a spreadsheet.' },
+  { n: '02', t: 'A decade of executive coaching', b: 'I work with leaders on trust, difficult conversations, responsibility, conflict, alignment and personal leadership. I believe change becomes possible when people stop defending a polished version of the story and become willing to look at their own part in it.' },
+  { n: '03', t: 'Building Kuma Partners for a changing world', b: 'Kuma Partners brings together experienced advisers, coaches and operators to work with senior teams when growth or transformation exposes friction. I am particularly interested in what a new generation of consulting can look like: high-quality human judgement, supported by increasingly capable technology.' },
+];
+const path = [
+  { t: 'Early years in France', b: 'Growing up in the south of France helped shape a European and cross-cultural outlook.' },
+  { t: 'International career', b: 'Professional chapters in London, Hong Kong and other European cities exposed me to different leadership styles and commercial environments.' },
+  { t: 'Financial technology', b: 'Work associated with GL Trade, SunGard, FIS and Glownet developed my understanding of commercial pressure and complex organisations.' },
+  { t: 'Executive coaching', b: 'I moved towards working directly with leaders and teams on performance, conflict, awareness and behavioural change.' },
+  { t: 'Kuma Partners', b: 'Co-founding a practice designed to combine executive advisory, team diagnostics, coaching and strategic facilitation.' },
+  { t: 'The future of work', b: 'Exploring what emotional intelligence, human judgement and leadership must become as AI changes the way organisations operate.' },
+];
+const beliefs = [
+  { t: 'People are rarely the problem in isolation.', b: 'The difficulty is often in the relationship, the system or the conversation that never took place. Understanding the pattern is more useful than looking for someone to blame.' },
+  { t: 'Accountability can be generous.', b: 'Being responsible for your impact does not require being harsh with yourself or others. It means being willing to see reality, own your choices and change your behaviour.' },
+  { t: 'The future does not pit AI against humanity.', b: 'I am optimistic about the power of AI. I am equally convinced that better individual tools do not guarantee better collective outcomes. The organisations that thrive will deliberately develop the human capabilities that technology does not automatically supply.' },
+  { t: 'The conversation is part of the intervention.', b: 'Sometimes the biggest breakthrough is two people finally being able to say what they have avoided, listen without immediately defending themselves and agree on what comes next.' },
+];
+const values = [
+  ['Candour', 'I will challenge assumptions when doing so serves the work.'],
+  ['Curiosity', 'I do not arrive assuming that I already understand your company or your life.'],
+  ['Discretion', 'Sensitive discussions deserve care and a clearly agreed confidentiality framework.'],
+  ['Partnership', 'The leader retains ownership of the choices and actions.'],
+  ['Practicality', 'Insight matters when it changes what people do next.'],
+  ['Humanity', 'Serious business conversations can still be warm, respectful and alive.'],
 ];
 ---
 <Layout
   path="/about"
   type="ProfilePage"
-  title="About Vincent Azé"
-  description="Vincent Azé is Managing Partner at Kuma Partners, a former Chief Revenue Officer and, from 2017 to 2023, an independent executive advisor and leadership sparring partner."
+  title="About Vincent Azé | Fintech, Leadership & Executive Coaching"
+  description="Meet Vincent Azé, a Lisbon-based executive coach and Kuma Partners founding partner. From international fintech to the human side of leadership and AI."
 >
   <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
     <div class="container-x py-12 lg:py-24">
       <p class="label text-teal-deep">About</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[20ch] text-balance">Vincent Azé, Managing Partner at Kuma Partners.</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">I help founders and leadership teams of scale-ups, from Series A to C+, resolve executive friction and decision latency. Before that I was a Chief Revenue Officer, and for six years I worked as an independent executive advisor and leadership sparring partner.</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">I came to leadership through business, and to coaching through people.</h1>
+      <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-steel">
+        <p>I spent the first part of my career in the international world of financial technology, commercial relationships and business growth. I worked across different markets, cultures and organisations, including years in London and Hong Kong. It was an education in ambition, performance and pressure.</p>
+        <p>Over time, one question became more interesting to me than the technology or the commercial model: why do highly capable people sometimes struggle so much to work effectively together?</p>
+        <p>That question eventually changed the direction of my career. For roughly a decade, I have worked as an executive coach and adviser, helping founders, CEOs and leadership teams navigate the human side of difficult decisions.</p>
+        <p>Today I am based in Lisbon and am a founding partner of Kuma Partners. My focus remains the same: helping people face what is difficult to discuss, understand their own contribution to the situation and create a more effective way forward.</p>
+      </div>
     </div>
   </section>
 
-  <section class="border-t border-line" aria-labelledby="career-heading">
+  <section class="border-t border-line" aria-labelledby="exp-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Experience</p>
+      <h2 id="exp-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Three sources of perspective.</h2>
+      <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
+        {experience.map((e) => (
+          <div class="border-t border-line-strong pt-5">
+            <span class="block text-xs text-teal-deep tabular-nums">{e.n}</span>
+            <h3 class="mt-3 font-serif text-xl md:text-2xl text-ink leading-snug">{e.t}</h3>
+            <p class="mt-3 leading-[1.7] text-steel">{e.b}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="path-heading">
     <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
-        <p class="label text-steel">Career</p>
-        <h2 id="career-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">From revenue leadership to leadership teams.</h2>
+        <p class="label text-steel">The path here</p>
+        <h2 id="path-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">From commercial performance to human intelligence.</h2>
       </div>
       <ol class="mt-8 lg:mt-0 lg:col-span-8 divide-y divide-line-strong/70 border-y border-line-strong/70">
-        <li class="py-6 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-6">
-          <p class="text-sm text-teal-deep">Today</p>
-          <div>
-            <h3 class="font-serif text-xl md:text-2xl text-ink">Managing Partner, Kuma Partners</h3>
-            <p class="mt-2 max-w-[60ch] leading-[1.7] text-steel">Kuma Partners is a professional services firm supporting executives through high-stakes inflection points. I work with Dr. Sven Mulfinger and the partner team on leadership diagnostics, offsites and executive advisory for scale-ups.</p>
-          </div>
-        </li>
-        <li class="py-6 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-6">
-          <p class="text-sm text-teal-deep">March 2017 to February 2023</p>
-          <div>
-            <h3 class="font-serif text-xl md:text-2xl text-ink">Executive Advisor and Leadership Sparring Partner, independent practice</h3>
-            <p class="mt-2 max-w-[60ch] leading-[1.7] text-steel">Worldwide, one-to-one with executives and with their leadership teams.</p>
-          </div>
-        </li>
-        <li class="py-6 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-6">
-          <p class="text-sm text-teal-deep">Former role</p>
-          <div>
-            <h3 class="font-serif text-xl md:text-2xl text-ink">Chief Revenue Officer</h3>
-            <p class="mt-2 max-w-[60ch] leading-[1.7] text-steel">Senior commercial leadership with responsibility for revenue.</p>
-          </div>
-        </li>
+        {path.map((p, i) => (
+          <li class="py-5 sm:grid sm:grid-cols-[2.5rem_1fr] sm:gap-4">
+            <span class="text-xs text-teal-deep tabular-nums sm:pt-1.5">0{i + 1}</span>
+            <div>
+              <h3 class="font-serif text-xl text-ink">{p.t}</h3>
+              <p class="mt-1 max-w-[60ch] leading-[1.7] text-steel">{p.b}</p>
+            </div>
+          </li>
+        ))}
       </ol>
     </div>
   </section>
 
-  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="method-heading">
+  <section aria-labelledby="belief-heading">
     <div class="container-x py-12 lg:py-20">
-      <p class="label text-steel">How I work</p>
-      <h2 id="method-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink max-w-2xl text-balance">Inside the operating reality of the team.</h2>
-      <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
-        {principles.map((p) => (
+      <p class="label text-steel">Point of view</p>
+      <h2 id="belief-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">What I believe about leadership.</h2>
+      <div class="grid gap-8 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
+        {beliefs.map((b) => (
           <div class="border-t border-line-strong pt-5">
-            <h3 class="font-serif text-xl md:text-2xl text-ink">{p.t}</h3>
-            <p class="mt-3 max-w-[40ch] leading-[1.7] text-steel">{p.b}</p>
+            <h3 class="font-serif text-xl md:text-2xl text-ink leading-snug">{b.t}</h3>
+            <p class="mt-3 max-w-[56ch] leading-[1.7] text-steel">{b.b}</p>
           </div>
         ))}
       </div>
-      <p class="mt-10 max-w-2xl leading-[1.7] text-steel">Kuma Partners does not sell long theoretical decks, junior-analyst research or detached one-to-one mindset coaching. The work happens with the leadership team, on the decisions they are facing.</p>
     </div>
   </section>
 
-  <section aria-labelledby="public-heading">
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="values-heading">
     <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
-        <p class="label text-steel">Public work</p>
-        <h2 id="public-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Writing, talks and the wider firm.</h2>
+        <p class="label text-steel">Values</p>
+        <h2 id="values-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">What you can expect from me.</h2>
       </div>
-      <div class="mt-8 lg:mt-0 lg:col-span-8 space-y-5 max-w-2xl leading-[1.7] text-steel">
-        <p>Vincent writes about executive friction and decision latency on <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>.</p>
-        <p>On 11 November 2026 he co-leads a masterclass in Lisbon with Dr. Sven Mulfinger at PTW Palace during Portugal Tech Week: "When rapid scale stalls".</p>
-        <p>Kuma Partners runs <a class="border-b border-ink text-ink" href={site.links.kuma} target="_blank" rel="noopener noreferrer">the main firm site<span class="sr-only"> (opens in a new tab)</span></a>, <a class="border-b border-ink text-ink" href={site.links.offsite} target="_blank" rel="noopener noreferrer">leadership offsites<span class="sr-only"> (opens in a new tab)</span></a> and <a class="border-b border-ink text-ink" href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a>, a peer advisory for founders and CEOs. Vincent's partner Dr. Sven Mulfinger advises executives one to one at <a class="border-b border-ink text-ink" href={site.links.sven} target="_blank" rel="noopener noreferrer">mulfinger.com<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+      <dl class="mt-8 lg:mt-0 lg:col-span-8 divide-y divide-line-strong/70 border-y border-line-strong/70">
+        {values.map(([k, v]) => (
+          <div class="py-4 sm:grid sm:grid-cols-[9rem_1fr] sm:gap-4">
+            <dt class="font-serif text-xl text-ink">{k}</dt>
+            <dd class="leading-[1.7] text-steel">{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </section>
+
+  <section aria-labelledby="personal-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-4">
+        <p class="label text-steel">Personal note</p>
+        <h2 id="personal-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Outside the meeting room.</h2>
+      </div>
+      <div class="mt-8 lg:mt-0 lg:col-span-8 max-w-2xl space-y-5 leading-[1.7] text-steel">
+        <p>I value movement, time outdoors and the kind of open conversation that changes how you see something. Living and working across different countries has made me curious about the assumptions people bring into the same room without noticing.</p>
+        <p>I enjoy meeting people who are building things, whether they are entrepreneurs, operators, technologists or simply people questioning how work could be better.</p>
+        <p>Kuma Partners, the firm I co-founded, is at <a class="border-b border-ink text-ink" href={site.links.kuma} target="_blank" rel="noopener noreferrer">kuma.partners<span class="sr-only"> (opens in a new tab)</span></a>. My partner Dr. Sven Mulfinger advises executives one to one at <a class="border-b border-ink text-ink" href={site.links.sven} target="_blank" rel="noopener noreferrer">mulfinger.com<span class="sr-only"> (opens in a new tab)</span></a>.</p>
       </div>
     </div>
   </section>
 
   <section class="bg-navy text-paper">
     <div class="container-x py-14 lg:py-20 text-center">
-      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Bring the decision your team keeps circling.</h2>
-      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-paper text-navy px-8 py-4 text-sm hover:bg-cream transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
+      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Bring the question that matters.</h2>
+      <p class="mt-5 max-w-xl mx-auto text-fog leading-relaxed">If you are leading through an inflection point, dealing with a difficult relationship or thinking about what AI means for your team, I would be glad to explore it with you.</p>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-paper text-navy px-8 py-4 text-sm hover:bg-cream transition-colors">Start a conversation <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </Layout>

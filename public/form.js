@@ -21,7 +21,7 @@
         ok.focus();
       })
       .catch(function () {
-        err.textContent = 'Something went wrong. Please email contact@kuma.partners instead.';
+        err.textContent = 'Something went wrong. Please email vincent@kuma.partners instead.';
         err.classList.remove('hidden');
       });
   });

@@ -6,15 +6,23 @@ import { site } from '../data/site';
 <Layout
   path="/contact"
   type="ContactPage"
-  title="Discuss a leadership challenge"
-  description="Contact Vincent Azé, Managing Partner at Kuma Partners, about executive friction or decision latency in your leadership team. Confidential, with a reply within 24 to 48 hours."
+  title="Contact Vincent Azé | Executive Coaching & Speaking"
+  description="Contact Vincent Azé about executive coaching, leadership advisory, leadership team work through Kuma Partners or speaking on the human side of AI."
 >
   <section class="container-x py-12 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16">
     <div class="lg:col-span-5">
       <p class="label text-teal-deep">Contact</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-5xl leading-[1.08] text-ink text-balance">Discuss a leadership challenge.</h1>
-      <p class="mt-6 max-w-md leading-[1.7] text-steel">Tell me what is happening in your leadership team. Everything you write stays confidential, and there is no obligation to continue.</p>
-      <p class="mt-6 text-sm text-steel">Prefer email? Write to <a class="border-b border-ink text-ink" href={`mailto:${site.email}`}>{site.email}</a>.</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-5xl leading-[1.08] text-ink text-balance">Tell me what is happening.</h1>
+      <p class="mt-6 max-w-md leading-[1.7] text-steel">An initial conversation is a chance to understand the situation and see whether working together would be useful. You do not need a formal brief. A few direct sentences about the challenge are enough.</p>
+      <p class="mt-4 max-w-md leading-[1.7] text-steel">I read enquiries personally. If there seems to be a fit, we can arrange a conversation. If the work belongs with a broader leadership team, I may suggest involving Kuma Partners.</p>
+      <h2 class="mt-10 font-serif text-2xl text-ink">Other ways to reach me</h2>
+      <ul class="mt-4 space-y-2 text-steel">
+        <li>Email: <a class="border-b border-ink text-ink" href={`mailto:${site.email}`}>{site.email}</a></li>
+        <li>LinkedIn: <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">linkedin.com/in/vincentaze<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li>Kuma Partners: <a class="border-b border-ink text-ink" href={site.links.kuma} target="_blank" rel="noopener noreferrer">kuma.partners<span class="sr-only"> (opens in a new tab)</span></a></li>
+      </ul>
+      <h2 class="mt-10 font-serif text-2xl text-ink">Location and working languages</h2>
+      <p class="mt-3 max-w-md leading-[1.7] text-steel">Based in Lisbon, Portugal. Available for remote conversations internationally and in-person work by agreement. My principal working languages are English and French. Other languages and delivery arrangements can be discussed individually.</p>
     </div>
     <div class="mt-10 lg:mt-0 lg:col-span-7 max-w-xl"><ContactForm /></div>
   </section>

@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { articles } from '../data/articles';
+
+const takeaways = [
+  'Why faster individual work is not the same as better collective performance.',
+  'How unresolved tension quietly affects decisions and delivery.',
+  'Why curiosity and genuine listening matter when opinions differ.',
+  'What leaders can do to make difficult conversations more constructive.',
+  'How to think about the human contribution to organisations redesigned around AI.',
+];
+const topics = [
+  { t: 'Human intelligence in an AI-powered company', b: 'How do we use increasingly capable tools without neglecting judgement, context, empathy and the ability to work through disagreement?' },
+  { t: 'The hidden cost of leadership friction', b: 'What happens to decisions, momentum and trust when people avoid the conversations they know they need to have?' },
+  { t: 'From individual performance to collective performance', b: 'Why can a team of exceptional people still underperform, and what changes when collaboration becomes part of the operating system?' },
+  { t: 'Leadership responsibility during change', b: 'How can leaders face uncertainty without passing anxiety and ambiguity down through the organisation?' },
+  { t: 'Building a new kind of advisory firm', b: 'What will a consultancy look like when AI can already produce analyses and presentations in seconds, but the real challenge is helping people act together?' },
+];
+const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+<Layout
+  path="/ideas"
+  type="CollectionPage"
+  title="The Future of Work, Emotional Intelligence & AI | Vincent Azé"
+  description="Ideas and talks by Vincent Azé on the human side of AI: leadership, difficult conversations, emotional intelligence, team friction and the future of work."
+>
+  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
+    <div class="container-x py-12 lg:py-24">
+      <p class="label text-teal-deep">Ideas</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">The future of work is a human question as much as a technological one.</h1>
+      <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-steel">
+        <p>AI is changing what people can do. I am interested in what it changes about how we work with one another: how we decide, collaborate, challenge, trust and take responsibility.</p>
+        <p>For years, companies have invested in processes, systems and productivity tools. Many still struggle with the same human obstacles: conversations that do not happen, differences that become personal and decisions that fail to translate into action.</p>
+        <p>As AI accelerates execution, the question becomes harder to ignore. What happens to a company when its technology gets faster but its people do not get better at working together?</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-line" aria-labelledby="talk-heading">
+    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5">
+        <p class="label text-steel">Keynote and speaking</p>
+        <h2 id="talk-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">The Future of Work</h2>
+        <p class="mt-2 font-serif text-xl italic text-teal-deep">Emotional Intelligence vs Artificial Intelligence</p>
+        <p class="mt-6 leading-[1.7] text-steel">A talk about the widening gap between what technology enables and what human relationships can sustain.</p>
+        <div class="mt-8 rounded-2xl border border-line bg-cream/70 p-5">
+          <p class="text-[10px] tracking-[0.16em] uppercase font-medium text-steel">Upcoming</p>
+          <p class="mt-2 font-serif text-xl text-ink">The Human Side of AI: Emotional Intelligence and the Future of Work</p>
+          <p class="mt-1 text-sm text-steel">Portugal Tech Week, 11 November 2026</p>
+        </div>
+      </div>
+      <div class="mt-10 lg:mt-0 lg:col-span-7 max-w-2xl space-y-5 leading-[1.7] text-steel">
+        <p>Imagine two capable colleagues who have stopped talking. Give them each the most powerful AI assistant in the world. Their research will improve, their proposals may become more sophisticated and they will probably move faster as individuals. Eventually, however, they will still need to speak to each other and agree what happens next.</p>
+        <p>This is the tension I explore. The future of work involves using AI more effectively and also developing the emotional maturity, responsibility and collaborative intelligence that allow people to use powerful tools well.</p>
+        <h3 class="pt-4 font-serif text-xl text-ink">What audiences take away</h3>
+        <ul class="divide-y divide-line-strong/70 border-y border-line-strong/70">{takeaways.map((t) => <li class="py-3">{t}</li>)}</ul>
+        <p><span class="text-ink">Suitable for:</span> leadership teams, founders, managers, innovation communities, technology events and organisations rethinking how work is organised.</p>
+        <p><span class="text-ink">Available formats:</span> keynote, moderated conversation, leadership workshop or facilitated team discussion. Duration and format to be agreed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="topics-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Topics</p>
+      <h2 id="topics-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Five themes I keep coming back to.</h2>
+      <ol class="grid gap-8 lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10">
+        {topics.map((t, i) => (
+          <li class="border-t border-line-strong pt-5">
+            <span class="block text-xs text-teal-deep tabular-nums">0{i + 1}</span>
+            <h3 class="mt-3 font-serif text-xl md:text-2xl text-ink leading-snug">{t.t}</h3>
+            <p class="mt-2 max-w-[56ch] leading-[1.7] text-steel">{t.b}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="articles-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Publishing</p>
+      <h2 id="articles-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Articles and reflections.</h2>
+      <ul class="divide-y divide-line-strong/70 border-y border-line-strong/70">
+        {articles.map((a) => (
+          <li class="py-6">
+            <p class="text-xs text-steel"><time datetime={a.datePublished}>{fmt(a.datePublished)}</time> · Vincent Azé</p>
+            <h3 class="mt-2 font-serif text-2xl text-ink"><a class="hover:text-teal-deep" href={`/ideas/${a.slug}`}>{a.title}</a></h3>
+            <p class="mt-2 max-w-[62ch] leading-[1.7] text-steel">{a.description}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="bg-navy text-paper">
+    <div class="container-x py-14 lg:py-20 text-center">
+      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Bring this conversation to your team or event.</h2>
+      <p class="mt-5 max-w-xl mx-auto text-fog leading-relaxed">I welcome invitations to speak or facilitate discussions where leaders are willing to go beyond the AI headlines and explore the human capabilities their organisations will actually need.</p>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-paper text-navy px-8 py-4 text-sm hover:bg-cream transition-colors">Enquire about a talk <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+</Layout>

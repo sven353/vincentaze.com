@@ -17,20 +17,34 @@ import { legal } from '../data/legal';
     <input id="role_organisation" name="role_organisation" type="text" required class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
   </div>
   <div>
-    <label for="decision_challenge" class="block text-sm font-medium text-ink">What is happening in your leadership team?</label>
+    <label for="enquiry_type" class="block text-sm font-medium text-ink">Type of enquiry <span class="font-normal text-steel">(optional)</span></label>
+    <select id="enquiry_type" name="enquiry_type" class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base">
+      <option value="">Select one</option>
+      <option>Executive coaching</option>
+      <option>Leadership team and Kuma Partners</option>
+      <option>Speaking and workshops</option>
+      <option>Other</option>
+    </select>
+  </div>
+  <div>
+    <label for="decision_challenge" class="block text-sm font-medium text-ink">What would you like to discuss?</label>
     <textarea id="decision_challenge" name="decision_challenge" rows="5" required class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base"></textarea>
+  </div>
+  <div>
+    <label for="heard_from" class="block text-sm font-medium text-ink">How did you hear about me? <span class="font-normal text-steel">(optional)</span></label>
+    <input id="heard_from" name="heard_from" type="text" class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
   </div>
   <div class="flex items-start gap-3">
     <input id="privacy_consent" name="privacy_consent" type="checkbox" value="accepted" required class="mt-1 size-4 accent-navy" />
     <label for="privacy_consent" class="text-sm leading-relaxed text-steel">I have read the <a class="border-b border-ink" href="/privacy">privacy policy</a> and agree that Vincent Azé processes my details to reply to this enquiry.</label>
   </div>
-  <p class="text-xs leading-relaxed text-steel">Data protection summary: controller {legal.owner}. Purpose: replying to your enquiry. Basis: your consent. Your details are stored in Netlify Forms and deleted when no engagement follows. Rights and contact: <a class="border-b border-ink" href="/privacy">privacy policy</a>.</p>
+  <p class="text-xs leading-relaxed text-steel">Data protection summary: controller {legal.owner}. Purpose: replying to your enquiry. Basis: your consent. Your details are stored in Netlify Forms and kept only as long as needed to handle your enquiry. Rights and contact: <a class="border-b border-ink" href="/privacy">privacy policy</a>.</p>
   <p id="form-error" class="hidden text-sm text-red-700" role="alert"></p>
-  <button type="submit" class="inline-flex items-center gap-2 rounded-sm bg-navy px-6 py-3.5 text-sm text-paper hover:bg-navy-hover transition-colors">Send enquiry <span aria-hidden="true">→</span></button>
-  <p class="text-xs text-steel">Confidential. Reply within 24 to 48 hours on working days.</p>
+  <button type="submit" class="inline-flex items-center gap-2 rounded-sm bg-navy px-6 py-3.5 text-sm text-paper hover:bg-navy-hover transition-colors">Send my enquiry <span aria-hidden="true">→</span></button>
+  <p class="text-xs text-steel">Confidential. I read every enquiry personally.</p>
 </form>
 <div id="form-success" class="hidden rounded-2xl border border-line bg-white p-8" role="status" tabindex="-1">
   <h2 class="font-serif text-2xl text-ink">Thank you.</h2>
-  <p class="mt-3 text-steel">Your enquiry has arrived. Vincent will reply within 24 to 48 hours on working days.</p>
+  <p class="mt-3 text-steel">I have received your message and will review it personally. If there is a fit, I will be in touch about a first conversation.</p>
 </div>
 <script src="/form.js" defer></script>
