@@ -35,7 +35,7 @@ const vincent = {
   alternateName: 'Vincent Aze',
   jobTitle: site.profession,
   description:
-    'Executive coach and founding partner of Kuma Partners, focused on leadership friction, founder alignment and the human side of AI.',
+    'Executive coach and founding partner of Kuma Partners. Partners with founders and executives to address difficult conversations, rebuild trust and improve collaboration.',
   url: base,
   image: `${base}/vincent-aze.jpg`,
   homeLocation: { '@type': 'Place', name: site.place },
@@ -45,6 +45,9 @@ const vincent = {
   sameAs: [site.linkedin],
   knowsAbout: [
     'Executive coaching',
+    'Difficult conversations',
+    'Executive communication',
+    'Co-founder conflict',
     'Leadership friction',
     'Founder and co-founder alignment',
     'Emotional intelligence',
@@ -120,22 +123,6 @@ const webPage: Record<string, unknown> = {
 if (type === 'ProfilePage') webPage.mainEntity = { '@id': ids.vincent };
 
 const graph: unknown[] = [vincent, kuma, sven, ...services, webSite, webPage];
-
-// Dated event on the home page. Remove or update after the event has taken place.
-if (path === '/') {
-  graph.push({
-    '@type': 'Event',
-    '@id': `${base}/#portugal-tech-week-talk`,
-    name: 'The Human Side of AI: Emotional Intelligence and the Future of Work',
-    description: 'A talk by Vincent Azé at Portugal Tech Week on emotional intelligence, human judgement and the future of work.',
-    startDate: '2026-11-11',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    eventStatus: 'https://schema.org/EventScheduled',
-    location: { '@type': 'Place', name: 'Portugal Tech Week', address: { '@type': 'PostalAddress', addressLocality: 'Lisbon', addressCountry: 'PT' } },
-    performer: { '@id': ids.vincent },
-    image: ogImage,
-  });
-}
 
 if (article) {
   graph.push({

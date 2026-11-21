@@ -6,7 +6,22 @@ export const faqs: Faq[] = [
   {
     q: 'Who is Vincent Azé?',
     verdict: 'Vincent Azé is an executive coach and a founding partner of Kuma Partners, based in Lisbon.',
-    body: 'After an international career in fintech and commercial leadership, Vincent moved into executive coaching around ten years ago. He works with founders, CEOs and leadership teams on human dynamics, difficult conversations, execution and the future of work. [Kuma Partners](https://www.kuma.partners/) is the leadership advisory firm he co-founded.',
+    body: 'Vincent has explored communication and human behaviour for 26 years. After an international career in fintech and commercial leadership, he became a full-time executive coach around ten years ago and has worked with hundreds of people. He specialises in difficult conversations with founders, CEOs and leadership teams: addressing what is unspoken, rebuilding trust and working together more effectively. [Kuma Partners](https://www.kuma.partners/) is the leadership advisory firm he co-founded.',
+  },
+  {
+    q: 'What does "bridging the gap between silence and high performance" mean?',
+    verdict: 'It means helping people say what is going unsaid so that they can perform together.',
+    body: 'Teams and founders often know exactly which conversation they are avoiding. The silence is costly: decisions stall, trust erodes and problems grow. I partner with founders and executives to make those conversations possible, productive and consequential.',
+  },
+  {
+    q: 'What is a difficult conversation in a leadership context?',
+    verdict: 'Any conversation where the stakes are high and the topic is uncomfortable.',
+    body: 'Typical examples are a disagreement between co-founders, feedback about performance, a decision someone does not want to own, or a relationship that has stopped working. The difficulty is human more than informational, because people know what needs to be said.',
+  },
+  {
+    q: 'Why do intelligent leaders postpone difficult conversations?',
+    verdict: 'Because the human dynamics are complicated, whatever the person\'s competence.',
+    body: 'Fear of damaging a relationship, uncertainty about the right words and the hope that the issue will resolve itself are common reasons. Postponing usually raises the cost. Preparing the conversation properly often makes it much less daunting.',
   },
   {
     q: 'Who do you coach?',

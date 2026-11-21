@@ -46,7 +46,7 @@ for (const [name, h] of Object.entries(html)) {
   ok(!JSON.stringify(g).includes('alumniOf'), `${name}: alumniOf must not appear`);
   if (name === 'advisory') {
     const f = g.find((n) => n['@type'] === 'FAQPage');
-    ok(f && f.mainEntity.length === 14, 'advisory: FAQPage must have 14 questions');
+    ok(f && f.mainEntity.length === 17, 'advisory: FAQPage must have 17 questions');
     ok(f && f.mainEntity.every((q) => !/[<\[]/.test(q.acceptedAnswer.text)), 'advisory: FAQ answers must be plain text');
   }
   if (name.startsWith('ideas/')) {
@@ -54,11 +54,20 @@ for (const [name, h] of Object.entries(html)) {
     ok(a && a.author?.['@id'] === 'https://vincentaze.com/#vincent-aze' && a.datePublished && a.dateModified, `${name}: Article needs author, datePublished, dateModified`);
   }
   if (name === 'about') ok(types.includes('ProfilePage'), 'about: must be ProfilePage');
-  if (name === 'index') ok(types.includes('Event'), 'index: Event node expected');
+  ok(!types.includes('Event'), `${name}: past Event node must be removed`);
 }
 
+// Positioning and proof
+ok(html.index.includes('Bridging the gap between silence and high performance.'), 'home: USP headline missing');
+ok(html.index.includes('Some conversations are damn hard to have.'), 'home: opening line missing');
+ok(html.index.includes('I partner with founders and executives'), 'home: supporting USP copy missing');
+ok(html.index.includes('26 years') && html.about.includes('26 years'), '26 years must appear on home and about');
+ok(!/calendly|cal\.com/i.test(Object.values(html).join('')), 'no booking link has been supplied: remove scheduling links');
+ok((html.index.match(/<figure/g) || []).length >= 3, 'home: testimonials missing');
+ok(html.index.includes('LinkedIn recommendation'), 'home: testimonials must state their source');
+
 // Faq rendering
-ok((html.advisory.match(/<details/g) || []).length === 14, 'advisory: 14 details toggles expected');
+ok((html.advisory.match(/<details/g) || []).length === 17, 'advisory: 17 details toggles expected');
 ok(read('llms-full.txt').includes('Can you help with co-founder conflict?'), 'llms-full lacks FAQ');
 
 // Sister sites linked

@@ -1,21 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { site } from '../data/site';
+import Testimonials from '../components/Testimonials.astro';
+import { testimonials } from '../data/testimonials';
 
 // Content from Vincent's briefing. The timeline deliberately avoids dates, qualifications and job titles that are not confirmed.
 const experience = [
   { n: '01', t: 'International commercial and operating experience', b: 'My earlier work in fintech and international business taught me the realities of commercial execution: serving demanding clients, working across borders, coordinating teams and delivering when stakes are high. I bring that commercial lens into coaching without turning every human problem into a spreadsheet.' },
-  { n: '02', t: 'A decade of executive coaching', b: 'I work with leaders on trust, difficult conversations, responsibility, conflict, alignment and personal leadership. I believe change becomes possible when people stop defending a polished version of the story and become willing to look at their own part in it.' },
+  { n: '02', t: 'A decade of executive coaching', b: 'With hundreds of people over around ten years, I have worked with leaders on trust, difficult conversations, responsibility, conflict, alignment and personal leadership. I believe change becomes possible when people stop defending a polished version of the story and become willing to look at their own part in it.' },
   { n: '03', t: 'Building Kuma Partners for a changing world', b: 'Kuma Partners brings together experienced advisers, coaches and operators to work with senior teams when growth or transformation exposes friction. I am particularly interested in what a new generation of consulting can look like: high-quality human judgement, supported by increasingly capable technology.' },
 ];
 const path = [
   { t: 'Early years in France', b: 'Growing up in the south of France helped shape a European and cross-cultural outlook.' },
+  { t: 'Twenty-six years of exploring human behaviour', b: 'I began exploring communication and personal development 26 years ago. It shaped my understanding of relationships, empathy, responsibility and what meaningful conversations make possible.' },
   { t: 'International career', b: 'Professional chapters in London, Hong Kong and other European cities exposed me to different leadership styles and commercial environments.' },
   { t: 'Financial technology', b: 'Work associated with GL Trade, SunGard, FIS and Glownet developed my understanding of commercial pressure and complex organisations.' },
-  { t: 'Executive coaching', b: 'I moved towards working directly with leaders and teams on performance, conflict, awareness and behavioural change.' },
+  { t: 'Executive coaching', b: 'Around ten years as a full-time executive coach, working with hundreds of people on performance, conflict, awareness and behavioural change.' },
   { t: 'Kuma Partners', b: 'Co-founding a practice designed to combine executive advisory, team diagnostics, coaching and strategic facilitation.' },
-  { t: 'The future of work', b: 'Exploring what emotional intelligence, human judgement and leadership must become as AI changes the way organisations operate.' },
+  { t: 'Difficult conversations and the future of work', b: 'Helping founders and executives address what is unspoken, and exploring what emotional intelligence and human judgement must become as AI changes the way organisations operate.' },
 ];
+const earlier = [testimonials.yann, testimonials.smahil];
 const beliefs = [
   { t: 'People are rarely the problem in isolation.', b: 'The difficulty is often in the relationship, the system or the conversation that never took place. Understanding the pattern is more useful than looking for someone to blame.' },
   { t: 'Accountability can be generous.', b: 'Being responsible for your impact does not require being harsh with yourself or others. It means being willing to see reality, own your choices and change your behaviour.' },
@@ -34,18 +38,18 @@ const values = [
 <Layout
   path="/about"
   type="ProfilePage"
-  title="About Vincent Azé | Fintech, Leadership & Executive Coaching"
-  description="Meet Vincent Azé, a Lisbon-based executive coach and Kuma Partners founding partner. From international fintech to the human side of leadership and AI."
+  title="About Vincent Azé | Executive Coach and Kuma Partners Founding Partner"
+  description="Meet Vincent Azé, a Lisbon-based executive coach and Kuma Partners founding partner. 26 years exploring human behaviour, around ten as a full-time executive coach."
 >
   <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
     <div class="container-x py-12 lg:py-24">
       <p class="label text-teal-deep">About</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">I came to leadership through business, and to coaching through people.</h1>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">I have spent 26 years learning how people really talk to each other.</h1>
       <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-steel">
-        <p>I spent the first part of my career in the international world of financial technology, commercial relationships and business growth. I worked across different markets, cultures and organisations, including years in London and Hong Kong. It was an education in ambition, performance and pressure.</p>
-        <p>Over time, one question became more interesting to me than the technology or the commercial model: why do highly capable people sometimes struggle so much to work effectively together?</p>
-        <p>That question eventually changed the direction of my career. For roughly a decade, I have worked as an executive coach and adviser, helping founders, CEOs and leadership teams navigate the human side of difficult decisions.</p>
-        <p>Today I am based in Lisbon and am a founding partner of Kuma Partners. My focus remains the same: helping people face what is difficult to discuss, understand their own contribution to the situation and create a more effective way forward.</p>
+        <p>I began exploring communication and personal development 26 years ago. It changed how I understood relationships, empathy and responsibility, and what a single honest conversation can make possible.</p>
+        <p>My career then took me into international financial technology and commercial relationships, including years in London and Hong Kong. It was an education in ambition, performance and pressure.</p>
+        <p>Over time one question became more interesting to me than the technology or the commercial model: why do highly capable people sometimes struggle so much to work together? For around ten years I have worked full time as an executive coach, with hundreds of people.</p>
+        <p>Today I am based in Lisbon and am a founding partner of Kuma Partners. I specialise in the conversations people postpone, and in helping them address what is unspoken, rebuild trust and work together more effectively. I have not mastered human behaviour. It is more complicated than any method suggests, and I am still learning.</p>
       </div>
     </div>
   </section>
@@ -83,6 +87,14 @@ const values = [
           </li>
         ))}
       </ol>
+    </div>
+  </section>
+
+  <section aria-labelledby="earlier-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Earlier chapters</p>
+      <h2 id="earlier-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">What colleagues and clients wrote about my commercial years.</h2>
+      <Testimonials items={earlier} />
     </div>
   </section>
 

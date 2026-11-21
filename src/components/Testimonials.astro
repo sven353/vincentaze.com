@@ -1,0 +1,19 @@
+---
+import type { Testimonial } from '../data/testimonials';
+interface Props { items: Testimonial[]; dark?: boolean; columns?: 2 | 3 }
+const { items, dark = false, columns = 2 } = Astro.props;
+---
+<div class:list={['grid grid-cols-1 gap-8 lg:gap-12', columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2']}>
+  {items.map((t, i) => (
+    <figure class:list={['reveal border-t pt-5', dark ? 'border-navy-line' : 'border-line-strong', `delay-${(i % 3 + 1) * 100}`]}>
+      <blockquote class:list={['font-serif text-xl md:text-[1.4rem] leading-snug text-balance', dark ? 'text-paper' : 'text-ink']}>
+        {t.quote.map((q) => <p class="mb-3 last:mb-0">“{q}”</p>)}
+      </blockquote>
+      <figcaption class="mt-4 text-sm leading-relaxed">
+        <span class:list={['block font-medium', dark ? 'text-paper' : 'text-ink']}>{t.name}</span>
+        <span class:list={['block', dark ? 'text-fog' : 'text-steel']}>{t.role}</span>
+        <span class:list={['mt-1 block text-xs', dark ? 'text-fog/80' : 'text-steel/80']}>{t.source}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>

@@ -3,7 +3,16 @@ import Layout from '../layouts/Layout.astro';
 import Faq from '../components/Faq.astro';
 import { faqs } from '../data/faq';
 import { site } from '../data/site';
+import Testimonials from '../components/Testimonials.astro';
+import { testimonials } from '../data/testimonials';
 
+const pathways = [
+  { t: 'Difficult conversations', b: 'Preparing for and navigating conversations involving tension, disagreement, accountability, performance, expectations or important decisions.' },
+  { t: 'Founder and executive alignment', b: 'Addressing differences between co-founders, partners or senior executives before those differences undermine the business.' },
+  { t: 'Critical transitions', b: 'Supporting leaders through growth, change, restructuring, increased responsibility and other moments when human dynamics matter most.' },
+  { t: 'Team collaboration, with Kuma Partners', b: 'Friction, unclear responsibilities, trust issues and communication breakdowns across a team, through the 14-Day Leadership Friction Scan and other Kuma Partners work.', href: site.links.kuma },
+];
+const voices = [testimonials.seth, testimonials.xavi];
 const fit = [
   'A founder whose role has to evolve as the company grows.',
   'A CEO or executive carrying a difficult people decision, team conflict or high-stakes transition.',
@@ -40,17 +49,33 @@ const expect = [
 ---
 <Layout
   path="/advisory"
-  title="Executive Coaching & Leadership Advisory | Vincent Azé"
-  description="Confidential executive coaching and strategic thought partnership for founders, CEOs and senior leaders. Based in Lisbon, working internationally."
+  title="Executive Coaching for Difficult Conversations | Vincent Azé"
+  description="Confidential executive coaching for founders, CEOs and senior leaders: difficult conversations, founder alignment and critical transitions. Based in Lisbon, working internationally."
   faq={faqs}
 >
   <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
     <div class="container-x py-12 lg:py-24">
       <p class="label text-teal-deep">Advisory</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">A confidential space to think clearly, speak honestly and act decisively.</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, challenge your assumptions and develop your own judgement.</p>
+      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">A confidential partner for the conversations you have been avoiding.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, prepare for what needs to be said and develop your own judgement.</p>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-steel">This is executive coaching with business context. We can work on the person, the relationship and the organisation without confusing them.</p>
       <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Explore a first conversation <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="border-t border-line" aria-labelledby="pathways-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-steel">Pathways</p>
+      <h2 id="pathways-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">Four ways the work usually starts.</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        {pathways.map((x) => (
+          <div class="border-t border-line-strong pt-5">
+            <h3 class="font-serif text-xl text-ink leading-snug">{x.t}</h3>
+            <p class="mt-3 leading-[1.7] text-steel">{x.b}</p>
+            {x.href && <a href={x.href} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>}
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -124,6 +149,14 @@ const expect = [
         <p class="leading-[1.7] text-paper/90">Sometimes individual coaching reveals a broader pattern involving decision rights, incentives, communication or relationships across an executive team. That is where Kuma Partners can design a more systemic response, including a 14-Day Leadership Friction Scan, an alignment sprint or a strategic offsite.</p>
         <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm border-b border-paper pb-1 hover:text-fog hover:border-fog">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
       </div>
+    </div>
+  </section>
+
+  <section class="bg-navy text-paper" aria-labelledby="voices-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-fog">In their words</p>
+      <h2 id="voices-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-balance">What people say about working with me.</h2>
+      <Testimonials items={voices} dark />
     </div>
   </section>
 

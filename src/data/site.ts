@@ -7,9 +7,9 @@ export const site = {
   profession: 'Executive Coach and Strategic Advisor',
   title: 'Founding Partner',
   org: 'Kuma Partners',
-  tagline: 'Executive coaching, leadership advisory and the human side of AI',
+  tagline: 'Executive coaching for the conversations that matter most',
   description:
-    'Executive coach and Kuma Partners founding partner in Lisbon. Helping founders and leadership teams resolve friction, lead through change and navigate the human side of AI.',
+    'Executive coach and Kuma Partners founding partner in Lisbon. I partner with founders and executives to bridge the gap between silence and high performance.',
   email: 'vincent@kuma.partners',
   linkedin: 'https://www.linkedin.com/in/vincentaze/',
   // Kuma's own pages declare https://www.kuma.partners as canonical, so every link and schema id here uses the www form.
@@ -32,7 +32,7 @@ export const site = {
   ],
   proof: [
     { k: 'Founding Partner', v: 'Kuma Partners' },
-    { k: 'Around ten years', v: 'Executive coaching and advisory' },
-    { k: 'English · Français', v: 'Lisbon, working internationally' },
+    { k: '26 years', v: 'Exploring communication and human behaviour' },
+    { k: 'Around ten years', v: 'Full-time executive coaching' },
   ],
 };

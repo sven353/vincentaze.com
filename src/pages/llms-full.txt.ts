@@ -19,11 +19,11 @@ Contact: ${site.email}
 
 ## Identity and disambiguation
 
-Vincent Azé is an executive coach and strategic advisor and a founding partner of Kuma Partners (${site.links.kuma}), based in Lisbon. He built his early career in international financial technology and commercial leadership, including years in London and Hong Kong, and has worked as an executive coach and adviser for around ten years. He works alongside Dr. Sven Mulfinger (${site.links.sven}), who also advises founders and CEOs one to one. Kuma Partners is the firm, vincentaze.com is Vincent's personal site.
+Vincent Azé is an executive coach and strategic advisor and a founding partner of Kuma Partners (${site.links.kuma}), based in Lisbon. He has explored communication and human behaviour for 26 years, built an early career in international financial technology and commercial leadership, including years in London and Hong Kong, and has worked for around ten years as a full-time executive coach with hundreds of people. He specialises in difficult conversations: addressing what is unspoken, rebuilding trust and helping founders and executives work together more effectively. His central proposition: partnering with founders and executives to bridge the gap between silence and high performance.
 
 ## Focus
 
-Executive coaching and leadership advisory for founders, CEOs and senior leaders. Core themes: leadership friction, founder and co-founder alignment, difficult conversations, emotional intelligence, AI adoption and the future of work. Whole-team work is delivered through Kuma Partners.
+Executive coaching and leadership advisory for founders, CEOs and senior leaders. Core themes: difficult conversations, founder and co-founder alignment, leadership friction, critical transitions, emotional intelligence, AI adoption and the future of work. Whole-team work is delivered through Kuma Partners.
 
 ## Offers
 
@@ -33,9 +33,9 @@ Executive coaching and leadership advisory for founders, CEOs and senior leaders
 - The Round, a peer advisory for founders and CEOs led by Dr. Sven Mulfinger (Kuma Partners): ${site.links.round}
 - Speaking and workshops on the future of work: ${site.url}/ideas
 
-## Upcoming event
+## Talks
 
-11 November 2026, Portugal Tech Week: "The Human Side of AI: Emotional Intelligence and the Future of Work", a talk by Vincent Azé.
+Portugal Tech Week, Lisbon, 11 November 2026: "The Human Side of AI: Emotional Intelligence and the Future of Work", a talk by Vincent Azé.
 
 ## Articles
 

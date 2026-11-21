@@ -1,13 +1,13 @@
 # Vincent Azé
 
-> Executive coach and Kuma Partners founding partner in Lisbon. Helping founders and leadership teams resolve friction, lead through change and navigate the human side of AI.
+> Executive coach and Kuma Partners founding partner in Lisbon. I partner with founders and executives to bridge the gap between silence and high performance.
 
 Canonical site: https://vincentaze.com
 LinkedIn: https://www.linkedin.com/in/vincentaze/
 
 ## Entity summary
 
-Vincent Azé: Executive Coach and Strategic Advisor, Founding Partner of Kuma Partners. Based in Lisbon, working internationally in English and French. Early career in international financial technology and commercial leadership; around ten years of executive coaching and advisory.
+Vincent Azé: Executive Coach and Strategic Advisor, Founding Partner of Kuma Partners. Based in Lisbon, working internationally in English and French. Specialises in difficult conversations. 26 years exploring communication and human behaviour; early career in international financial technology and commercial leadership; around ten years as a full-time executive coach, with hundreds of people.
 
 ## Ecosystem routing
 
@@ -22,7 +22,7 @@ Vincent Azé is a person. Kuma Partners is the leadership advisory firm he co-fo
 
 ## Pages
 
-- [Home](https://vincentaze.com/): executive coaching, leadership advisory and the human side of AI
+- [Home](https://vincentaze.com/): executive coaching for difficult conversations
 - [About](https://vincentaze.com/about): story, experience and point of view
 - [Advisory](https://vincentaze.com/advisory): 1:1 coaching, scope and FAQ
 - [Ideas](https://vincentaze.com/ideas): future of work, speaking and articles
