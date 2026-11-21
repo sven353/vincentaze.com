@@ -26,7 +26,7 @@ export const site = {
   nav: [
     { href: '/', label: 'Home' },
     { href: '/about', label: 'About' },
-    { href: '/advisory', label: 'Advisory' },
+    { href: '/advisory', label: 'Executive coaching' },
     { href: '/ideas', label: 'Ideas' },
     { href: '/contact', label: 'Contact' },
   ],

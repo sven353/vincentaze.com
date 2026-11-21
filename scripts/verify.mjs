@@ -63,7 +63,9 @@ ok(html.index.includes('Some conversations are damn hard to have.'), 'home: open
 ok(html.index.includes('I partner with founders and executives'), 'home: supporting USP copy missing');
 ok(html.index.includes('26 years') && html.about.includes('26 years'), '26 years must appear on home and about');
 ok(!/calendly|cal\.com/i.test(Object.values(html).join('')), 'no booking link has been supplied: remove scheduling links');
-ok((html.index.match(/<figure/g) || []).length >= 3, 'home: testimonials missing');
+ok((html.index.match(/<figure/g) || []).length >= 2, 'home: featured testimonial missing');
+ok((html.advisory.match(/<figure/g) || []).length >= 5, 'advisory: testimonials missing');
+ok(!/heard_from/.test(html.contact), 'contact: referral field must stay removed');
 ok(html.index.includes('LinkedIn recommendation'), 'home: testimonials must state their source');
 
 // Faq rendering

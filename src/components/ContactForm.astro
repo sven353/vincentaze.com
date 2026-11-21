@@ -13,8 +13,8 @@ import { legal } from '../data/legal';
     <input id="email" name="email" type="email" required autocomplete="email" class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
   </div>
   <div>
-    <label for="role_organisation" class="block text-sm font-medium text-ink">Role and company</label>
-    <input id="role_organisation" name="role_organisation" type="text" required class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
+    <label for="role_organisation" class="block text-sm font-medium text-ink">Role and company <span class="font-normal text-steel">(optional)</span></label>
+    <input id="role_organisation" name="role_organisation" type="text" class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
   </div>
   <div>
     <label for="enquiry_type" class="block text-sm font-medium text-ink">Type of enquiry <span class="font-normal text-steel">(optional)</span></label>
@@ -29,10 +29,6 @@ import { legal } from '../data/legal';
   <div>
     <label for="decision_challenge" class="block text-sm font-medium text-ink">What would you like to discuss?</label>
     <textarea id="decision_challenge" name="decision_challenge" rows="5" required class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base"></textarea>
-  </div>
-  <div>
-    <label for="heard_from" class="block text-sm font-medium text-ink">How did you hear about me? <span class="font-normal text-steel">(optional)</span></label>
-    <input id="heard_from" name="heard_from" type="text" class="mt-2 w-full rounded-sm border border-line-strong bg-white px-4 py-3 text-base" />
   </div>
   <div class="flex items-start gap-3">
     <input id="privacy_consent" name="privacy_consent" type="checkbox" value="accepted" required class="mt-1 size-4 accent-navy" />

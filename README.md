@@ -100,6 +100,7 @@ UK spelling, no serial comma, no em dashes, no bold labels, short paragraphs. `n
 
 ## Changelog
 
+- 2026-11-21 (v4): Conversion edit after an external audit. Home cut by about a quarter (process steps, three perspectives and cost list removed, one large testimonial moved up, proof stats), Advisory reordered (one person or a system split, four pathways, what can change, five testimonials, engagement, scope, FAQ), About cut to three chapters and a stats strip, contact form shortened (referral field removed, role optional), nav label "Executive coaching" (URL unchanged). Headline, schema, FAQ and llms files unchanged.
 - 2026-11-21 (v3): Repositioned on difficult conversations. New home hero (USP), five recognisable situations, cost of silence, what becomes possible, eight real testimonials on home, About and Advisory, About arc with 26 years and hundreds of people, four advisory pathways, 17-question FAQ, updated schema and llms files. Event band, Event schema and the old /work page removed.
-- 2026-10-25 (v2): Rebuilt on Vincent's briefing. Five pages (Home, About, Advisory, Ideas, Contact), 14-question FAQ, two Ideas articles with Article schema, enquiry-type field, Founding Partner and Lisbon throughout, www.kuma.partners as the Kuma URL, 14-Day Leadership Friction Scan, vincent@kuma.partners. /work removed.
+- 2026-10-25 (v2): Rebuilt on Vincent's briefing. Five pages (Home, About, Executive coaching (/advisory), Ideas, Contact), 14-question FAQ, two Ideas articles with Article schema, enquiry-type field, Founding Partner and Lisbon throughout, www.kuma.partners as the Kuma URL, 14-Day Leadership Friction Scan, vincent@kuma.partners. /work removed.
 - 2026-10-17 (v1): Initial build.

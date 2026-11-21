@@ -14,41 +14,12 @@ const situations = [
   { n: '05', lead: 'You know what needs to be said. You are struggling to find the right way.', body: 'You need the words, the timing and the nerve more than another analysis.' },
 ];
 
-const costs = [
-  'Misalignment between founders',
-  'Tensions between executives that never get resolved',
-  'Performance issues left to grow',
-  'Trust that quietly erodes',
-  'Important decisions postponed again',
-  'Friction between departments',
+const proof = [
+  { k: '26 years', v: 'Exploring communication and human behaviour' },
+  { k: 'Around ten years', v: 'Full-time executive coaching' },
+  { k: 'Hundreds', v: 'Of people worked with' },
 ];
-
-const perspectives = [
-  {
-    n: '01',
-    title: 'Commercial reality',
-    body: 'I understand targets, customers, execution pressure and what it costs when decisions are delayed.',
-  },
-  {
-    n: '02',
-    title: 'Human dynamics',
-    body: 'My coaching work looks beyond the visible problem to what people are not saying, assuming or taking responsibility for.',
-  },
-  {
-    n: '03',
-    title: 'The human side of AI',
-    body: 'I explore how new technology changes work, and why emotional intelligence and human judgement become even more consequential.',
-  },
-];
-
-const steps = [
-  { n: '01', t: 'Bring the real situation', b: 'We start with the decision, relationship or transition that is actually demanding your attention.' },
-  { n: '02', t: 'See what is underneath', b: 'We explore the assumptions, emotions, incentives and interactions maintaining the problem.' },
-  { n: '03', t: 'Have the conversation that matters', b: 'We challenge the story, practise the difficult exchange and create space for real listening.' },
-  { n: '04', t: 'Turn insight into action', b: 'We agree what changes, who owns it and how you will recognise progress.' },
-];
-
-const voices = [testimonials.marcin, testimonials.navid, testimonials.moritz, testimonials.christina];
+const featured = [testimonials.marcin];
 
 const paths = [
   {
@@ -141,56 +112,27 @@ const paths = [
     </div>
   </section>
 
+  <section class="border-t border-line bg-paper" aria-label="Client testimonial">
+    <div class="container-x py-12 lg:py-24"><Testimonials items={featured} feature /></div>
+  </section>
+
   <section class="bg-cream/70 border-y border-line/70" aria-labelledby="silence-heading">
     <div class="container-x py-12 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16">
       <div class="reveal lg:col-span-6">
         <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">The cost of silence</p>
         <h2 id="silence-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Silence gets expensive.</h2>
-        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">We know these conversations need to happen and how much is at stake. Still, we postpone them, avoid them or handle them badly. The people involved are often exceptionally intelligent and experienced. Competence is rarely the issue. Human dynamics are complicated.</p>
-        <ul class="mt-6 divide-y divide-line-strong/70 border-y border-line-strong/70">
-          {costs.map((c) => <li class="py-3 text-[15px] sm:text-base text-ink">{c}</li>)}
-        </ul>
+        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">We know these conversations need to happen and how much is at stake. Still, we postpone them, avoid them or handle them badly. Founders drift apart, trust erodes and decisions wait. The people involved are often exceptionally intelligent and experienced. Competence is rarely the issue. Human dynamics are complicated.</p>
       </div>
-      <div class="reveal delay-100 mt-12 lg:mt-0 lg:col-span-6">
+      <div class="reveal delay-100 mt-10 lg:mt-0 lg:col-span-6">
         <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">What becomes possible</p>
         <h2 class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Conversations become possible again.</h2>
-        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">When people address difficult situations with courage, clarity, empathy and skill, trust can be rebuilt. Decisions get clearer, people take responsibility and teams perform better. The effect often reaches beyond work into personal relationships and everyday life.</p>
+        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">When people address difficult situations with courage, clarity, empathy and skill, trust can be rebuilt. Decisions get clearer, people take responsibility and teams perform better.</p>
         <blockquote class="mt-8 border-l-2 border-teal pl-6 font-serif text-2xl leading-snug text-ink text-balance">Some of the most important breakthroughs in business begin with conversations people have been avoiding.</blockquote>
       </div>
     </div>
   </section>
 
-  <section class="bg-paper" aria-labelledby="process-heading">
-    <div class="container-x py-10 lg:py-24">
-      <div class="reveal">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">How we work</p>
-        <h2 id="process-heading" class="mt-2 mb-10 md:mb-12 font-serif text-3xl md:text-4xl text-ink">What happens when we work together.</h2>
-      </div>
-      <ol class="relative grid grid-cols-1 gap-5 lg:gap-0 lg:grid-cols-4 lg:before:absolute lg:before:inset-x-0 lg:before:top-8 lg:before:border-t lg:before:border-line-strong lg:before:content-['']">
-        {steps.map((s, i) => (
-          <li class:list={['reveal relative lg:pr-8 border-t border-line/80 pt-5 first:border-t-0 first:pt-0 lg:border-t-0 lg:pt-0', i > 0 && `delay-${Math.min(i, 3) * 100}`]}>
-            <span class="block h-5 text-xs leading-5 text-teal-deep tabular-nums">{s.n}</span>
-            <span aria-hidden="true" class="hidden lg:block relative mt-3 h-0"><span class="absolute -top-[3.5px] left-0 size-[7px] rounded-full bg-navy"></span></span>
-            <h3 class="mt-3 lg:mt-9 font-serif text-xl text-ink leading-snug">{s.t}</h3>
-            <p class="mt-2 max-w-[34ch] text-[15px] sm:text-base leading-[1.7] text-steel">{s.b}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="bg-navy text-paper" aria-labelledby="voices-heading">
-    <div class="container-x py-14 lg:py-24">
-      <div class="reveal">
-        <p class="text-[11px] tracking-[0.18em] text-fog uppercase font-medium">In their words</p>
-        <h2 id="voices-heading" class="mt-2 font-serif text-3xl md:text-4xl text-balance">What clients have written.</h2>
-        <p class="mt-4 max-w-2xl text-sm leading-relaxed text-fog">Recommendations from Vincent's LinkedIn profile, quoted as written.</p>
-      </div>
-      <div class="mt-10"><Testimonials items={voices} dark /></div>
-    </div>
-  </section>
-
-<section class="bg-cream/70 border-y border-line/70" aria-labelledby="background-heading">
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="background-heading">
     <div class="container-x py-10 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-start">
       <div class="reveal lg:col-span-5 lg:sticky lg:top-28">
         <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Who I am</p>
@@ -200,18 +142,14 @@ const paths = [
         <a href="/about" class="mt-8 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep transition-colors">Read my story <span aria-hidden="true">→</span></a>
       </div>
       <div class="mt-10 lg:mt-0 lg:col-span-7">
-        <p class="reveal mb-4 text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Three perspectives I bring</p>
-        <ol class="divide-y divide-line-strong/70 border-y border-line-strong/70">
-          {perspectives.map((p, i) => (
-            <li class:list={['reveal py-6 lg:py-8 sm:grid sm:grid-cols-[2.5rem_1fr] sm:gap-x-4', `delay-${(i + 1) * 100}`]}>
-              <span class="mb-2 block sm:mb-0 sm:pt-1.5 text-xs text-teal-deep tabular-nums">{p.n}</span>
-              <div>
-                <h3 class="font-serif text-xl md:text-2xl text-ink leading-snug">{p.title}</h3>
-                <p class="mt-3 max-w-[60ch] text-[15px] sm:text-base leading-[1.7] text-steel">{p.body}</p>
-              </div>
-            </li>
+        <dl class="divide-y divide-line-strong/70 border-y border-line-strong/70">
+          {proof.map((x, i) => (
+            <div class:list={['reveal py-6 lg:py-8 sm:grid sm:grid-cols-[14rem_1fr] sm:gap-x-6 sm:items-baseline', `delay-${(i + 1) * 100}`]}>
+              <dt class="font-serif text-3xl md:text-4xl text-ink">{x.k}</dt>
+              <dd class="mt-1 sm:mt-0 text-[15px] sm:text-base leading-[1.7] text-steel">{x.v}</dd>
+            </div>
           ))}
-        </ol>
+        </dl>
       </div>
     </div>
   </section>
@@ -220,7 +158,8 @@ const paths = [
     <div class="container-x py-10 lg:py-24">
       <div class="reveal">
         <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Ways to work</p>
-        <h2 id="paths-heading" class="mt-2 mb-10 md:mb-12 font-serif text-3xl md:text-4xl text-ink">Three paths, one starting point.</h2>
+        <h2 id="paths-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">One person needs confidential support, or a leadership system needs intervention.</h2>
+        <p class="mt-4 mb-10 md:mb-12 max-w-2xl text-[15px] sm:text-base leading-[1.7] text-steel">The first is work with Vincent. The second is work with Kuma Partners. Either way the starting point is a conversation.</p>
       </div>
       <div class="rounded-2xl lg:rounded-[1.75rem] border border-ink/5 bg-cream/60 p-3 lg:p-4 grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 items-stretch">
         {paths.map((c, i) => (

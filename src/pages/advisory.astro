@@ -12,7 +12,13 @@ const pathways = [
   { t: 'Critical transitions', b: 'Supporting leaders through growth, change, restructuring, increased responsibility and other moments when human dynamics matter most.' },
   { t: 'Team collaboration, with Kuma Partners', b: 'Friction, unclear responsibilities, trust issues and communication breakdowns across a team, through the 14-Day Leadership Friction Scan and other Kuma Partners work.', href: site.links.kuma },
 ];
-const voices = [testimonials.seth, testimonials.xavi];
+const voices = [testimonials.navid, testimonials.christina, testimonials.moritz, testimonials.seth, testimonials.xavi];
+const changes = [
+  { t: 'A decision gets made', b: 'The choice that kept returning is faced, owned and taken.' },
+  { t: 'A conversation takes place', b: 'The exchange you were avoiding happens, prepared well enough to be useful.' },
+  { t: 'A relationship stabilises', b: 'Co-founders, executives or partners can talk openly again.' },
+  { t: 'Accountability gets clearer', b: 'People know who owns what, and say so when it slips.' },
+];
 const fit = [
   'A founder whose role has to evolve as the company grows.',
   'A CEO or executive carrying a difficult people decision, team conflict or high-stakes transition.',
@@ -55,11 +61,28 @@ const expect = [
 >
   <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
     <div class="container-x py-12 lg:py-24">
-      <p class="label text-teal-deep">Advisory</p>
+      <p class="label text-teal-deep">Executive coaching</p>
       <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">A confidential partner for the conversations you have been avoiding.</h1>
       <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, prepare for what needs to be said and develop your own judgement.</p>
       <p class="mt-4 max-w-2xl text-lg leading-relaxed text-steel">This is executive coaching with business context. We can work on the person, the relationship and the organisation without confusing them.</p>
       <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Explore a first conversation <span aria-hidden="true">→</span></a>
+    </div>
+  </section>
+
+  <section class="border-t border-line" aria-labelledby="split-heading">
+    <div class="container-x py-10 lg:py-14">
+      <h2 id="split-heading" class="sr-only">Where to start</h2>
+      <div class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
+        <div class="bg-white p-6 lg:p-8">
+          <p class="text-[10px] tracking-[0.16em] uppercase font-medium text-steel">One person</p>
+          <p class="mt-2 font-serif text-2xl text-ink leading-snug">One person needs confidential support: work with Vincent.</p>
+        </div>
+        <div class="bg-cream p-6 lg:p-8">
+          <p class="text-[10px] tracking-[0.16em] uppercase font-medium text-steel">A leadership system</p>
+          <p class="mt-2 font-serif text-2xl text-ink leading-snug">A leadership system needs intervention: work with Kuma Partners.</p>
+          <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -79,28 +102,31 @@ const expect = [
     </div>
   </section>
 
-  <section class="border-t border-line" aria-labelledby="fit-heading">
+  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="changes-heading">
     <div class="container-x py-12 lg:py-20">
-      <p class="label text-steel">Fit</p>
-      <h2 id="fit-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Who this is for, and where I draw the line.</h2>
-      <div class="grid gap-10 lg:grid-cols-3 lg:gap-12">
-        <div>
-          <h3 class="font-serif text-xl text-ink">A good fit often looks like</h3>
-          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{fit.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
-        </div>
-        <div>
-          <h3 class="font-serif text-xl text-ink">Topics in scope</h3>
-          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{inScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
-        </div>
-        <div>
-          <h3 class="font-serif text-xl text-ink">Deliberately outside the scope</h3>
-          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{outScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
-        </div>
+      <p class="label text-steel">What can change</p>
+      <h2 id="changes-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">What changes when we work together.</h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+        {changes.map((c) => (
+          <div class="border-t border-line-strong pt-5">
+            <h3 class="font-serif text-xl text-ink leading-snug">{c.t}</h3>
+            <p class="mt-3 leading-[1.7] text-steel">{c.b}</p>
+          </div>
+        ))}
       </div>
+      <p class="mt-8 max-w-2xl text-sm leading-relaxed text-steel">No outcome is guaranteed. What changes depends on the people and the situation, and the leader keeps ownership of the choices.</p>
     </div>
   </section>
 
-  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="engage-heading">
+  <section class="bg-navy text-paper" aria-labelledby="voices-heading">
+    <div class="container-x py-12 lg:py-20">
+      <p class="label text-fog">In their words</p>
+      <h2 id="voices-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-balance">What people say about working with me.</h2>
+      <Testimonials items={voices} dark columns={3} />
+    </div>
+  </section>
+
+  <section aria-labelledby="engage-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Engagement</p>
       <h2 id="engage-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink">How an engagement works.</h2>
@@ -126,37 +152,24 @@ const expect = [
     </div>
   </section>
 
-  <section aria-labelledby="question-heading">
-    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-      <div class="lg:col-span-4">
-        <p class="label text-steel">Example</p>
-        <h2 id="question-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">A question I often find myself asking.</h2>
-      </div>
-      <div class="mt-8 lg:mt-0 lg:col-span-8 max-w-2xl">
-        <blockquote class="border-l-2 border-teal pl-6 font-serif text-2xl md:text-3xl leading-snug text-ink">What conversation are you hoping will become unnecessary if you wait long enough?</blockquote>
-        <p class="mt-6 leading-[1.7] text-steel">When an issue returns again and again, the cause may be an unresolved commitment, a relationship under strain or a decision someone does not want to own rather than a lack of information. We can examine the practical facts and the human cost of postponement at the same time.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-navy text-paper" aria-labelledby="paths-heading">
-    <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
-      <div class="lg:col-span-5">
-        <p class="label text-fog">Other paths</p>
-        <h2 id="paths-heading" class="mt-2 font-serif text-3xl md:text-4xl text-balance">When the challenge belongs to the whole team.</h2>
-      </div>
-      <div class="mt-6 lg:mt-0 lg:col-span-7 max-w-2xl">
-        <p class="leading-[1.7] text-paper/90">Sometimes individual coaching reveals a broader pattern involving decision rights, incentives, communication or relationships across an executive team. That is where Kuma Partners can design a more systemic response, including a 14-Day Leadership Friction Scan, an alignment sprint or a strategic offsite.</p>
-        <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-6 inline-flex items-center gap-2 text-sm border-b border-paper pb-1 hover:text-fog hover:border-fog">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-navy text-paper" aria-labelledby="voices-heading">
+  <section class="border-t border-line bg-cream/70" aria-labelledby="fit-heading">
     <div class="container-x py-12 lg:py-20">
-      <p class="label text-fog">In their words</p>
-      <h2 id="voices-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-balance">What people say about working with me.</h2>
-      <Testimonials items={voices} dark />
+      <p class="label text-steel">Fit</p>
+      <h2 id="fit-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Who this is for, and where I draw the line.</h2>
+      <div class="grid gap-10 lg:grid-cols-3 lg:gap-12">
+        <div>
+          <h3 class="font-serif text-xl text-ink">A good fit often looks like</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{fit.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl text-ink">Topics in scope</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{inScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+        <div>
+          <h3 class="font-serif text-xl text-ink">Deliberately outside the scope</h3>
+          <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{outScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
+        </div>
+      </div>
     </div>
   </section>
 
