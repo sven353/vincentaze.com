@@ -15,7 +15,7 @@ interface Props {
 const { title, description, path, type = 'WebPage', faq, article, noindex = false } = Astro.props;
 
 const base = site.url;
-const url = base + (path === '/' ? '' : path);
+const url = base + path;
 const ogImage = `${base}/og.png`;
 const strip = (md: string) => md.replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
 

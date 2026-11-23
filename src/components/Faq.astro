@@ -13,7 +13,7 @@ const html = (md: string) =>
       <h3 class="font-serif text-xl md:text-2xl text-ink leading-snug">{f.q}</h3>
       <p class="mt-2 max-w-[62ch] text-[15px] sm:text-base leading-[1.7] text-ink">{f.verdict}</p>
       <details class="group mt-3">
-        <summary class="inline-flex cursor-pointer list-none items-center gap-2 text-sm text-teal-deep hover:text-ink [&::-webkit-details-marker]:hidden">
+        <summary class="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 text-sm text-teal-deep hover:text-ink [&::-webkit-details-marker]:hidden">
           <span class="group-open:hidden">Read context</span><span class="hidden group-open:inline">Hide context</span>
           <span aria-hidden="true" class="transition-transform group-open:rotate-45">+</span>
         </summary>

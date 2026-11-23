@@ -12,25 +12,25 @@ const year = new Date().getFullYear();
     </div>
     <nav aria-label="Site" class="lg:col-span-3">
       <p class="label text-gold">Site</p>
-      <ul class="mt-4 space-y-2 text-sm">
-        {site.nav.map((n) => <li><a class="hover:text-gold" href={n.href}>{n.label}</a></li>)}
-        {site.more.map((n) => <li><a class="text-fog hover:text-gold" href={n.href}>{n.label}</a></li>)}
+      <ul class="mt-3 text-sm">
+        {site.nav.map((n) => <li><a class="inline-block py-1.5 hover:text-gold" href={n.href}>{n.label}</a></li>)}
+        {site.more.map((n) => <li><a class="inline-block py-1.5 text-fog hover:text-gold" href={n.href}>{n.label}</a></li>)}
       </ul>
     </nav>
     <nav aria-label="Kuma Partners and elsewhere" class="lg:col-span-4">
       <p class="label text-gold">Kuma Partners</p>
-      <ul class="mt-4 space-y-2 text-sm">
-        <li><a class="hover:text-gold" href={site.links.kuma} target="_blank" rel="noopener noreferrer">Kuma Partners<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="hover:text-gold" href={site.links.offsite} target="_blank" rel="noopener noreferrer">Leadership offsites<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="hover:text-gold" href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="hover:text-gold" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+      <ul class="mt-3 text-sm">
+        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.kuma} target="_blank" rel="noopener noreferrer">Kuma Partners<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.offsite} target="_blank" rel="noopener noreferrer">Leadership offsites<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class="inline-block py-1.5 hover:text-gold" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
       </ul>
     </nav>
   </div>
   <div class="border-t border-navy-line">
     <div class="container-x py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-fog">
       <p>© {year} Vincent Azé. All rights reserved.</p>
-      <p class="flex gap-5"><a class="hover:text-gold" href="/privacy">Privacy policy</a><a class="hover:text-gold" href="/legal">Legal notice</a></p>
+      <p class="flex gap-2"><a class="px-2 py-2.5 hover:text-gold" href="/privacy">Privacy policy</a><a class="px-2 py-2.5 hover:text-gold" href="/legal">Legal notice</a></p>
     </div>
   </div>
 </footer>
