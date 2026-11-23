@@ -1,0 +1,25 @@
+---
+import { Image } from 'astro:assets';
+import type { Testimonial } from '../data/testimonials';
+interface Props { items: Testimonial[] }
+const { items } = Astro.props;
+---
+<ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
+  {items.map((t, i) => (
+    <li class:list={['reveal flex', `delay-${(i % 3 + 1) * 100}`]}>
+      <figure class="flex w-full flex-col border-t-2 border-gold bg-white p-6 shadow-[0_1px_0_0_var(--color-line)]">
+        <blockquote class="flex-1 text-[0.98rem] leading-relaxed text-ink">
+          <p><span aria-hidden="true" class="mr-0.5 text-gold">“</span>{t.quote}<span aria-hidden="true" class="ml-0.5 text-gold">”</span></p>
+        </blockquote>
+        <figcaption class="mt-6 flex items-center gap-4 border-t border-line pt-5">
+          <Image src={t.photo} alt={`${t.first} ${t.last}`} width={112} height={112} densities={[1, 2]} loading="lazy" class="size-14 shrink-0 rounded-full object-cover" />
+          <span class="text-sm leading-snug">
+            <span class="block font-bold text-ink">{t.first} {t.last}</span>
+            <span class="block text-steel">{t.title}</span>
+            {t.company && <span class="block text-steel">{t.company}</span>}
+          </span>
+        </figcaption>
+      </figure>
+    </li>
+  ))}
+</ul>

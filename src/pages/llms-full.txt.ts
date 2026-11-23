@@ -10,6 +10,8 @@ export const GET: APIRoute = () => {
 
 > ${site.description}
 
+Positioning: Expert in difficult conversations. ${site.usp}
+
 Canonical site: ${site.url}
 Role: ${site.profession}; ${site.title}, ${site.org}
 Based in: ${site.place}, working internationally
@@ -19,7 +21,7 @@ Contact: ${site.email}
 
 ## Identity and disambiguation
 
-Vincent Azé is an executive coach and strategic advisor and a founding partner of Kuma Partners (${site.links.kuma}), based in Lisbon. He has explored communication and human behaviour for 26 years, built an early career in international financial technology and commercial leadership, including years in London and Hong Kong, and has worked for around ten years as a full-time executive coach with hundreds of people. He specialises in difficult conversations: addressing what is unspoken, rebuilding trust and helping founders and executives work together more effectively. His central proposition: partnering with founders and executives to bridge the gap between silence and high performance.
+Vincent Azé is an executive coach and strategic advisor and a founding partner of Kuma Partners (${site.links.kuma}), based in Lisbon. He has explored communication and human behaviour for 26 years, built an early career in international financial technology and commercial leadership, including years in London and Hong Kong, and has worked for around ten years as a full-time executive coach with hundreds of people. He specialises in difficult conversations: addressing what is unspoken, rebuilding trust and helping founders and executives work together more effectively. His central proposition: partnering with founders and executives to bridge the gap between silence and performance.
 
 ## Focus
 
@@ -44,6 +46,7 @@ ${articles.map((a) => `- ${a.title} (${a.datePublished}): ${site.url}/ideas/${a.
 ## Pages
 
 - ${site.url}/ : home
+- ${site.url}/kuma-partners : how Vincent relates to Kuma Partners and what Kuma offers
 - ${site.url}/about : story, experience and point of view
 - ${site.url}/advisory : executive coaching, scope and FAQ
 - ${site.url}/ideas : future of work, talks and articles

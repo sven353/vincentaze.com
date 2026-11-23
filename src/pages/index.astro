@@ -1,188 +1,157 @@
 ---
 import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
-import portrait from '../assets/images/vincent-aze.jpg';
+import TestimonialGrid from '../components/TestimonialGrid.astro';
+import EmailCapture from '../components/EmailCapture.astro';
+import GuideCover from '../components/GuideCover.astro';
 import { site } from '../data/site';
-import Testimonials from '../components/Testimonials.astro';
-import { testimonials } from '../data/testimonials';
+import { testimonialList } from '../data/testimonials';
+import hero from '../assets/vincent/hero.jpg';
+import coaching from '../assets/vincent/coaching.jpg';
+import smile from '../assets/vincent/smile.jpg';
 
-const situations = [
-  { n: '01', lead: 'You and your co-founder keep circling the same disagreement.', body: 'Every discussion ends in a truce rather than a decision.' },
-  { n: '02', lead: 'Your leadership team is aligned in meetings, but not in practice.', body: 'Agreement in the room, a different story in the corridor.' },
-  { n: '03', lead: 'There is a performance issue nobody wants to address.', body: 'Everyone knows. The cost grows a little more each month.' },
-  { n: '04', lead: 'A relationship that matters to your business is deteriorating.', body: 'A partner, an investor, a senior hire or a colleague you can no longer talk to openly.' },
-  { n: '05', lead: 'You know what needs to be said. You are struggling to find the right way.', body: 'You need the words, the timing and the nerve more than another analysis.' },
+// Exact approved copy from "My USP.png". Do not paraphrase.
+const story = [
+  '26 years ago, following a communication course, I played a major part in bringing my mother and grandfather back together after 30 years of not speaking.',
+  'Who I had become, and what I had learnt, helped change an entire family through conversations, one at a time.',
 ];
-
-const proof = [
-  { k: '26 years', v: 'Exploring communication and human behaviour' },
-  { k: 'Around ten years', v: 'Full-time executive coaching' },
-  { k: 'Hundreds', v: 'Of people worked with' },
-];
-const featured = [testimonials.marcin];
-
-const paths = [
-  {
-    primary: true,
-    eyebrow: 'Individual',
-    title: '1:1 Executive Coaching and Advisory',
-    body: 'Confidential work for founders and senior executives preparing for, or recovering from, the conversations that matter: co-founder tension, a performance issue, a stalled decision, a relationship under strain.',
-    href: '/advisory',
-    label: 'Explore 1:1 advisory',
-    internal: true,
-  },
-  {
-    eyebrow: 'Leadership teams · Kuma Partners',
-    title: 'Leadership team work via Kuma Partners',
-    body: 'When the issue is systemic rather than individual, I work with my partners on diagnostics, leadership alignment, founder relationships and strategic offsites, starting with the 14-Day Leadership Friction Scan.',
-    href: site.links.kuma,
-    label: 'Explore Kuma Partners',
-  },
-  {
-    eyebrow: 'Speaking',
-    title: 'Speaking, workshops and the future of work',
-    body: 'Talks and facilitated conversations on the intersection of artificial intelligence, emotional intelligence and the changing nature of work. Designed to make audiences think and leave with practical questions.',
-    href: '/ideas',
-    label: 'Explore ideas and speaking',
-    internal: true,
-  },
+const turning = 'That experience taught me that the right conversation could change everything.';
+const clients = 'Today, my clients come to me when the stakes are high and important conversations block progress.';
+const upskill = [
+  { w: 'Say', t: 'what needs to be said' },
+  { w: 'Hear', t: 'what needs to be heard' },
+  { w: 'Unstuck', t: 'what needs to be unstuck' },
 ];
 ---
 <Layout
   path="/"
-  title="Vincent Azé | Executive Coach for Difficult Conversations"
-  description={site.description}
+  type="ProfilePage"
+  title="Vincent Azé | Expert in Difficult Conversations"
+  description="Vincent Azé is an expert in difficult conversations. Executive coach and founding partner of Kuma Partners in Lisbon. I bridge the gap between silence and performance."
 >
-  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
-    <div class="container-x pt-8 lg:pt-24 pb-12 lg:pb-24">
-      <div class="flex flex-col lg:grid lg:grid-cols-12 lg:gap-x-16 lg:items-center">
-        <div class="order-1 lg:order-none lg:col-span-7">
-          <p class="mb-3 font-serif text-xl lg:text-2xl italic text-teal-deep">Some conversations are damn hard to have.</p>
-          <h1 class="mb-5 font-serif text-3xl sm:text-4xl lg:text-6xl leading-tight lg:leading-[1.08] tracking-[-0.01em] text-ink text-balance max-w-[18ch]">Bridging the gap between silence and high performance.</h1>
-          <p class="mb-7 max-w-xl text-base lg:text-lg text-steel leading-relaxed">I partner with founders and executives to navigate the conversations that matter most, turning unspoken tensions into clarity, stronger collaboration and meaningful results.</p>
-          <p class="mb-7 -mt-3 max-w-xl text-sm text-steel">Executive coach and founding partner of Kuma Partners. Based in Lisbon, working internationally.</p>
-          <div class="hidden lg:block">
-            <a href="/contact" class="inline-flex items-center gap-2 whitespace-nowrap rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
-            <a href="/about" class="ml-6 border-b border-ink pb-1 text-sm hover:text-teal-deep hover:border-teal-deep transition-colors">Get to know me</a>
-            <span class="mt-3 block text-xs text-steel">Confidential. Direct. No obligation to continue.</span>
-          </div>
+  <!-- 1. Hero -->
+  <section class="relative overflow-hidden bg-navy text-paper" aria-labelledby="hero-h">
+    <div class="container-x grid items-center gap-10 py-12 sm:py-16 lg:grid-cols-12 lg:gap-12 lg:py-24">
+      <div class="lg:col-span-7">
+        <p class="label text-gold">Vincent Azé</p>
+        <p class="mt-2 text-lg text-fog sm:text-xl">{site.descriptor}</p>
+        <h1 id="hero-h" class="mt-8 text-[2.6rem] font-light leading-[1.04] tracking-[-0.03em] sm:text-6xl lg:text-[4.6rem]">I bridge the gap between <span class="text-gold">silence</span> and performance.</h1>
+        <span class="mt-8 block h-0.5 w-14 bg-gold" aria-hidden="true"></span>
+        <div class="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <a href="/contact" class="inline-flex items-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-bold text-navy transition-colors hover:bg-[#f0bb5f]">Let’s have a conversation <span aria-hidden="true">→</span></a>
+          <a href="#testimonials" class="text-sm text-fog border-b border-navy-line pb-1 hover:text-gold hover:border-gold">Read what clients say</a>
         </div>
-        <figure class="order-2 lg:order-none mb-6 lg:mb-0 lg:col-span-5">
-          <div class="relative mx-auto w-full max-w-sm lg:max-w-none aspect-square overflow-hidden rounded-2xl lg:rounded-[1.75rem] border border-ink/5 bg-cream shadow-md">
-            <Image
-              src={portrait}
-              alt="Vincent Azé, executive coach and founding partner of Kuma Partners"
-              widths={[360, 560, 800]}
-              sizes="(min-width: 1024px) 40vw, 90vw"
-              format="webp"
-              quality={82}
-              loading="eager"
-              fetchpriority="high"
-              decoding="async"
-              class="absolute inset-0 size-full object-cover object-[50%_30%]"
-            />
-          </div>
-          <figcaption class="mt-2 text-right text-[11px] tracking-wide text-steel/80">Vincent Azé · Founding Partner, Kuma Partners</figcaption>
-        </figure>
-        <div class="order-3 lg:hidden">
-          <a href="/contact" class="flex w-full justify-center items-center gap-2 rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
-          <span class="mt-2 block text-center text-[11px] text-steel">Confidential. Direct. No obligation to continue.</span>
+      </div>
+      <div class="lg:col-span-5">
+        <div class="relative mx-auto max-w-sm lg:max-w-none lg:ml-auto lg:mr-0">
+          <span class="pointer-events-none absolute inset-0 translate-x-3 translate-y-3 border border-gold/70" aria-hidden="true"></span>
+          <Image src={hero} alt="Vincent Azé, executive coach and expert in difficult conversations" width={900} height={900} widths={[480, 720, 900]} sizes="(min-width: 1024px) 40vw, 90vw" loading="eager" fetchpriority="high" class="relative aspect-square w-full object-cover" />
         </div>
       </div>
     </div>
+    <a href="#story" class="scroll-cue hidden items-center justify-center pb-6 text-fog hover:text-gold sm:flex" aria-label="Scroll to the story">
+      <span class="flex flex-col items-center gap-2 text-[0.65rem] uppercase tracking-[0.2em]">Scroll<span class="block h-8 w-px bg-gold"></span></span>
+    </a>
   </section>
 
-  <section class="border-t border-line bg-paper" aria-labelledby="situations-heading">
-    <div class="container-x py-10 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16">
-      <div class="reveal lg:col-span-4">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Recognise this?</p>
-        <h2 id="situations-heading" class="mt-2 mb-8 lg:mb-0 font-serif text-3xl md:text-4xl text-ink text-balance">There is a conversation you have been avoiding.</h2>
+  <!-- 2. The personal story -->
+  <section id="story" class="bg-paper scroll-mt-16" aria-labelledby="story-h">
+    <div class="container-x py-16 lg:py-28">
+      <p class="label text-gold-deep">The story</p>
+      <h2 id="story-h" class="sr-only">Where this started</h2>
+      <div class="mt-6 grid gap-8 lg:grid-cols-12">
+        <div class="space-y-6 text-xl font-light leading-[1.55] text-ink sm:text-2xl lg:col-span-7">
+          {story.map((p) => <p class="reveal">{p}</p>)}
+        </div>
       </div>
-      <ol class="lg:col-span-8 divide-y divide-line-strong/70 border-y border-line-strong/70">
-        {situations.map((x, i) => (
-          <li class:list={['reveal py-6 sm:grid sm:grid-cols-[2.5rem_1fr] sm:gap-x-4', `delay-${Math.min(i, 3) * 100}`]}>
-            <span class="mb-2 block text-xs text-teal-deep tabular-nums sm:mb-0 sm:pt-2">{x.n}</span>
-            <div>
-              <h3 class="font-serif text-xl md:text-2xl text-ink leading-snug text-balance">{x.lead}</h3>
-              <p class="mt-2 max-w-[56ch] text-[15px] sm:text-base leading-[1.7] text-steel">{x.body}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <blockquote class="reveal mt-12 max-w-4xl border-l-4 border-gold pl-6 text-3xl font-bold leading-[1.15] tracking-tight text-navy sm:text-4xl lg:mt-16 lg:pl-10 lg:text-[3.2rem]">
+        {turning}
+      </blockquote>
     </div>
   </section>
 
-  <section class="border-t border-line bg-paper" aria-label="Client testimonial">
-    <div class="container-x py-12 lg:py-24"><Testimonials items={featured} feature /></div>
-  </section>
-
-  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="silence-heading">
-    <div class="container-x py-12 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16">
-      <div class="reveal lg:col-span-6">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">The cost of silence</p>
-        <h2 id="silence-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Silence gets expensive.</h2>
-        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">We know these conversations need to happen and how much is at stake. Still, we postpone them, avoid them or handle them badly. Founders drift apart, trust erodes and decisions wait. The people involved are often exceptionally intelligent and experienced. Competence is rarely the issue. Human dynamics are complicated.</p>
-      </div>
-      <div class="reveal delay-100 mt-10 lg:mt-0 lg:col-span-6">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">What becomes possible</p>
-        <h2 class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Conversations become possible again.</h2>
-        <p class="mt-6 max-w-[52ch] text-[15px] sm:text-base leading-[1.7] text-steel">When people address difficult situations with courage, clarity, empathy and skill, trust can be rebuilt. Decisions get clearer, people take responsibility and teams perform better.</p>
-        <blockquote class="mt-8 border-l-2 border-teal pl-6 font-serif text-2xl leading-snug text-ink text-balance">Some of the most important breakthroughs in business begin with conversations people have been avoiding.</blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="bg-cream/70 border-y border-line/70" aria-labelledby="background-heading">
-    <div class="container-x py-10 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-start">
-      <div class="reveal lg:col-span-5 lg:sticky lg:top-28">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Who I am</p>
-        <h2 id="background-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">26 years of learning how people communicate.</h2>
-        <p class="mt-6 text-[15px] sm:text-base leading-[1.7] text-steel">I began exploring communication and human behaviour 26 years ago. It shaped how I understand relationships, empathy and responsibility. My career then took me through international financial technology and commercial leadership, including years in London and Hong Kong, where I learned how pressure shapes decisions and what happens when teams lose the ability to work through disagreement.</p>
-        <p class="mt-4 text-[15px] sm:text-base leading-[1.7] text-steel">For around ten years I have worked full time as an executive coach, with hundreds of people. I am a founding partner of Kuma Partners, and I specialise in the conversations people postpone. Every engagement is tailored to the people and challenges involved.</p>
-        <a href="/about" class="mt-8 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep transition-colors">Read my story <span aria-hidden="true">→</span></a>
-      </div>
-      <div class="mt-10 lg:mt-0 lg:col-span-7">
-        <dl class="divide-y divide-line-strong/70 border-y border-line-strong/70">
-          {proof.map((x, i) => (
-            <div class:list={['reveal py-6 lg:py-8 sm:grid sm:grid-cols-[14rem_1fr] sm:gap-x-6 sm:items-baseline', `delay-${(i + 1) * 100}`]}>
-              <dt class="font-serif text-3xl md:text-4xl text-ink">{x.k}</dt>
-              <dd class="mt-1 sm:mt-0 text-[15px] sm:text-base leading-[1.7] text-steel">{x.v}</dd>
-            </div>
+  <!-- 3. Why clients come -->
+  <section id="work" class="bg-navy text-paper scroll-mt-16" aria-labelledby="work-h">
+    <div class="container-x grid gap-12 py-16 lg:grid-cols-12 lg:gap-16 lg:py-28">
+      <div class="lg:col-span-7">
+        <p class="label text-gold">Why clients come</p>
+        <h2 id="work-h" class="reveal mt-6 text-2xl font-light leading-[1.4] sm:text-3xl">{clients}</h2>
+        <p class="mt-10 text-fog">I up-skill them to</p>
+        <ul class="mt-2">
+          {upskill.map((u) => (
+            <li class="reveal grid items-baseline gap-x-6 gap-y-1 border-t border-navy-line py-5 lg:grid-cols-[16.5rem_1fr] sm:py-6">
+              <span class="text-4xl font-bold uppercase tracking-tight text-gold sm:text-5xl">{u.w}</span>
+              <span class="text-xl font-light sm:text-2xl">{u.t}</span>
+            </li>
           ))}
-        </dl>
+        </ul>
+        <p class="border-t border-navy-line pt-6 text-xl font-light sm:text-2xl">so they achieve greater results.</p>
+      </div>
+      <div class="lg:col-span-5">
+        <Image src={coaching} alt="Vincent Azé in conversation with two leaders, taking notes" width={720} height={900} widths={[400, 640, 720]} sizes="(min-width: 1024px) 38vw, 90vw" loading="lazy" class="mx-auto aspect-[4/5] w-full max-w-md object-cover lg:max-w-none" />
       </div>
     </div>
   </section>
 
-  <section class="bg-paper" aria-labelledby="paths-heading">
-    <div class="container-x py-10 lg:py-24">
-      <div class="reveal">
-        <p class="text-[11px] tracking-[0.18em] text-steel uppercase font-medium">Ways to work</p>
-        <h2 id="paths-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">One person needs confidential support, or a leadership system needs intervention.</h2>
-        <p class="mt-4 mb-10 md:mb-12 max-w-2xl text-[15px] sm:text-base leading-[1.7] text-steel">The first is work with Vincent. The second is work with Kuma Partners. Either way the starting point is a conversation.</p>
-      </div>
-      <div class="rounded-2xl lg:rounded-[1.75rem] border border-ink/5 bg-cream/60 p-3 lg:p-4 grid grid-cols-1 lg:grid-cols-3 gap-3 lg:gap-4 items-stretch">
-        {paths.map((c, i) => (
-          <article class:list={['reveal flex flex-col rounded-2xl border p-6 lg:p-8', `delay-${(i + 1) * 100}`, c.primary ? 'border-line-strong bg-[#E9E4D8]' : 'border-line bg-white']}>
-            <p class="mb-2 block text-[10px] tracking-[0.16em] text-steel uppercase font-medium">{c.eyebrow}</p>
-            <h3 class="mb-3 font-serif text-2xl text-ink leading-snug">{c.title}</h3>
-            <p class="mb-6 text-[15px] sm:text-base leading-[1.7] text-steel">{c.body}</p>
-            <div class="mt-auto text-sm">
-              {c.internal
-                ? <a href={c.href} class="inline-flex items-center gap-2 rounded-sm bg-navy text-paper px-5 py-3 hover:bg-navy-hover transition-colors">{c.label} <span aria-hidden="true">→</span></a>
-                : <a href={c.href} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep transition-colors">{c.label} <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>}
-            </div>
-          </article>
-        ))}
+  <!-- 4. Testimonials -->
+  <section id="testimonials" class="bg-cream scroll-mt-16" aria-labelledby="testimonials-h">
+    <div class="container-x py-16 lg:py-28">
+      <p class="label text-gold-deep">Testimonials</p>
+      <h2 id="testimonials-h" class="mt-4 max-w-2xl text-3xl font-light leading-tight sm:text-5xl">In their words.</h2>
+      <div class="mt-10 lg:mt-14"><TestimonialGrid items={testimonialList} /></div>
+    </div>
+  </section>
+
+  <!-- 5. Lead magnet -->
+  <section id="guide" class="bg-paper scroll-mt-16" aria-labelledby="guide-h">
+    <div class="container-x grid items-center gap-12 py-16 lg:grid-cols-12 lg:gap-16 lg:py-28">
+      <div class="lg:col-span-4"><GuideCover /></div>
+      <div class="lg:col-span-8 lg:pl-6">
+        <p class="label text-gold-deep">Free guide</p>
+        <h2 id="guide-h" class="mt-4 text-3xl font-light leading-tight sm:text-5xl">The Great Thing About Hard Conversations</h2>
+        <p class="mt-4 max-w-xl text-lg text-steel">How the conversations we avoid can become the conversations that move us forward.</p>
+        {site.features.guideReady ? (
+          <a href={site.features.guideUrl} class="mt-8 inline-flex rounded-sm bg-gold px-6 py-3.5 text-sm font-bold text-navy hover:bg-[#f0bb5f]" download>Get the free guide</a>
+        ) : (
+          <div class="mt-8 max-w-xl">
+            <p class="mb-4 text-sm text-steel">The guide is being finalised. Leave your email and I will send it as soon as it is ready.</p>
+            <EmailCapture formName="guide-request" uid="g" button="Get the free guide" consentText="I agree that Vincent Azé uses my email address to send me this guide." alsoNewsletter />
+          </div>
+        )}
       </div>
     </div>
   </section>
 
-  <section aria-labelledby="invite-heading">
-    <div class="container-x py-16 lg:py-36 text-center reveal">
-      <h2 id="invite-heading" class="display text-4xl md:text-7xl max-w-[16ch] mx-auto text-balance">What conversation have you been postponing?</h2>
-      <a href="/contact" class="mt-12 inline-flex items-center gap-3 bg-navy text-paper px-8 py-4 text-sm hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
-      <p class="mt-4 max-w-md mx-auto text-sm text-steel">You do not need to arrive with a polished problem statement. Tell me what is going on, what you have tried and what feels difficult to move.</p>
+  <!-- 6. Newsletter -->
+  <section id="newsletter" class="bg-cream scroll-mt-16" aria-labelledby="newsletter-h">
+    <div class="container-x grid gap-8 py-14 lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <div class="lg:col-span-6">
+        <p class="label text-gold-deep">Conversations That Matter</p>
+        <h2 id="newsletter-h" class="mt-4 text-3xl font-light leading-tight sm:text-4xl">Better conversations. Better decisions. Better results.</h2>
+        <p class="mt-4 max-w-md text-steel">Occasional insights on difficult conversations, leadership and the human side of business.</p>
+      </div>
+      <div class="lg:col-span-6 lg:pt-3"><EmailCapture formName="newsletter" uid="n" button="Subscribe" consentText="I agree to receive Vincent Azé’s newsletter by email. I can unsubscribe at any time." /></div>
+    </div>
+  </section>
+
+  <!-- 7. Final CTA -->
+  <section class="bg-navy text-paper" aria-labelledby="cta-h">
+    <div class="container-x grid items-center gap-10 py-16 lg:grid-cols-12 lg:gap-16 lg:py-24">
+      <div class="lg:col-span-8">
+        <span class="block h-0.5 w-14 bg-gold" aria-hidden="true"></span>
+        <h2 id="cta-h" class="mt-8 text-4xl font-light leading-[1.05] tracking-tight sm:text-6xl">Let’s have a conversation.</h2>
+        <p class="mt-8"><a href={`mailto:${site.email}`} class="break-all border-b-2 border-gold pb-1 text-xl font-bold text-paper hover:text-gold sm:text-3xl">{site.email}</a></p>
+        <p class="mt-6 text-sm text-fog">Or <a class="border-b border-navy-line hover:text-gold hover:border-gold" href="/contact">send a short message</a>.</p>
+      </div>
+      <div class="lg:col-span-4">
+        <Image src={smile} alt="Vincent Azé smiling in a cap" width={480} height={600} widths={[320, 480]} sizes="(min-width: 1024px) 28vw, 70vw" loading="lazy" class="mx-auto aspect-[4/5] w-full max-w-xs rounded-sm object-cover lg:max-w-none" />
+      </div>
     </div>
   </section>
 </Layout>
+
+<style>
+  .scroll-cue span > span { animation: cue 2.2s ease-in-out infinite; transform-origin: top; }
+  @keyframes cue { 0%, 100% { transform: scaleY(0.4); opacity: 0.5; } 50% { transform: scaleY(1); opacity: 1; } }
+  @media (prefers-reduced-motion: reduce) { .scroll-cue span > span { animation: none; } }
+</style>

@@ -1,0 +1,25 @@
+---
+// Vincent Azé logo. Vector, no font needed. `on` is the background it sits on.
+// `mode`: "full" = monogram + name, "mono" = monogram only. `uid` must be unique per instance on a page.
+import { logo } from '../data/logo';
+interface Props { on?: 'dark' | 'light'; mode?: 'full' | 'mono'; uid: string; class?: string }
+const { on = 'dark', mode = 'full', uid, class: cls } = Astro.props;
+const ink = on === 'dark' ? '#f3f5f7' : '#0d2138';
+const { mono, name } = logo;
+const pad = 4;
+const gap = 48;
+const w = mode === 'full' ? mono.w + gap + name.w : mono.w;
+const h = mono.h;
+const ty = h * 0.65;
+---
+<svg xmlns="http://www.w3.org/2000/svg" viewBox={`${-pad} ${-pad} ${w + pad * 2} ${h + pad * 2}`} class={cls} role="img" aria-label="Vincent Azé" focusable="false">
+  <defs>
+    <mask id={`m-${uid}`} maskUnits="userSpaceOnUse" x="-40" y="-40" width={mono.w + 80} height={mono.h + 80}>
+      <rect x="-40" y="-40" width={mono.w + 80} height={mono.h + 80} fill="#fff" />
+      <path d={mono.arc} fill="#000" stroke="#000" stroke-width="14" stroke-linejoin="round" />
+    </mask>
+  </defs>
+  <g mask={`url(#m-${uid})`} fill={ink}><path d={mono.v} /><path d={mono.a} /></g>
+  <path d={mono.arc} fill="#e8ac43" />
+  {mode === 'full' && <path transform={`translate(${mono.w + gap},${ty}) scale(${name.scale})`} d={name.d} fill={ink} />}
+</svg>

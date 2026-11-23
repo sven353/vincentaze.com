@@ -1,29 +1,30 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../layouts/Layout.astro';
 import ContactForm from '../components/ContactForm.astro';
 import { site } from '../data/site';
+import lisbon from '../assets/vincent/lisbon.jpg';
 ---
 <Layout
   path="/contact"
   type="ContactPage"
-  title="Contact Vincent Azé | Executive Coaching & Speaking"
-  description="Contact Vincent Azé about executive coaching, leadership advisory, leadership team work through Kuma Partners or speaking on the human side of AI."
+  title="Contact Vincent Azé | Let's Have a Conversation"
+  description="Contact Vincent Azé, expert in difficult conversations, executive coach and founding partner of Kuma Partners in Lisbon."
 >
-  <section class="container-x py-12 lg:py-24 lg:grid lg:grid-cols-12 lg:gap-16">
-    <div class="lg:col-span-5">
-      <p class="label text-teal-deep">Contact</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-5xl leading-[1.08] text-ink text-balance">Tell me what is happening.</h1>
-      <p class="mt-6 max-w-md leading-[1.7] text-steel">An initial conversation is a chance to understand the situation and see whether working together would be useful. You do not need a formal brief. A few direct sentences about the challenge are enough.</p>
-      <p class="mt-4 max-w-md leading-[1.7] text-steel">I read enquiries personally. If there seems to be a fit, we can arrange a conversation. If the work belongs with a broader leadership team, I may suggest involving Kuma Partners.</p>
-      <h2 class="mt-10 font-serif text-2xl text-ink">Other ways to reach me</h2>
-      <ul class="mt-4 space-y-2 text-steel">
-        <li>Email: <a class="border-b border-ink text-ink" href={`mailto:${site.email}`}>{site.email}</a></li>
-        <li>LinkedIn: <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">linkedin.com/in/vincentaze<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li>Kuma Partners: <a class="border-b border-ink text-ink" href={site.links.kuma} target="_blank" rel="noopener noreferrer">kuma.partners<span class="sr-only"> (opens in a new tab)</span></a></li>
-      </ul>
-      <h2 class="mt-10 font-serif text-2xl text-ink">Location and working languages</h2>
-      <p class="mt-3 max-w-md leading-[1.7] text-steel">Based in Lisbon, Portugal. Available for remote conversations internationally and in-person work by agreement. My principal working languages are English and French. Other languages and delivery arrangements can be discussed individually.</p>
+  <section class="container-x grid gap-12 py-14 lg:grid-cols-12 lg:gap-16 lg:py-24">
+    <div class="lg:col-span-6">
+      <span class="block h-0.5 w-14 bg-gold" aria-hidden="true"></span>
+      <h1 class="mt-8 text-4xl font-light leading-[1.06] tracking-tight text-ink sm:text-6xl">Let’s have a conversation.</h1>
+      <p class="mt-8"><a href={`mailto:${site.email}`} class="break-all border-b-2 border-gold pb-1 text-xl font-bold text-ink hover:text-gold-deep sm:text-2xl">{site.email}</a></p>
+      <p class="mt-6 max-w-md leading-[1.7] text-steel">Write in a few direct sentences. I read every message personally and I will reply.</p>
+      <div class="mt-10 max-w-md">
+        <Image src={lisbon} alt="Vincent Azé on a terrace in Lisbon at dusk" width={640} height={800} widths={[320, 480, 640]} sizes="(min-width: 1024px) 28vw, 80vw" loading="lazy" class="hidden aspect-[4/5] w-full max-w-xs object-cover lg:block" />
+      </div>
     </div>
-    <div class="mt-10 lg:mt-0 lg:col-span-7 max-w-xl"><ContactForm /></div>
+    <div class="lg:col-span-6 max-w-xl">
+      <h2 class="mb-6 text-sm font-bold uppercase tracking-[0.16em] text-gold-deep">Or send a message</h2>
+      <ContactForm />
+      <p class="mt-10 text-sm text-steel">Based in Lisbon, Portugal. Working internationally in English and French. <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></p>
+    </div>
   </section>
 </Layout>

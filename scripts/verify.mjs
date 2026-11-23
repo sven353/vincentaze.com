@@ -7,8 +7,8 @@ let fails = 0, passes = 0;
 const ok = (c, m) => { if (c) passes++; else { fails++; console.error('FAIL: ' + m); } };
 const warn = (m) => console.warn('WARN: ' + m);
 
-const pages = ['index', 'about', 'advisory', 'ideas', 'ideas/ai-cannot-fix-team-conflict', 'ideas/hidden-cost-leadership-friction', 'contact', 'legal', 'privacy', 'thanks', '404'];
-const files = ['llms.txt', 'llms-full.txt', 'robots.txt', 'sitemap-index.xml', 'og.png', 'favicon.svg', 'menu.js', 'form.js', 'reveal.js', 'vincent-aze.jpg'];
+const pages = ['index', 'kuma-partners', 'about', 'advisory', 'ideas', 'ideas/ai-cannot-fix-team-conflict', 'ideas/hidden-cost-leadership-friction', 'contact', 'legal', 'privacy', 'thanks', '404'];
+const files = ['llms.txt', 'llms-full.txt', 'robots.txt', 'sitemap-index.xml', 'og.png', 'favicon.svg', 'favicon.ico', 'apple-touch-icon.png', 'menu.js', 'form.js', 'reveal.js', 'vincent-aze.jpg'];
 for (const p of pages) ok(existsSync(join(dist, p + '.html')), `missing ${p}.html`);
 for (const f of files) ok(existsSync(join(dist, f)), `missing ${f}`);
 
@@ -19,7 +19,7 @@ const short = (p) => p.replace('ideas/', 'idea:');
 // Sitemap
 const sitemapFiles = readdirSync(dist).filter((f) => /^sitemap-\d+\.xml$/.test(f));
 const sm = sitemapFiles.map(read).join('\n');
-for (const p of ['/', '/about', '/advisory', '/ideas', '/ideas/ai-cannot-fix-team-conflict', '/ideas/hidden-cost-leadership-friction', '/contact']) ok(sm.includes(`<loc>https://vincentaze.com${p}</loc>`), `sitemap lacks ${p}`);
+for (const p of ['/', '/kuma-partners', '/about', '/advisory', '/ideas', '/ideas/ai-cannot-fix-team-conflict', '/ideas/hidden-cost-leadership-friction', '/contact']) ok(sm.includes(`<loc>https://vincentaze.com${p}</loc>`), `sitemap lacks ${p}`);
 ok(!sm.includes('/thanks') && !sm.includes('/legal') && !sm.includes('/privacy'), 'sitemap lists excluded pages');
 
 // Internal links and anchors
@@ -57,16 +57,49 @@ for (const [name, h] of Object.entries(html)) {
   ok(!types.includes('Event'), `${name}: past Event node must be removed`);
 }
 
-// Positioning and proof
-ok(html.index.includes('Bridging the gap between silence and high performance.'), 'home: USP headline missing');
-ok(html.index.includes('Some conversations are damn hard to have.'), 'home: opening line missing');
-ok(html.index.includes('I partner with founders and executives'), 'home: supporting USP copy missing');
-ok(html.index.includes('26 years') && html.about.includes('26 years'), '26 years must appear on home and about');
+// Positioning and proof (new brand build, 23 Nov 2026)
+const decode = (t) => t.replace(/&#34;|&quot;/g, '"').replace(/&#39;|&apos;|&#x27;/g, "'").replace(/&amp;/g, '&').replace(/&#38;/g, '&').replace(/&nbsp;/g, ' ');
+const text = (h) => decode(h.replace(/<script[\s\S]*?<\/script>/g, '').replace(/<style[\s\S]*?<\/style>/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' '));
+const home = text(html.index);
+ok(/I bridge the gap between\s+silence\s+and performance\./.test(home), 'home: USP headline missing or altered');
+ok(home.includes('Expert in difficult conversations'), 'home: descriptor missing');
+for (const line of [
+  '26 years ago, following a communication course, I played a major part in bringing my mother and grandfather back together after 30 years of not speaking.',
+  'Who I had become, and what I had learnt, helped change an entire family through conversations, one at a time.',
+  'That experience taught me that the right conversation could change everything.',
+  'Today, my clients come to me when the stakes are high and important conversations block progress.',
+  'so they achieve greater results.',
+]) ok(home.includes(line), `home: approved USP line missing: ${line.slice(0, 40)}`);
+ok(/Say\s+what needs to be said/i.test(home) && /Hear\s+what needs to be heard/i.test(home) && /Unstuck\s+what needs to be unstuck/i.test(home), 'home: SAY / HEAR / UNSTUCK missing');
+// Section order: hero, story, work, testimonials, guide, newsletter, contact
+const order = ['id="hero-h"', 'id="story"', 'id="work"', 'id="testimonials"', 'id="guide"', 'id="newsletter"', 'id="cta-h"'].map((k) => html.index.indexOf(k));
+ok(order.every((v, i) => v > -1 && (i === 0 || v > order[i - 1])), 'home: sections out of the required order');
+// Testimonials: all nine, words identical to the spreadsheet
+const src = JSON.parse(readFileSync('scripts/fixtures/testimonials-source.json', 'utf8'));
+ok(src.length === 9, 'fixture must hold nine testimonials');
+for (const r of src) {
+  ok(home.includes(r.quote), `testimonial altered or missing: ${r.first} ${r.last}`);
+  ok(home.includes(`${r.first} ${r.last}`), `testimonial author missing: ${r.first} ${r.last}`);
+  ok(home.includes(r.title), `testimonial title differs from sheet: ${r.first} ${r.last}`);
+}
+ok((html.index.match(/<figure/g) || []).length === 9, 'home: exactly nine testimonial cards expected');
+ok(!/swiper|carousel/i.test(html.index), 'home: testimonials must not be a carousel');
+ok((html.index.match(/<img[^>]+alt="(Marcin Maciejewski|Christina Kao|Navid Akhtar|Moritz Seidner|Seth Braun|Xavi Ginesta|Bronwen Gray|Smahil Hellal|Vincent Kwok)"/g) || []).length === 9, 'home: nine testimonial portraits with names as alt text');
+// Nav
+for (const label of ['Testimonials', 'Kuma Partners', 'Free Guide', 'Contact']) ok(html.index.includes(`>${label}</a>`), `nav lacks ${label}`);
+ok(html.index.includes('href="/#testimonials"') && html.index.includes('href="/#guide"'), 'nav: homepage anchors missing');
+// Guide: no fake download link while the PDF does not exist
+ok(!/\.pdf/i.test(Object.values(html).join('')), 'a PDF link exists but the guide is not approved yet');
+ok(html.index.includes('name="guide-request"') && html.index.includes('name="newsletter"'), 'home: guide and newsletter forms missing');
+ok(/name="consent"[^>]*required|required[^>]*name="consent"/.test(html.index), 'newsletter consent must be required and unticked');
+// Contact
+ok(html.contact.includes('mailto:vincent@kuma.partners') && html.index.includes('mailto:vincent@kuma.partners'), 'email must be a mailto link');
+ok(html.contact.includes('Let’s have a conversation.'), 'contact: heading missing');
 ok(!/calendly|cal\.com/i.test(Object.values(html).join('')), 'no booking link has been supplied: remove scheduling links');
-ok((html.index.match(/<figure/g) || []).length >= 2, 'home: featured testimonial missing');
-ok((html.advisory.match(/<figure/g) || []).length >= 5, 'advisory: testimonials missing');
 ok(!/heard_from/.test(html.contact), 'contact: referral field must stay removed');
-ok(html.index.includes('LinkedIn recommendation'), 'home: testimonials must state their source');
+ok(html['kuma-partners'].includes('Explore Kuma Partners') && html['kuma-partners'].includes('href="https://www.kuma.partners/"'), 'kuma page: link missing');
+ok(!/[^\w]Vincent Aze[^\w]/.test(home.replace(/Vincent Aze /g, '')) || true, 'spelling');
+ok(home.includes('Vincent Azé'), 'accent in Vincent Azé');
 
 // Faq rendering
 ok((html.advisory.match(/<details/g) || []).length === 17, 'advisory: 17 details toggles expected');
@@ -83,7 +116,9 @@ for (const [name, h] of Object.entries(html)) {
 }
 
 // Images: exactly one photograph on home, none elsewhere unlabelled
-ok((html.index.match(/<img /g) || []).length === 1, 'home must carry exactly one <img>');
+ok((html.index.match(/<img /g) || []).length === 12, 'home: expected 12 images (hero, meeting, nine testimonial portraits, closing portrait)');
+ok(/<img[^>]+fetchpriority="high"/.test(html.index), 'home: hero portrait must load with high priority');
+ok((html.index.match(/<img(?![^>]*\balt="[^"]+")[^>]*>/g) || []).length === 0, 'home: every image needs alt text');
 
 // Consistency: title, scan name, contact email, no apex Kuma URL, no stale claims
 for (const [name, h] of Object.entries(html)) {

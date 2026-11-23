@@ -1,18 +1,19 @@
 // Single source for names, links and public claims.
-// Source of truth: Vincent's own briefing (Vincent_Aze_Website_Content_SEO_GEO.docx, 24 Oct 2026), as confirmed by Sven on 25 Oct 2026.
+// Sources: Vincent's briefing (Vincent_Aze_Website_Content_SEO_GEO.docx, 24 Oct 2026) and "My USP.png" (23 Nov 2026), as confirmed by Sven.
 
 export const site = {
   url: 'https://vincentaze.com',
   name: 'Vincent Azé',
+  descriptor: 'Expert in difficult conversations',
   profession: 'Executive Coach and Strategic Advisor',
   title: 'Founding Partner',
   org: 'Kuma Partners',
-  tagline: 'Executive coaching for the conversations that matter most',
+  usp: 'I bridge the gap between silence and performance.',
+  tagline: 'Expert in difficult conversations',
   description:
-    'Executive coach and Kuma Partners founding partner in Lisbon. I partner with founders and executives to bridge the gap between silence and high performance.',
+    'Vincent Azé is an expert in difficult conversations. Executive coach and founding partner of Kuma Partners, based in Lisbon. I bridge the gap between silence and performance.',
   email: 'vincent@kuma.partners',
   linkedin: 'https://www.linkedin.com/in/vincentaze/',
-  // Kuma's own pages declare https://www.kuma.partners as canonical, so every link and schema id here uses the www form.
   links: {
     kuma: 'https://www.kuma.partners/',
     scan: 'https://www.kuma.partners/',
@@ -22,17 +23,25 @@ export const site = {
     svenLinkedin: 'https://www.linkedin.com/in/svenmulfinger',
   },
   place: 'Lisbon, Portugal',
-  footerLine: 'Executive Coach & Strategic Advisor · Lisbon, Portugal · Working internationally · English / Français',
+  footerLine: 'Expert in difficult conversations · Lisbon, Portugal · Working internationally · English / Français',
+  // Main navigation: five items, as briefed.
   nav: [
     { href: '/', label: 'Home' },
+    { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/kuma-partners', label: 'Kuma Partners' },
+    { href: '/#guide', label: 'Free Guide' },
+    { href: '/contact', label: 'Contact' },
+  ],
+  // Supporting pages kept for depth and search visibility. Linked from the footer only.
+  more: [
     { href: '/about', label: 'About' },
     { href: '/advisory', label: 'Executive coaching' },
     { href: '/ideas', label: 'Ideas' },
-    { href: '/contact', label: 'Contact' },
   ],
-  proof: [
-    { k: 'Founding Partner', v: 'Kuma Partners' },
-    { k: '26 years', v: 'Exploring communication and human behaviour' },
-    { k: 'Around ten years', v: 'Full-time executive coaching' },
-  ],
+  features: {
+    // The guide PDF does not exist yet. While false, the guide button opens a "tell me when it is ready" form
+    // and there is no download link. Switch to true and set guideUrl once Vincent has approved the PDF.
+    guideReady: false,
+    guideUrl: '',
+  },
 };

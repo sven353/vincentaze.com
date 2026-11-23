@@ -1,30 +1,34 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Fonts are self-hosted (Fontsource): no calls to Google, which keeps GDPR and the CSP simple.
-   Newsreader (editorial serif) for headings, Inter for body and navigation. */
-@import "@fontsource-variable/inter/index.css";
-@import "@fontsource-variable/newsreader/opsz.css";
-@import "@fontsource-variable/newsreader/opsz-italic.css";
+/* Fonts: Avenir is the brand typeface. It is a licensed font, so no Avenir files are bundled.
+   Apple devices already ship Avenir and Avenir Next and use them. Every other device gets Nunito Sans,
+   a self-hosted open-licence match with the same proportions (no calls to Google, which keeps GDPR and the CSP simple).
+   Swap in licensed Avenir webfont files here when Vincent supplies them. */
+@import "@fontsource-variable/nunito-sans/index.css";
 
 @theme {
-  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-serif: "Newsreader Variable", ui-serif, Georgia, "Times New Roman", serif;
+  --font-sans: "Avenir Next", Avenir, "Nunito Sans Variable", "Avenir Next LT Pro", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: var(--font-sans);
 
-  /* Kuma Partners palette, used in an editorial way */
-  --color-paper: #faf8f4;       /* page background, lighter than Kuma cream */
-  --color-cream: #f4f1eb;       /* Kuma cream, alternate section surface */
+  /* Four brand colours. Token names are kept from the previous build so existing classes keep working. */
+  --color-navy: #0d2138;        /* deep navy: hero, navigation, footer, text */
+  --color-ink: #0d2138;
+  --color-gold: #e8ac43;        /* warm sunny gold: accents, CTA, logo arc */
+  --color-fog: #c9d0d8;         /* light grey: dividers, secondary text on navy */
+  --color-paper: #f3f5f7;       /* near-white: text on navy, open sections */
   --color-white: #ffffff;
-  --color-ink: #1a1a1a;         /* Kuma ink, primary text */
-  --color-navy: #284050;        /* Kuma deep navy, dark surfaces and primary buttons */
-  --color-navy-hover: #35505f;
-  --color-navy-line: #3a5566;   /* hairlines on navy */
-  --color-teal: #588088;        /* Kuma teal, decorative accents only */
-  --color-teal-deep: #3f6169;   /* teal for text on light surfaces (AA contrast) */
-  --color-steel: #34444f;       /* secondary text on light */
-  --color-fog: #b7c4cb;         /* secondary text on navy */
-  --color-line: #e3dfd6;        /* hairlines on light */
-  --color-line-strong: #cfc9bc;
+
+  /* Tints of the four colours, for surfaces and hairlines only */
+  --color-cream: #e9edf1;       /* light grey tint, alternate surface */
+  --color-navy-hover: #183353;
+  --color-navy-line: #2b4260;
+  --color-steel: #3b4f66;       /* secondary text on light (AA on near-white) */
+  --color-line: #d7dde3;
+  --color-line-strong: #c9d0d8;
+  --color-gold-deep: #8a5a07;   /* gold for small text on light surfaces (AA) */
+  --color-teal-deep: #8a5a07;
+  --color-teal: #e8ac43;
 }
 
 html { scroll-behavior: smooth; }
@@ -36,9 +40,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3 { font-family: var(--font-serif); font-optical-sizing: auto; }
+h1, h2, h3 { font-family: var(--font-sans); font-weight: 300; letter-spacing: -0.02em; }
+strong, b { font-weight: 700; }
 
-::selection { background: var(--color-navy); color: var(--color-paper); }
+::selection { background: var(--color-gold); color: var(--color-navy); }
 :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
 
 @utility container-x {
@@ -52,16 +57,16 @@ h1, h2, h3 { font-family: var(--font-serif); font-optical-sizing: auto; }
 @utility label {
   font-family: var(--font-sans);
   font-size: 0.72rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 @utility display {
-  font-family: var(--font-serif);
-  font-weight: 400;
-  letter-spacing: -0.015em;
-  line-height: 1.06;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  letter-spacing: -0.025em;
+  line-height: 1.04;
 }
 
 /* Scroll reveal. The hidden state applies only when reveal.js has set .js on <html>

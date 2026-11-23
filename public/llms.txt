@@ -1,6 +1,6 @@
 # Vincent Azé
 
-> Executive coach and Kuma Partners founding partner in Lisbon. I partner with founders and executives to bridge the gap between silence and high performance.
+> Executive coach and Kuma Partners founding partner in Lisbon. Expert in difficult conversations. I bridge the gap between silence and performance.
 
 Canonical site: https://vincentaze.com
 LinkedIn: https://www.linkedin.com/in/vincentaze/
@@ -22,7 +22,8 @@ Vincent Azé is a person. Kuma Partners is the leadership advisory firm he co-fo
 
 ## Pages
 
-- [Home](https://vincentaze.com/): executive coaching for difficult conversations
+- [Home](https://vincentaze.com/): expert in difficult conversations; story, testimonials, free guide
+- [Kuma Partners](https://vincentaze.com/kuma-partners): how Vincent relates to Kuma Partners and what Kuma offers
 - [About](https://vincentaze.com/about): story, experience and point of view
 - [Advisory](https://vincentaze.com/advisory): 1:1 coaching, scope and FAQ
 - [Ideas](https://vincentaze.com/ideas): future of work, speaking and articles
