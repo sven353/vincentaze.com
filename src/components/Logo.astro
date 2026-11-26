@@ -4,7 +4,7 @@
 import { logo } from '../data/logo';
 interface Props { on?: 'dark' | 'light'; mode?: 'full' | 'mono'; uid: string; class?: string }
 const { on = 'dark', mode = 'full', uid, class: cls } = Astro.props;
-const ink = on === 'dark' ? '#f3f5f7' : '#0d2138';
+const ink = on === 'dark' ? '#e8e5df' : '#151719';
 const { mono, name } = logo;
 const pad = 4;
 const gap = 48;
@@ -20,6 +20,6 @@ const ty = h * 0.65;
     </mask>
   </defs>
   <g mask={`url(#m-${uid})`} fill={ink}><path d={mono.v} /><path d={mono.a} /></g>
-  <path d={mono.arc} fill="#e8ac43" />
+  <path d={mono.arc} fill="#f2ad38" />
   {mode === 'full' && <path transform={`translate(${mono.w + gap},${ty}) scale(${name.scale})`} d={name.d} fill={ink} />}
 </svg>

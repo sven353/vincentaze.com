@@ -59,13 +59,13 @@ const expect = [
   description="Confidential executive coaching for founders, CEOs and senior leaders: difficult conversations, founder alignment and critical transitions. Lisbon, worldwide."
   faq={faqs}
 >
-  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
-    <div class="container-x py-12 lg:py-24">
-      <p class="label text-teal-deep">Executive coaching</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">A confidential partner for the conversations you have been avoiding.</h1>
-      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-steel">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, prepare for what needs to be said and develop your own judgement.</p>
-      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-steel">This is executive coaching with business context. We can work on the person, the relationship and the organisation without confusing them.</p>
-      <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-navy text-paper px-6 py-3.5 text-sm hover:bg-navy-hover transition-colors">Explore a first conversation <span aria-hidden="true">→</span></a>
+  <section class="bg-charcoal text-bone">
+    <div class="container-x py-16 lg:py-28">
+      <p class="label text-amber">Executive coaching</p>
+      <h1 class="mt-4 text-4xl md:text-6xl leading-[1.08] text-bone max-w-[22ch] text-balance">A confidential partner for the conversations you have been avoiding.</h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-fog">Leadership can be isolating, particularly when the decision is yours and everyone around you has a stake in the outcome. My work gives you an independent conversation in which to examine what is really going on, prepare for what needs to be said and develop your own judgement.</p>
+      <p class="mt-4 max-w-2xl text-lg leading-relaxed text-fog">This is executive coaching with business context. We can work on the person, the relationship and the organisation without confusing them.</p>
+      <a href="/contact" class="btn-primary mt-8">Start a conversation <span aria-hidden="true">→</span></a>
     </div>
   </section>
 
@@ -75,12 +75,12 @@ const expect = [
       <div class="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2">
         <div class="bg-white p-6 lg:p-8">
           <p class="text-xs tracking-[0.16em] uppercase font-medium text-steel">One person</p>
-          <p class="mt-2 font-serif text-2xl text-ink leading-snug">One person needs confidential support: work with Vincent.</p>
+          <p class="mt-2 text-2xl text-ink leading-snug">One person needs confidential support: work with Vincent.</p>
         </div>
         <div class="bg-cream p-6 lg:p-8">
           <p class="text-xs tracking-[0.16em] uppercase font-medium text-steel">A leadership system</p>
-          <p class="mt-2 font-serif text-2xl text-ink leading-snug">A leadership system needs intervention: work with Kuma Partners.</p>
-          <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+          <p class="mt-2 text-2xl text-ink leading-snug">A leadership system needs intervention: work with Kuma Partners.</p>
+          <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-amber-deep hover:border-amber-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
         </div>
       </div>
     </div>
@@ -89,13 +89,13 @@ const expect = [
   <section class="border-t border-line" aria-labelledby="pathways-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Pathways</p>
-      <h2 id="pathways-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">Four ways the work usually starts.</h2>
+      <h2 id="pathways-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink text-balance">Four ways the work usually starts.</h2>
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {pathways.map((x) => (
           <div class="border-t border-line-strong pt-5">
-            <h3 class="font-serif text-xl text-ink leading-snug">{x.t}</h3>
+            <h3 class="text-xl text-ink leading-snug">{x.t}</h3>
             <p class="mt-3 leading-[1.7] text-steel">{x.b}</p>
-            {x.href && <a href={x.href} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-teal-deep hover:border-teal-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>}
+            {x.href && <a href={x.href} target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center gap-2 text-sm border-b border-ink pb-1 hover:text-amber-deep hover:border-amber-deep">Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>}
           </div>
         ))}
       </div>
@@ -105,11 +105,11 @@ const expect = [
   <section class="bg-cream/70 border-y border-line/70" aria-labelledby="changes-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">What can change</p>
-      <h2 id="changes-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">What changes when we work together.</h2>
+      <h2 id="changes-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink text-balance">What changes when we work together.</h2>
       <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {changes.map((c) => (
           <div class="border-t border-line-strong pt-5">
-            <h3 class="font-serif text-xl text-ink leading-snug">{c.t}</h3>
+            <h3 class="text-xl text-ink leading-snug">{c.t}</h3>
             <p class="mt-3 leading-[1.7] text-steel">{c.b}</p>
           </div>
         ))}
@@ -118,10 +118,10 @@ const expect = [
     </div>
   </section>
 
-  <section class="bg-navy text-paper" aria-labelledby="voices-heading">
+  <section class="bg-charcoal text-bone" aria-labelledby="voices-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-fog">In their words</p>
-      <h2 id="voices-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-balance">What people say about working with me.</h2>
+      <h2 id="voices-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-balance">What people say about working with me.</h2>
       <Testimonials items={voices} dark columns={3} />
     </div>
   </section>
@@ -129,22 +129,22 @@ const expect = [
   <section aria-labelledby="engage-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Engagement</p>
-      <h2 id="engage-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink">How an engagement works.</h2>
+      <h2 id="engage-heading" class="mt-2 text-3xl md:text-4xl text-ink">How an engagement works.</h2>
       <p class="mt-4 max-w-2xl leading-[1.7] text-steel">We agree the format to suit the context. Some leaders need support around a defined decision; others benefit from a series of conversations over several months. Sessions may take place online or in person when practical. Scope, cadence, fees and confidentiality are agreed before we start.</p>
       <ol class="mt-10 grid gap-8 lg:grid-cols-4 lg:gap-8">
         {steps.map((s, i) => (
           <li class="border-t border-line-strong pt-5">
-            <span class="block text-xs text-teal-deep tabular-nums">0{i + 1}</span>
-            <h3 class="mt-3 font-serif text-xl text-ink">{s.t}</h3>
+            <span class="block text-xs text-amber-deep tabular-nums">0{i + 1}</span>
+            <h3 class="mt-3 text-xl text-ink">{s.t}</h3>
             <p class="mt-2 max-w-[34ch] leading-[1.7] text-steel">{s.b}</p>
           </li>
         ))}
       </ol>
-      <h3 class="mt-14 mb-6 font-serif text-2xl text-ink">What to expect</h3>
+      <h3 class="mt-14 mb-6 text-2xl text-ink">What to expect</h3>
       <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
         {expect.map((e) => (
           <div class="border-t border-line-strong pt-5">
-            <h4 class="font-serif text-xl text-ink leading-snug">{e.t}</h4>
+            <h4 class="text-xl text-ink leading-snug">{e.t}</h4>
             <p class="mt-3 leading-[1.7] text-steel">{e.b}</p>
           </div>
         ))}
@@ -155,18 +155,18 @@ const expect = [
   <section class="border-t border-line bg-cream/70" aria-labelledby="fit-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Fit</p>
-      <h2 id="fit-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">Who this is for, and where I draw the line.</h2>
+      <h2 id="fit-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink">Who this is for, and where I draw the line.</h2>
       <div class="grid gap-10 lg:grid-cols-3 lg:gap-12">
         <div>
-          <h3 class="font-serif text-xl text-ink">A good fit often looks like</h3>
+          <h3 class="text-xl text-ink">A good fit often looks like</h3>
           <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{fit.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
         </div>
         <div>
-          <h3 class="font-serif text-xl text-ink">Topics in scope</h3>
+          <h3 class="text-xl text-ink">Topics in scope</h3>
           <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{inScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
         </div>
         <div>
-          <h3 class="font-serif text-xl text-ink">Deliberately outside the scope</h3>
+          <h3 class="text-xl text-ink">Deliberately outside the scope</h3>
           <ul class="mt-4 divide-y divide-line-strong/70 border-y border-line-strong/70">{outScope.map((f) => <li class="py-3 leading-[1.6] text-steel">{f}</li>)}</ul>
         </div>
       </div>
@@ -177,7 +177,7 @@ const expect = [
     <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
         <p class="label text-steel">Questions</p>
-        <h2 id="faq-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Answers for prospective clients.</h2>
+        <h2 id="faq-heading" class="mt-2 text-3xl md:text-4xl text-ink text-balance">Answers for prospective clients.</h2>
       </div>
       <div class="mt-8 lg:mt-0 lg:col-span-8"><Faq items={faqs} /></div>
     </div>
@@ -185,8 +185,8 @@ const expect = [
 
   <section class="bg-cream/70 border-t border-line">
     <div class="container-x py-14 lg:py-20 text-center">
-      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Start with the real question.</h2>
-      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-navy text-paper px-8 py-4 text-sm hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
+      <h2 class="text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Start with the real question.</h2>
+      <a href="/contact" class="btn-primary mt-8">Start a conversation <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </Layout>

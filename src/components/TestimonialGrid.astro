@@ -1,25 +1,62 @@
 ---
+// Homepage testimonials: one featured quote, the other coaching testimonials, then the earlier-career recommendations.
+// Quotes are rendered exactly as stored in src/data/testimonials.ts.
 import { Image } from 'astro:assets';
 import type { Testimonial } from '../data/testimonials';
-interface Props { items: Testimonial[] }
-const { items } = Astro.props;
+interface Props { featured: Testimonial; coaching: Testimonial[]; career: Testimonial[]; careerLabel: string }
+const { featured, coaching, career, careerLabel } = Astro.props;
+const meta = (t: Testimonial) => [t.title, t.company].filter(Boolean);
 ---
-<ul class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
-  {items.map((t, i) => (
-    <li class:list={['reveal flex', `delay-${(i % 3 + 1) * 100}`]}>
-      <figure class="flex w-full flex-col border-t-2 border-gold bg-white p-6 shadow-[0_1px_0_0_var(--color-line)]">
-        <blockquote class="flex-1 text-[0.98rem] leading-relaxed text-ink">
-          <p><span aria-hidden="true" class="mr-0.5 text-gold">“</span>{t.quote}<span aria-hidden="true" class="ml-0.5 text-gold">”</span></p>
-        </blockquote>
-        <figcaption class="mt-6 flex items-center gap-4 border-t border-line pt-5">
-          <Image src={t.photo} alt={`${t.first} ${t.last}`} width={112} height={112} densities={[1, 2]} loading="lazy" class="size-14 shrink-0 rounded-full object-cover" />
-          <span class="text-sm leading-snug">
-            <span class="block font-bold text-ink">{t.first} {t.last}</span>
-            <span class="block text-steel">{t.title}</span>
-            {t.company && <span class="block text-steel">{t.company}</span>}
-          </span>
-        </figcaption>
-      </figure>
-    </li>
-  ))}
-</ul>
+<div>
+  <figure class="reveal grid items-center gap-8 border-t-2 border-amber pt-10 lg:grid-cols-12 lg:gap-14 lg:pt-14">
+    <div class="lg:col-span-4">
+      <Image src={featured.photo} alt={`${featured.first} ${featured.last}`} width={360} height={360} densities={[1, 2]} loading="lazy" class="aspect-square w-40 object-cover sm:w-56 lg:w-full lg:max-w-xs" />
+    </div>
+    <div class="lg:col-span-8">
+      <blockquote class="text-[1.45rem] font-light leading-[1.4] text-ink sm:text-3xl sm:leading-[1.35] lg:text-[2.05rem]">
+        <p>“{featured.quote}”</p>
+      </blockquote>
+      <figcaption class="mt-8 border-t border-line pt-5">
+        <span class="block text-lg font-bold text-ink">{featured.first} {featured.last}</span>
+        {meta(featured).map((m) => <span class="block text-steel">{m}</span>)}
+      </figcaption>
+    </div>
+  </figure>
+
+  <ul class="mt-14 grid gap-x-12 gap-y-14 md:grid-cols-2 lg:mt-20 lg:grid-cols-3">
+    {coaching.map((t, i) => (
+      <li class:list={['reveal flex', `delay-${(i % 3 + 1) * 100}`]}>
+        <figure class="flex w-full flex-col border-t border-ink/70 pt-6">
+          <blockquote class="flex-1 leading-[1.65] text-ink"><p>“{t.quote}”</p></blockquote>
+          <figcaption class="mt-7 flex items-center gap-4">
+            <Image src={t.photo} alt={`${t.first} ${t.last}`} width={144} height={144} densities={[1, 2]} loading="lazy" class="size-[4.5rem] shrink-0 rounded-full object-cover" />
+            <span class="text-[0.95rem] leading-snug">
+              <span class="block text-base font-bold text-ink">{t.first} {t.last}</span>
+              {meta(t).map((m) => <span class="block text-steel">{m}</span>)}
+            </span>
+          </figcaption>
+        </figure>
+      </li>
+    ))}
+  </ul>
+
+  <div class="mt-20 border-t-2 border-amber pt-8 lg:mt-28">
+    <h3 class="text-2xl font-light sm:text-3xl">{careerLabel}</h3>
+    <ul class="mt-10 grid gap-x-12 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+      {career.map((t) => (
+        <li class="reveal flex">
+          <figure class="flex w-full flex-col border-t border-line-strong pt-6">
+            <blockquote class="flex-1 text-[0.98rem] leading-[1.65] text-ink"><p>“{t.quote}”</p></blockquote>
+            <figcaption class="mt-6 flex items-center gap-4">
+              <Image src={t.photo} alt={`${t.first} ${t.last}`} width={128} height={128} densities={[1, 2]} loading="lazy" class="size-16 shrink-0 rounded-full object-cover" />
+              <span class="text-[0.95rem] leading-snug">
+                <span class="block text-base font-bold text-ink">{t.first} {t.last}</span>
+                {meta(t).map((m) => <span class="block text-steel">{m}</span>)}
+              </span>
+            </figcaption>
+          </figure>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>

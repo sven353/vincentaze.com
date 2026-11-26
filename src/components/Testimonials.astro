@@ -6,12 +6,12 @@ const { items, dark = false, columns = 2 } = Astro.props;
 ---
 <div class:list={['grid grid-cols-1 gap-8 lg:gap-12', columns === 3 ? 'lg:grid-cols-3' : 'lg:grid-cols-2']}>
   {items.map((t, i) => (
-    <figure class:list={['reveal border-t-2 border-gold pt-5', `delay-${(i % 3 + 1) * 100}`]}>
-      <blockquote class:list={['text-lg leading-relaxed', dark ? 'text-paper' : 'text-ink']}>
+    <figure class:list={['reveal border-t-2 border-amber pt-5', `delay-${(i % 3 + 1) * 100}`]}>
+      <blockquote class:list={['text-lg leading-relaxed', dark ? 'text-bone' : 'text-ink']}>
         <p>“{t.quote}”</p>
       </blockquote>
       <figcaption class="mt-4 text-sm leading-relaxed">
-        <span class:list={['block font-bold', dark ? 'text-paper' : 'text-ink']}>{t.first} {t.last}</span>
+        <span class:list={['block font-bold', dark ? 'text-bone' : 'text-ink']}>{t.first} {t.last}</span>
         <span class:list={['block', dark ? 'text-fog' : 'text-steel']}>{t.title}{t.company ? `, ${t.company}` : ''}</span>
       </figcaption>
     </figure>

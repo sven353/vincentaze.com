@@ -10,25 +10,26 @@ Files are in `brand/logo` (SVG, with transparent PNG exports in `brand/logo/png`
 - Primary with descriptor: adds "Expert in difficult conversations". Use where the line is not already on the page.
 - Stacked: centred version for covers and slides.
 - Monogram: favicon, social avatar, compact mobile header.
-- On dark: near-white letters on navy. On light: navy letters on near-white or light grey.
-- Single colour: black or white, with the gold arc in the same colour. For monochrome print, stamps and fax-style environments.
+- On dark: near-white letters on charcoal. On light: charcoal letters on near-white or light grey.
+- Single colour: black or white, with the amber arc in the same colour. For monochrome print, stamps and fax-style environments.
 
-The gold arc is cut out of the letters with a transparent gap, so the logo works on any flat background without a halo.
+The amber arc is cut out of the letters with a transparent gap, so the logo works on any flat background without a halo.
 
 Safe area: keep clear space on every side equal to the height of the V in the monogram divided by four.
 Minimum sizes: monogram 16 px (screen) or 6 mm (print); primary 120 px wide (screen) or 30 mm (print); with descriptor 220 px or 50 mm.
-Never: add gradients, shadows or bevels, recolour the arc, stretch, rotate, or place on photographs without a flat navy or near-white panel.
+Never: add gradients, shadows or bevels, recolour the arc, stretch, rotate, or place on photographs without a flat charcoal or near-white panel.
 
 ## Colour
 
 | Name | Hex | Use |
 |---|---|---|
-| Deep navy | #0D2138 | Hero, navigation, footer, text |
-| Warm sunny gold | #E8AC43 | Accent, buttons, logo arc. On light backgrounds use #8A5A07 for small text |
-| Light grey | #C9D0D8 | Dividers, secondary text on navy |
-| Near-white | #F3F5F7 | Text on navy, open sections |
+| Charcoal | #151719 (#1E2224 for panels) | Hero, navigation, footer |
+| Ivory | #F2F0EB (#E8E6E1 for alternate sections) | Open sections |
+| Amber | #F2AD38 (hover #FFC157) | Accent, primary button, logo arc. On light backgrounds use #8D5700 for small text |
+| Text | #E8E5DF and #C4C0B9 on dark; #24272A and #51565A on light | Body copy |
+| Dividers | #3A3C3D on dark; #D6D3CB on light | Lines |
 
-Approved combinations: near-white on navy 14.9:1, gold on navy 8.1:1, navy on gold 8.1:1, navy on near-white, #3B4F66 on near-white 8.4:1.
+Approved combinations: ivory text on charcoal, amber on charcoal, charcoal on amber, ink on ivory. Never amber text on a light background.
 
 ## Typography
 

@@ -28,11 +28,11 @@ const beliefs = [
   title="About Vincent Azé | Executive Coach, Kuma Partners"
   description="Vincent Azé is a Lisbon-based executive coach and Kuma Partners founding partner. 26 years exploring human behaviour, around ten as a full-time coach."
 >
-  <section class="bg-linear-to-tr from-[#FAF8F4] via-[#F6F3EC] to-[#EBE6DB]">
-    <div class="container-x py-12 lg:py-24">
-      <p class="label text-teal-deep">About</p>
-      <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">I have spent 26 years learning how people really talk to each other.</h1>
-      <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-steel">
+  <section class="bg-charcoal text-bone">
+    <div class="container-x py-16 lg:py-28">
+      <p class="label text-amber">About</p>
+      <h1 class="mt-4 text-4xl md:text-6xl leading-[1.08] text-bone max-w-[22ch] text-balance">I have spent 26 years learning how people really talk to each other.</h1>
+      <div class="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-fog">
         <p>I began exploring communication and personal development 26 years ago. It changed how I understood relationships, empathy and responsibility, and what a single honest conversation can make possible.</p>
         <p>My career then took me into international financial technology and commercial relationships, including years in London and Hong Kong. It was an education in ambition, performance and pressure.</p>
         <p>Over time one question became more interesting to me than the technology or the commercial model: why do highly capable people sometimes struggle so much to work together? That question took me into full-time executive coaching.</p>
@@ -44,7 +44,7 @@ const beliefs = [
   <section class="border-t border-line bg-cream/70" aria-label="Credentials">
     <div class="container-x py-8 lg:py-10 grid gap-6 sm:grid-cols-3">
       {stats.map((x) => (
-        <p class="text-sm text-steel"><span class="block font-serif text-2xl text-ink">{x.k}</span>{x.v}</p>
+        <p class="text-sm text-steel"><span class="block text-2xl text-ink">{x.k}</span>{x.v}</p>
       ))}
     </div>
   </section>
@@ -52,12 +52,12 @@ const beliefs = [
   <section class="border-t border-line" aria-labelledby="path-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">The path here</p>
-      <h2 id="path-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">Three chapters.</h2>
+      <h2 id="path-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink text-balance">Three chapters.</h2>
       <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
         {chapters.map((e) => (
           <div class="border-t border-line-strong pt-5">
-            <span class="block text-xs text-teal-deep tabular-nums">{e.n}</span>
-            <h3 class="mt-3 font-serif text-xl md:text-2xl text-ink leading-snug">{e.t}</h3>
+            <span class="block text-xs text-amber-deep tabular-nums">{e.n}</span>
+            <h3 class="mt-3 text-xl md:text-2xl text-ink leading-snug">{e.t}</h3>
             <p class="mt-3 leading-[1.7] text-steel">{e.b}</p>
           </div>
         ))}
@@ -68,7 +68,7 @@ const beliefs = [
   <section aria-labelledby="earlier-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Earlier chapters</p>
-      <h2 id="earlier-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink text-balance">What colleagues and clients wrote about my commercial years.</h2>
+      <h2 id="earlier-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink text-balance">What colleagues and clients wrote about my commercial years.</h2>
       <Testimonials items={earlier} />
     </div>
   </section>
@@ -76,11 +76,11 @@ const beliefs = [
   <section aria-labelledby="belief-heading">
     <div class="container-x py-12 lg:py-20">
       <p class="label text-steel">Point of view</p>
-      <h2 id="belief-heading" class="mt-2 mb-10 font-serif text-3xl md:text-4xl text-ink">What I believe about leadership.</h2>
+      <h2 id="belief-heading" class="mt-2 mb-10 text-3xl md:text-4xl text-ink">What I believe about leadership.</h2>
       <div class="grid gap-8 lg:grid-cols-3 lg:gap-12">
         {beliefs.map((b) => (
           <div class="border-t border-line-strong pt-5">
-            <h3 class="font-serif text-xl md:text-2xl text-ink leading-snug">{b.t}</h3>
+            <h3 class="text-xl md:text-2xl text-ink leading-snug">{b.t}</h3>
             <p class="mt-3 max-w-[56ch] leading-[1.7] text-steel">{b.b}</p>
           </div>
         ))}
@@ -92,7 +92,7 @@ const beliefs = [
     <div class="container-x py-12 lg:py-20 lg:grid lg:grid-cols-12 lg:gap-16">
       <div class="lg:col-span-4">
         <p class="label text-steel">Personal note</p>
-        <h2 id="personal-heading" class="mt-2 font-serif text-3xl md:text-4xl text-ink text-balance">Outside the meeting room.</h2>
+        <h2 id="personal-heading" class="mt-2 text-3xl md:text-4xl text-ink text-balance">Outside the meeting room.</h2>
       </div>
       <div class="mt-8 lg:mt-0 lg:col-span-8 max-w-2xl space-y-5 leading-[1.7] text-steel">
         <p>I grew up in the south of France, which gave me a European and cross-cultural outlook. I value movement, time outdoors and the kind of open conversation that changes how you see something. Living and working across different countries has made me curious about the assumptions people bring into the same room without noticing.</p>
@@ -102,11 +102,11 @@ const beliefs = [
     </div>
   </section>
 
-  <section class="bg-navy text-paper">
+  <section class="bg-charcoal text-bone">
     <div class="container-x py-14 lg:py-20 text-center">
-      <h2 class="font-serif text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Bring the question that matters.</h2>
+      <h2 class="text-3xl md:text-5xl max-w-[20ch] mx-auto text-balance">Bring the question that matters.</h2>
       <p class="mt-5 max-w-xl mx-auto text-fog leading-relaxed">If you are leading through an inflection point, dealing with a difficult relationship or thinking about what AI means for your team, I would be glad to explore it with you.</p>
-      <a href="/contact" class="mt-8 inline-flex items-center gap-3 bg-paper text-navy px-8 py-4 text-sm hover:bg-cream transition-colors">Start a conversation <span aria-hidden="true">→</span></a>
+      <a href="/contact" class="btn-primary mt-8">Start a conversation <span aria-hidden="true">→</span></a>
     </div>
   </section>
 </Layout>

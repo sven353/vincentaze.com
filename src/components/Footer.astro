@@ -2,35 +2,35 @@
 import { site } from '../data/site';
 import Logo from './Logo.astro';
 const year = new Date().getFullYear();
+const link = 'inline-flex min-h-9 items-center text-bone/90 hover:text-amber';
 ---
-<footer class="bg-navy text-paper border-t border-navy-line">
-  <div class="container-x py-12 lg:py-16 grid gap-10 lg:grid-cols-12">
+<footer class="border-t border-charcoal-line bg-charcoal text-bone">
+  <div class="container-x grid gap-12 py-16 lg:grid-cols-12 lg:py-20">
     <div class="lg:col-span-5">
-      <Logo uid="ft" on="dark" class="h-10 w-auto" />
-      <p class="mt-5 max-w-sm text-sm leading-relaxed text-fog">{site.footerLine}</p>
-      <p class="mt-4 text-sm"><a class="border-b border-gold hover:text-gold" href={`mailto:${site.email}`}>{site.email}</a></p>
+      <Logo uid="ft" on="dark" class="h-11 w-auto" />
+      <p class="mt-6 max-w-sm leading-relaxed text-fog">{site.footerLine}</p>
+      <p class="mt-5"><a class="border-b-2 border-amber pb-0.5 font-semibold hover:text-amber" href={`mailto:${site.email}`}>{site.email}</a></p>
     </div>
-    <nav aria-label="Site" class="lg:col-span-3">
-      <p class="label text-gold">Site</p>
-      <ul class="mt-3 text-sm">
-        {site.nav.map((n) => <li><a class="inline-block py-1.5 hover:text-gold" href={n.href}>{n.label}</a></li>)}
-        {site.more.map((n) => <li><a class="inline-block py-1.5 text-fog hover:text-gold" href={n.href}>{n.label}</a></li>)}
+    <nav aria-label="Site" class="text-[0.95rem] lg:col-span-4">
+      <p class="label text-amber">Site</p>
+      <ul class="mt-4 grid grid-cols-2 gap-x-6">
+        {[...site.nav, ...site.more].map((n) => <li><a class={link} href={n.href}>{n.label}</a></li>)}
       </ul>
     </nav>
-    <nav aria-label="Kuma Partners and elsewhere" class="lg:col-span-4">
-      <p class="label text-gold">Kuma Partners</p>
-      <ul class="mt-3 text-sm">
-        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.kuma} target="_blank" rel="noopener noreferrer">Kuma Partners<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.offsite} target="_blank" rel="noopener noreferrer">Leadership offsites<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="inline-block py-1.5 hover:text-gold" href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a></li>
-        <li><a class="inline-block py-1.5 hover:text-gold" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+    <nav aria-label="Kuma Partners and elsewhere" class="text-[0.95rem] lg:col-span-3">
+      <p class="label text-amber">Elsewhere</p>
+      <ul class="mt-4">
+        <li><a class={link} href={site.links.kuma} target="_blank" rel="noopener noreferrer">Kuma Partners<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class={link} href={site.links.offsite} target="_blank" rel="noopener noreferrer">Leadership offsites<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class={link} href={site.links.round} target="_blank" rel="noopener noreferrer">The Round<span class="sr-only"> (opens in a new tab)</span></a></li>
+        <li><a class={link} href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
       </ul>
     </nav>
   </div>
-  <div class="border-t border-navy-line">
-    <div class="container-x py-5 flex flex-wrap items-center justify-between gap-3 text-xs text-fog">
+  <div class="border-t border-charcoal-line">
+    <div class="container-x flex flex-wrap items-center justify-between gap-x-6 gap-y-1 py-4 text-sm text-fog">
       <p>© {year} Vincent Azé. All rights reserved.</p>
-      <p class="flex gap-2"><a class="px-2 py-2.5 hover:text-gold" href="/privacy">Privacy policy</a><a class="px-2 py-2.5 hover:text-gold" href="/legal">Legal notice</a></p>
+      <p class="flex"><a class="inline-flex min-h-11 items-center pr-5 hover:text-amber" href="/privacy">Privacy policy</a><a class="inline-flex min-h-11 items-center hover:text-amber" href="/legal">Legal notice</a></p>
     </div>
   </div>
 </footer>

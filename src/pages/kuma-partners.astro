@@ -15,13 +15,13 @@ const offers = [
   title="Kuma Partners | Vincent Azé, Founding Partner"
   description="Vincent Azé is a founding partner of Kuma Partners, the leadership advisory firm for founders, CEOs and leadership groups. What Kuma does and how it fits."
 >
-  <section class="bg-navy text-paper">
+  <section class="bg-charcoal text-bone">
     <div class="container-x grid items-center gap-10 py-14 lg:grid-cols-12 lg:gap-14 lg:py-24">
       <div class="lg:col-span-7">
-        <p class="label text-gold">Kuma Partners</p>
+        <p class="label text-amber">Kuma Partners</p>
         <h1 class="mt-6 text-4xl font-light leading-[1.06] tracking-tight sm:text-6xl">One person, or the whole leadership team.</h1>
         <p class="mt-8 max-w-xl text-lg font-light leading-relaxed text-fog">I am a founding partner of Kuma Partners, a leadership advisory firm. Kuma brings together a broader team that supports founders, CEOs and leadership groups.</p>
-        <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="mt-10 inline-flex items-center gap-2 rounded-sm bg-gold px-6 py-3.5 text-sm font-bold text-navy transition-colors hover:bg-[#f0bb5f]">Explore Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
+        <a href={site.links.kuma} target="_blank" rel="noopener noreferrer" class="btn-outline mt-10 border-bone/70 text-bone hover:bg-bone hover:text-charcoal">Explore Kuma Partners <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></a>
       </div>
       <div class="lg:col-span-5">
         <Image src={team} alt="Vincent Azé facilitating a leadership conversation at a whiteboard" width={720} height={900} widths={[400, 640, 720]} sizes="(min-width: 1024px) 38vw, 90vw" loading="eager" class="mx-auto aspect-[4/5] w-full max-w-sm object-cover lg:max-w-none" />
@@ -32,12 +32,13 @@ const offers = [
   <section class="bg-paper">
     <div class="container-x grid gap-10 py-14 lg:grid-cols-12 lg:gap-16 lg:py-24">
       <div class="lg:col-span-5">
-        <p class="label text-gold-deep">How it fits</p>
+        <p class="label text-amber-deep">How it fits</p>
         <h2 class="mt-4 text-3xl font-light leading-tight sm:text-4xl">My work and Kuma’s work.</h2>
       </div>
       <div class="space-y-5 text-lg leading-relaxed text-steel lg:col-span-7">
         <p>My own work is one-to-one: confidential conversations with founders and executives who are preparing for, or recovering from, the conversations that matter.</p>
-        <p>When the friction sits between people on a leadership team rather than inside one person, the work belongs with Kuma. I co-founded it with <a class="border-b border-ink text-ink hover:text-gold-deep" href={site.links.sven} target="_blank" rel="noopener noreferrer">Dr. Sven Mulfinger<span class="sr-only"> (opens in a new tab)</span></a>, and it runs through a small international team.</p>
+        <p>When the friction sits between people on a leadership team rather than inside one person, the work belongs with Kuma. I co-founded it with <a class="border-b border-ink text-ink hover:text-amber-deep" href={site.links.sven} target="_blank" rel="noopener noreferrer">Dr. Sven Mulfinger<span class="sr-only"> (opens in a new tab)</span></a>, and it runs through a small international team.</p>
+        <p class="pt-4"><a href="/contact" class="btn-primary">Start a conversation <span aria-hidden="true">→</span></a></p>
       </div>
     </div>
   </section>
@@ -48,10 +49,10 @@ const offers = [
       <ul class="mt-8 grid gap-6 md:grid-cols-3">
         {offers.map((o) => (
           <li class="flex">
-            <a href={o.href} target="_blank" rel="noopener noreferrer" class="group flex w-full flex-col border-t-2 border-gold bg-white p-6 transition-shadow hover:shadow-lg">
+            <a href={o.href} target="_blank" rel="noopener noreferrer" class="group flex w-full flex-col border-t-2 border-amber bg-white p-6 transition-shadow hover:shadow-lg">
               <span class="text-lg font-bold text-ink">{o.title}</span>
               <span class="mt-3 flex-1 text-steel">{o.body}</span>
-              <span class="mt-6 text-sm font-bold text-ink group-hover:text-gold-deep">Learn more <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></span>
+              <span class="mt-6 text-sm font-bold text-ink group-hover:text-amber-deep">Learn more <span aria-hidden="true">↗</span><span class="sr-only">(opens in a new tab)</span></span>
             </a>
           </li>
         ))}

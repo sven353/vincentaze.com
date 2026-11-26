@@ -16,7 +16,7 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numer
   article={{ headline: article.title, datePublished: article.datePublished, dateModified: article.dateModified }}
 >
   <article class="container-x py-12 lg:py-20">
-    <p class="label text-teal-deep"><a href="/ideas" class="hover:underline">Ideas</a></p>
+    <p class="label text-amber-deep"><a href="/ideas" class="hover:underline">Ideas</a></p>
     <h1 class="mt-4 font-serif text-4xl md:text-6xl leading-[1.08] text-ink max-w-[22ch] text-balance">{article.title}</h1>
     <p class="mt-6 text-sm text-steel">
       By <a class="border-b border-ink text-ink" href="/about">Vincent Azé</a>, Executive Coach and Founding Partner, Kuma Partners ·
@@ -33,11 +33,11 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('en-GB', { day: 'numer
       <ul class="mt-3 space-y-2">
         {article.related.map((r) => (
           <li>
-            <a class="border-b border-ink text-ink hover:text-teal-deep hover:border-teal-deep" href={r.href} {...(r.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{r.label}{r.external && <span class="sr-only"> (opens in a new tab)</span>}</a>
+            <a class="border-b border-ink text-ink hover:text-amber-deep hover:border-amber-deep" href={r.href} {...(r.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}>{r.label}{r.external && <span class="sr-only"> (opens in a new tab)</span>}</a>
           </li>
         ))}
       </ul>
-      <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-navy px-6 py-3.5 text-sm text-paper hover:bg-navy-hover transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
+      <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-sm bg-charcoal px-6 py-3.5 text-sm text-bone hover:bg-charcoal-2 transition-colors">Discuss a leadership challenge <span aria-hidden="true">→</span></a>
     </aside>
   </article>
 </Layout>

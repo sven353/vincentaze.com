@@ -17,22 +17,22 @@ const { formName, button, uid, consentText, alsoNewsletter = false, dark = false
   <p class="hidden"><label>Leave this empty <input name="bot-field" /></label></p>
   <div class="flex flex-col gap-3 sm:flex-row">
     <label for={`${uid}-email`} class="sr-only">Email address</label>
-    <input id={`${uid}-email`} name="email" type="email" required autocomplete="email" placeholder="Your email address" class="min-w-0 flex-1 rounded-sm border border-line-strong bg-white px-4 py-3.5 text-base text-ink" />
-    <button type="submit" class="rounded-sm bg-gold px-6 py-3.5 text-sm font-bold text-navy transition-colors hover:bg-[#f0bb5f]">{button}</button>
+    <input id={`${uid}-email`} name="email" type="email" required autocomplete="email" placeholder="Your email address" class="field min-w-0 flex-1" />
+    <button type="submit" class="btn-primary">{button}</button>
   </div>
   <div class="flex items-start gap-3">
-    <input id={`${uid}-consent`} name="consent" type="checkbox" value="accepted" required class="mt-1 size-4 accent-navy" />
-    <label for={`${uid}-consent`} class:list={['text-sm leading-relaxed', dark ? 'text-fog' : 'text-steel']}>{consentText} <a class="border-b border-current" href="/privacy">Privacy policy</a>.</label>
+    <input id={`${uid}-consent`} name="consent" type="checkbox" value="accepted" required class="mt-0.5 size-6 shrink-0 accent-charcoal" />
+    <label for={`${uid}-consent`} class:list={['text-[0.95rem] leading-relaxed', dark ? 'text-fog' : 'text-steel']}>{consentText} <a class="border-b border-current" href="/privacy">Privacy policy</a>.</label>
   </div>
   {alsoNewsletter && (
     <div class="flex items-start gap-3">
-      <input id={`${uid}-news`} name="newsletter_optin" type="checkbox" value="accepted" class="mt-1 size-4 accent-navy" />
-      <label for={`${uid}-news`} class="text-sm leading-relaxed text-steel">Optional: also send me Vincent’s occasional newsletter. I can unsubscribe at any time.</label>
+      <input id={`${uid}-news`} name="newsletter_optin" type="checkbox" value="accepted" class="mt-0.5 size-6 shrink-0 accent-charcoal" />
+      <label for={`${uid}-news`} class="text-[0.95rem] leading-relaxed text-steel">Optional: also send me Vincent’s occasional newsletter. I can unsubscribe at any time.</label>
     </div>
   )}
-  <p data-error class="hidden text-sm text-red-700" role="alert"></p>
+  <p data-error class="hidden rounded-sm border border-error bg-white p-3 text-[0.95rem] text-error" role="alert"></p>
 </form>
-<div data-success class="hidden rounded-sm border border-line bg-white p-6 text-ink" role="status" tabindex="-1">
+<div data-success class="hidden rounded-md border border-line bg-white p-6 text-ink" role="status" tabindex="-1">
   <p class="text-lg font-bold">Thank you.</p>
   <p class="mt-1 text-steel">{formName === 'guide-request' ? 'I will send you the guide as soon as it is ready.' : 'You are on the list. Occasional insights, never more than I would want to receive myself.'}</p>
 </div>

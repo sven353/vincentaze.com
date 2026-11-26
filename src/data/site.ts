@@ -24,19 +24,20 @@ export const site = {
   },
   place: 'Lisbon, Portugal',
   footerLine: 'Expert in difficult conversations · Lisbon, Portugal · Working internationally · English / Français',
-  // Main navigation: five items, as briefed.
+  // Main navigation (v6): About and Executive coaching are surfaced; the primary action is the amber button.
   nav: [
-    { href: '/', label: 'Home' },
-    { href: '/#testimonials', label: 'Testimonials' },
-    { href: '/kuma-partners', label: 'Kuma Partners' },
-    { href: '/#guide', label: 'Free Guide' },
-    { href: '/contact', label: 'Contact' },
-  ],
-  // Supporting pages kept for depth and search visibility. Linked from the footer only.
-  more: [
     { href: '/about', label: 'About' },
     { href: '/advisory', label: 'Executive coaching' },
+    { href: '/#testimonials', label: 'Testimonials' },
+    { href: '/kuma-partners', label: 'Kuma Partners' },
+  ],
+  cta: { href: '/contact', label: 'Start a conversation' },
+  // Footer only
+  more: [
+    { href: '/', label: 'Home' },
+    { href: '/#guide', label: 'Free guide' },
     { href: '/ideas', label: 'Ideas' },
+    { href: '/contact', label: 'Contact' },
   ],
   features: {
     // The guide PDF does not exist yet. While false, the guide button opens a "tell me when it is ready" form

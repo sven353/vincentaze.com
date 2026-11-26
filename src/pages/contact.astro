@@ -11,20 +11,26 @@ import lisbon from '../assets/vincent/lisbon.jpg';
   title="Contact Vincent Azé | Let's Have a Conversation"
   description="Contact Vincent Azé, expert in difficult conversations, executive coach and founding partner of Kuma Partners in Lisbon."
 >
-  <section class="container-x grid gap-12 py-14 lg:grid-cols-12 lg:gap-16 lg:py-24">
-    <div class="lg:col-span-6">
-      <span class="block h-0.5 w-14 bg-gold" aria-hidden="true"></span>
-      <h1 class="mt-8 text-4xl font-light leading-[1.06] tracking-tight text-ink sm:text-6xl">Let’s have a conversation.</h1>
-      <p class="mt-8"><a href={`mailto:${site.email}`} class="break-all border-b-2 border-gold pb-1 text-xl font-bold text-ink hover:text-gold-deep sm:text-2xl">{site.email}</a></p>
-      <p class="mt-6 max-w-md leading-[1.7] text-steel">Write in a few direct sentences. I read every message personally and I will reply.</p>
-      <div class="mt-10 max-w-md">
-        <Image src={lisbon} alt="Vincent Azé on a terrace in Lisbon at dusk" width={640} height={800} widths={[320, 480, 640]} sizes="(min-width: 1024px) 28vw, 80vw" loading="lazy" class="hidden aspect-[4/5] w-full max-w-xs object-cover lg:block" />
+  <section class="bg-charcoal text-bone">
+    <div class="container-x grid items-end gap-10 py-14 lg:grid-cols-12 lg:py-24">
+      <div class="lg:col-span-8">
+        <span class="block h-0.5 w-14 bg-amber" aria-hidden="true"></span>
+        <h1 class="mt-8 text-4xl font-light leading-[1.06] tracking-tight sm:text-6xl">Let’s have a conversation.</h1>
+        <p class="mt-8"><a href={`mailto:${site.email}`} class="break-all border-b-2 border-amber pb-1 text-xl font-bold text-bone hover:text-amber sm:text-3xl">{site.email}</a></p>
+        <p class="mt-6 max-w-lg leading-[1.7] text-fog">Write in a few direct sentences. I read every message personally and I will reply.</p>
       </div>
     </div>
-    <div class="lg:col-span-6 max-w-xl">
-      <h2 class="mb-6 text-sm font-bold uppercase tracking-[0.16em] text-gold-deep">Or send a message</h2>
-      <ContactForm />
-      <p class="mt-10 text-sm text-steel">Based in Lisbon, Portugal. Working internationally in English and French. <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></p>
+  </section>
+  <section class="bg-paper">
+    <div class="container-x grid gap-12 py-14 lg:grid-cols-12 lg:gap-16 lg:py-20">
+      <div class="max-w-xl lg:col-span-7">
+        <h2 class="mb-8 label text-amber-deep">Or send a message</h2>
+        <ContactForm />
+      </div>
+      <aside class="lg:col-span-5">
+        <Image src={lisbon} alt="Vincent Azé on a terrace in Lisbon at dusk" width={640} height={800} widths={[320, 480, 640]} sizes="(min-width: 1024px) 30vw, 80vw" loading="lazy" class="hidden aspect-[4/5] w-full max-w-sm object-cover lg:block" />
+        <p class="mt-8 max-w-sm text-steel">Based in Lisbon, Portugal. Working internationally in English and French. <a class="border-b border-ink text-ink" href={site.linkedin} target="_blank" rel="me noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></p>
+      </aside>
     </div>
   </section>
 </Layout>

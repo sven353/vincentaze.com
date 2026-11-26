@@ -6,7 +6,7 @@ Purpose: strengthen the generative engine optimisation (GEO) credibility of kuma
 
 ## Brand (v5, 23 November 2026)
 
-Four colours only: navy `#0D2138`, warm gold `#E8AC43`, light grey `#C9D0D8`, near-white `#F3F5F7` (tints for surfaces, `#8A5A07` for small gold text on light backgrounds, all AA). Tokens live in `src/styles/global.css`.
+Palette (v6): charcoal `#151719` and `#1E2224`, ivory `#F2F0EB` and `#E8E6E1`, text `#E8E5DF` / `#C4C0B9` on dark and `#24272A` / `#51565A` on light, amber `#F2AD38` (hover `#FFC157`, `#8D5700` for small text on light), dividers `#3A3C3D` and `#D6D3CB`. Tokens live in `src/styles/global.css`.
 
 Typeface: Avenir. It is licensed, so no Avenir files are bundled. Apple devices use their system Avenir; every other device gets Nunito Sans (open licence, self-hosted). To use licensed Avenir webfonts, add the files to `public/fonts`, declare `@font-face` in `global.css` and put "Avenir" first in `--font-sans`.
 
@@ -112,6 +112,7 @@ UK spelling, no serial comma, no em dashes, no bold labels, short paragraphs. `n
 
 ## Changelog
 
+- v6 (25 Nov 2026): premium visual redesign and conversion pass on branch `rebuild-v6`. New charcoal, ivory and amber system, new header and footer, one primary CTA "Start a conversation", Executive coaching pathway, featured testimonial with grouped quotes, 52px form fields with loading and error states, dark Kuma page intro. Narrative copy, photographs, forms and URLs unchanged.
 - v5 (23 Nov 2026): new brand and homepage from the master prompt. New navy and gold identity, Avenir stack, logo reconstruction with SVG and PNG exports and favicons, nine testimonials with portraits, Kuma Partners page, simplified contact page, free guide section (no download link until the PDF is approved), newsletter form, new social image. GEO layer kept and aligned with the new line. Work done on branch `rebuild-v5`; the previous state is `backup-v4-before-rebuild`.
 
 - 2026-11-21 (v4): Conversion edit after an external audit. Home cut by about a quarter (process steps, three perspectives and cost list removed, one large testimonial moved up, proof stats), Advisory reordered (one person or a system split, four pathways, what can change, five testimonials, engagement, scope, FAQ), About cut to three chapters and a stats strip, contact form shortened (referral field removed, role optional), nav label "Executive coaching" (URL unchanged). Headline, schema, FAQ and llms files unchanged.

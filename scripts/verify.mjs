@@ -86,7 +86,9 @@ ok((html.index.match(/<figure/g) || []).length === 9, 'home: exactly nine testim
 ok(!/swiper|carousel/i.test(html.index), 'home: testimonials must not be a carousel');
 ok((html.index.match(/<img[^>]+alt="(Marcin Maciejewski|Christina Kao|Navid Akhtar|Moritz Seidner|Seth Braun|Xavi Ginesta|Bronwen Gray|Smahil Hellal|Vincent Kwok)"/g) || []).length === 9, 'home: nine testimonial portraits with names as alt text');
 // Nav
-for (const label of ['Testimonials', 'Kuma Partners', 'Free Guide', 'Contact']) ok(html.index.includes(`>${label}</a>`), `nav lacks ${label}`);
+for (const label of ['About', 'Executive coaching', 'Testimonials', 'Kuma Partners', 'Start a conversation']) ok(html.index.includes(`>${label}<`) || html.index.includes(`>${label} `), `nav lacks ${label}`);
+ok(html.index.includes('Explore executive coaching'), 'home: coaching pathway missing');
+ok(html.index.includes('Send me the guide when it’s ready'), 'home: guide button label');
 ok(html.index.includes('href="/#testimonials"') && html.index.includes('href="/#guide"'), 'nav: homepage anchors missing');
 // Guide: no fake download link while the PDF does not exist
 ok(!/\.pdf/i.test(Object.values(html).join('')), 'a PDF link exists but the guide is not approved yet');

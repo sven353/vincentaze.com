@@ -4,33 +4,31 @@ import Logo from './Logo.astro';
 const path = Astro.url.pathname.replace(/\.html$/, '').replace(/\/$/, '') || '/';
 const active = (href: string) => !href.includes('#') && (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
 ---
-<header class="sticky top-0 z-40 border-b border-navy-line bg-navy/95 text-paper backdrop-blur">
-  <div class="container-x flex h-16 items-center justify-between">
+<header class="sticky top-0 z-40 border-b border-charcoal-line bg-charcoal/95 text-bone backdrop-blur">
+  <div class="container-x flex h-[4.25rem] items-center justify-between gap-4">
     <a href="/" class="flex min-h-11 items-center" aria-label="Vincent Azé, home">
       <Logo uid="hd" on="dark" class="hidden h-10 w-auto sm:block" />
-      <Logo uid="hm" on="dark" mode="mono" class="h-7 w-auto sm:hidden" />
+      <Logo uid="hm" on="dark" mode="mono" class="h-8 w-auto sm:hidden" />
     </a>
-    <nav aria-label="Primary" class="hidden md:flex items-center gap-8 text-sm">
-      {site.nav.filter((n) => n.href !== '/').map((n) => (
-        <a href={n.href} aria-current={active(n.href) ? 'page' : undefined} class:list={['border-b-2 py-2 transition-colors hover:text-gold', active(n.href) ? 'border-gold text-paper' : 'border-transparent text-fog']}>{n.label}</a>
+    <nav aria-label="Primary" class="hidden items-center gap-9 text-[0.95rem] md:flex">
+      {site.nav.map((n) => (
+        <a href={n.href} aria-current={active(n.href) ? 'page' : undefined} class:list={['inline-flex min-h-11 items-center border-b-2 transition-colors hover:text-amber', active(n.href) ? 'border-amber text-bone' : 'border-transparent text-fog']}>{n.label}</a>
       ))}
     </nav>
-    <button id="menu-open" type="button" class="md:hidden -mr-2 inline-flex size-11 items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 7h16M3 15h16" /></svg>
-    </button>
+    <div class="flex items-center gap-2">
+      <a href={site.cta.href} class="btn-primary !min-h-11 !px-4 !py-2 !text-[0.9rem] max-[374px]:hidden md:!px-5">{site.cta.label}</a>
+      <button id="menu-open" type="button" class="group -mr-2 inline-flex size-11 items-center justify-center md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 8h18M3 16h18" /></svg>
+      </button>
+    </div>
   </div>
 </header>
-<!-- The drawer sits outside <header> on purpose: backdrop-filter would otherwise trap its fixed positioning. -->
-<div id="drawer" class="fixed inset-0 z-50 hidden bg-navy text-paper" role="dialog" aria-modal="true" aria-label="Menu">
-  <div class="container-x flex h-16 items-center justify-between">
-    <Logo uid="hdr" on="dark" class="h-8 w-auto" />
-    <button id="menu-close" type="button" class="-mr-2 inline-flex size-11 items-center justify-center" aria-label="Close menu">
-      <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 4l14 14M18 4L4 18" /></svg>
-    </button>
-  </div>
-  <nav aria-label="Mobile" class="container-x mt-8 flex flex-col">
-    {site.nav.map((n) => (
-      <a href={n.href} class="border-b border-navy-line py-4 text-3xl font-light tracking-tight">{n.label}</a>
+<!-- Dropdown panel sits outside the header element so backdrop-filter cannot trap its fixed positioning. -->
+<div id="drawer" class="fixed inset-x-0 top-[4.25rem] z-30 hidden border-b border-charcoal-line bg-charcoal text-bone shadow-2xl md:hidden">
+  <nav aria-label="Mobile" class="container-x flex flex-col pb-4 pt-1">
+    {[...site.nav, { href: '/#guide', label: 'Free guide' }, { href: '/ideas', label: 'Ideas' }, { href: '/contact', label: 'Contact' }].map((n) => (
+      <a href={n.href} class="flex min-h-14 items-center border-b border-charcoal-line text-xl font-light">{n.label}</a>
     ))}
+    <a href={site.cta.href} class="btn-primary mt-5">{site.cta.label} <span aria-hidden="true">→</span></a>
   </nav>
 </div>

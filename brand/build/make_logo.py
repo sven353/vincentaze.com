@@ -8,7 +8,7 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.pens.transformPen import TransformPen
 
 FONT = "/usr/share/fonts/truetype/google-fonts/ofl/montserrat/Montserrat[wght].ttf"
-NAVY, GOLD, NEAR, GREY = "#0D2138", "#E8AC43", "#F3F5F7", "#C9D0D8"
+NAVY, GOLD, NEAR, GREY = "#151719", "#F2AD38", "#E8E5DF", "#C4C0B9"  # charcoal, amber, bone, fog (v6 palette)
 
 def outline(text, wght, size, track=0.0):
     f = instancer.instantiateVariableFont(TTFont(FONT), {"wght": wght})
